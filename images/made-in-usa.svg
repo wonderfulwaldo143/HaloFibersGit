@@ -1,0 +1,41 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="usaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E74C3C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C0392B;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Star Badge Background -->
+  <g transform="translate(50, 50)">
+    <!-- Outer Star -->
+    <path d="M 0,-40 L 10,-12 L 38,-12 L 15,8 L 24,36 L 0,16 L -24,36 L -15,8 L -38,-12 L -10,-12 Z" fill="url(#usaGrad)"/>
+    
+    <!-- Inner Circle -->
+    <circle cx="0" cy="0" r="25" fill="white"/>
+    
+    <!-- USA Flag Stripes -->
+    <rect x="-20" y="-10" width="40" height="3" fill="#E74C3C"/>
+    <rect x="-20" y="-4" width="40" height="3" fill="#E74C3C"/>
+    <rect x="-20" y="2" width="40" height="3" fill="#E74C3C"/>
+    <rect x="-20" y="8" width="40" height="3" fill="#E74C3C"/>
+    
+    <!-- Blue Field -->
+    <rect x="-20" y="-10" width="15" height="12" fill="#3498DB"/>
+    
+    <!-- Stars -->
+    <g fill="white">
+      <circle cx="-17" cy="-7" r="1"/>
+      <circle cx="-13" cy="-7" r="1"/>
+      <circle cx="-9" cy="-7" r="1"/>
+      <circle cx="-15" cy="-3" r="1"/>
+      <circle cx="-11" cy="-3" r="1"/>
+      <circle cx="-17" cy="1" r="1"/>
+      <circle cx="-13" cy="1" r="1"/>
+      <circle cx="-9" cy="1" r="1"/>
+    </g>
+  </g>
+  
+  <!-- Text -->
+  <text x="50" y="85" font-family="Inter, sans-serif" font-size="9" font-weight="700" fill="#2C3E50" text-anchor="middle">MADE IN USA</text>
+</svg>

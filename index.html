@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halo Fibers™ | Instant Hair Thickness in 30 Seconds</title>
+    <meta name="description"
+        content="Premium keratin hair fibers. Transform thinning hair instantly. 30-day money-back guarantee.">
+
+    <!-- 1. PRELOAD CRITICAL ASSETS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Added Playfair Display for Headings -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- 2. TAILWIND -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0f172a', // Slate 900
+                            gold: '#D4A520', // Gold
+                            light: '#ffffff', // White
+                            gray: '#F3F4F6', // Light Gray
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: { 'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite' }
+                }
+            }
+        }
+    </script>
+
+    <!-- 3. ICONS -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* CRITICAL CSS ONLY */
+        .slider-container {
+            touch-action: none;
+            user-select: none;
+            -webkit-user-drag: none;
+            position: relative;
+        }
+
+        .slider-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            overflow: hidden;
+        }
+
+        .slider-overlay img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: auto;
+            min-width: 100%;
+            object-fit: cover;
+        }
+
+        .sticky-mobile-cta {
+            transform: translateY(100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .sticky-mobile-cta.visible {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="font-sans text-slate-900 antialiased bg-white pb-24 md:pb-0">
+
+    <!-- HEADER (Dark Theme) -->
+    <header class="sticky top-0 z-50 bg-[#0f172a]">
+        <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+            <a href="#" class="text-xl font-sans font-bold tracking-wide text-white uppercase">
+                HALO FIBERS
+            </a>
+
+            <nav class="hidden md:flex items-center gap-6 text-sm text-slate-300">
+                <a href="#offers" class="hover:text-white transition">Shop</a>
+                <a href="#results" class="hover:text-white transition">Real Results</a>
+                <span class="text-slate-600">|</span>
+                <span class="flex items-center gap-1 text-slate-400"><i data-lucide="star"
+                        class="w-3 h-3 fill-[#D4A520] text-[#D4A520]"></i> 4.9★ Rated</span>
+            </nav>
+
+            <div class="flex items-center gap-4">
+                <div class="hidden lg:flex items-center gap-4 text-xs text-slate-400">
+                    <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-[#D4A520]"></i>
+                        Natural Keratin</span>
+                    <span class="text-slate-600">·</span>
+                    <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-[#D4A520]"></i>
+                        Money Back</span>
+                </div>
+                <button
+                    class="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-slate-800 hover:bg-slate-700 transition">
+                    <i data-lucide="shopping-bag" class="w-4 h-4 text-slate-300"></i>
+                </button>
+                <a href="#offers"
+                    class="bg-[#D4A520] text-slate-900 px-5 py-2 rounded-md font-semibold text-sm hover:bg-[#E6B830] transition">
+                    Shop Now
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- URGENCY BAR (Gold) -->
+    <div class="bg-[#D4A520] text-slate-900 text-xs font-bold py-3 text-center tracking-wide">
+        <span class="inline-block mr-2"><i data-lucide="truck" class="w-4 h-4 inline mb-0.5"></i></span>
+        Free Shipping on U.S. Orders Over $39
+    </div>
+
+    <!-- HERO SECTION (Full-bleed Background Image) -->
+    <section class="relative min-h-[85vh] lg:min-h-[90vh] bg-[#0f172a] overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+            <img src="images/hero-bg.jpg" alt="" class="w-full h-full object-cover object-center">
+            <!-- Dark overlay for text readability -->
+            <div class="absolute inset-0 bg-[#0f172a]/25"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0f172a]/85 via-[#0f172a]/60 to-transparent"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="container mx-auto px-4 relative z-10 h-full flex items-center py-16 lg:py-24">
+            <div class="max-w-lg space-y-5">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 bg-slate-800/80 px-3 py-1.5 rounded-full">
+                    <div class="flex text-[#D4A520]">
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                    </div>
+                    <span class="text-[11px] font-semibold text-slate-200 tracking-wide uppercase">Rated #1 By
+                        Dermatologists</span>
+                </div>
+
+                <!-- Headline -->
+                <h1 class="text-4xl lg:text-6xl font-serif font-bold leading-[1.15] text-white">
+                    Instant <span class="text-[#D4A520] italic">Confidence</span> in<br>
+                    30 Seconds.
+                </h1>
+
+                <!-- Subtext -->
+                <p class="text-sm lg:text-base text-slate-400 leading-relaxed max-w-md">
+                    The premium keratin hair building fibers that instantly eliminate the appearance of thinning hair.
+                    Undetectable, wind-resistant, and 100% natural.
+                </p>
+
+                <!-- CTAs -->
+                <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                    <a href="#offers"
+                        class="inline-flex items-center justify-center bg-[#D4A520] text-slate-900 px-6 py-3 rounded-lg font-semibold text-sm hover:bg-[#E6B830] transition">
+                        Find Your Shade
+                    </a>
+                    <a href="#how-it-works"
+                        class="inline-flex items-center justify-center gap-2 px-6 py-3 text-white font-medium text-sm bg-slate-800 rounded-lg hover:bg-slate-700 transition">
+                        See How It Works <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <!-- Trust Points -->
+                <div class="pt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-slate-400">
+                    <span class="flex items-center gap-1.5">
+                        <span class="w-1 h-1 bg-[#D4A520] rounded-full"></span> Free Shipping on U.S. Orders Over $39
+                    </span>
+                    <span class="flex items-center gap-1.5">
+                        <span class="w-1 h-1 bg-[#D4A520] rounded-full"></span> 30-Day Money Back
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Review Bar -->
+        <div class="absolute bottom-0 left-0 right-0 bg-[#0f172a]/90 backdrop-blur-md py-3 z-10">
+            <div class="container mx-auto px-4">
+                <div class="flex items-center gap-2">
+                    <div class="flex text-[#D4A520]">
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                    </div>
+                    <span class="text-sm text-white font-medium">4.9/5 from 2,847 reviews</span>
+                </div>
+                <p class="text-xs text-slate-400 mt-0.5">"Instantly transformed my confidence. The natural look is
+                    undetectable."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUSTED BY (Light Theme Starts) -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl lg:text-4xl font-serif font-bold text-slate-900 mb-4">
+                Trusted by <span class="text-[#D4A520]">2,847+</span> Happy Customers
+            </h2>
+            <div class="flex justify-center gap-1 text-[#D4A520] mb-2">
+                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            </div>
+            <p class="text-slate-500 font-medium mb-12">4.9/5 Average Rating</p>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Review 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg shadow-slate-100 border border-slate-100 text-left">
+                    <div class="flex text-[#D4A520] mb-4">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-slate-700 text-sm leading-relaxed mb-6">"These fibers are incredible! They make my
+                        hair look thick and natural instantly. I'd recommend them to anyone."</p>
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-8 h-8 bg-[#D4A520]/10 rounded-full flex items-center justify-center text-[#D4A520] font-bold text-xs">
+                            JM</div>
+                        <div>
+                            <div class="font-bold text-sm text-slate-900">James M.</div>
+                            <div class="text-xs text-slate-400">Verified Buyer</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg shadow-slate-100 border border-slate-100 text-left">
+                    <div class="flex text-[#D4A520] mb-4">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-slate-700 text-sm leading-relaxed mb-6">"I was skeptical at first, but this product
+                        changed my life. No one can tell the difference. Been using for 6 months."</p>
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-8 h-8 bg-[#D4A520]/10 rounded-full flex items-center justify-center text-[#D4A520] font-bold text-xs">
+                            MP</div>
+                        <div>
+                            <div class="font-bold text-sm text-slate-900">Michael P.</div>
+                            <div class="text-xs text-slate-400">Verified Buyer</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg shadow-slate-100 border border-slate-100 text-left">
+                    <div class="flex text-[#D4A520] mb-4">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-slate-700 text-sm leading-relaxed mb-6">"Best investment I've made. The confidence
+                        boost is real. Shipped fast and customer service was excellent."</p>
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-8 h-8 bg-[#D4A520]/10 rounded-full flex items-center justify-center text-[#D4A520] font-bold text-xs">
+                            DK</div>
+                        <div>
+                            <div class="font-bold text-sm text-slate-900">David K.</div>
+                            <div class="text-xs text-slate-400">Verified Buyer</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 4 -->
+                <div class="bg-white p-6 rounded-xl shadow-lg shadow-slate-100 border border-slate-100 text-left">
+                    <div class="flex text-[#D4A520] mb-4">
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    </div>
+                    <p class="text-slate-700 text-sm leading-relaxed mb-6">"Works exactly as advertised. I use it every
+                        day and it handles wind, rain, everything. Highly recommend!"</p>
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="w-8 h-8 bg-[#D4A520]/10 rounded-full flex items-center justify-center text-[#D4A520] font-bold text-xs">
+                            RL</div>
+                        <div>
+                            <div class="font-bold text-sm text-slate-900">Robert L.</div>
+                            <div class="text-xs text-slate-400">Verified Buyer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES ICONS -->
+    <section class="py-12 border-y border-slate-100 bg-slate-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="space-y-3">
+                    <div
+                        class="w-12 h-12 mx-auto bg-white rounded-full flex items-center justify-center shadow-sm text-slate-900">
+                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-slate-900">100% Natural Keratin</h3>
+                    <p class="text-xs text-slate-500">Made from premium keratin protein</p>
+                </div>
+                <div class="space-y-3">
+                    <div
+                        class="w-12 h-12 mx-auto bg-white rounded-full flex items-center justify-center shadow-sm text-slate-900">
+                        <i data-lucide="clock" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-slate-900">30-Day Money Back</h3>
+                    <p class="text-xs text-slate-500">Risk-free guarantee</p>
+                </div>
+                <div class="space-y-3">
+                    <div
+                        class="w-12 h-12 mx-auto bg-white rounded-full flex items-center justify-center shadow-sm text-slate-900">
+                        <i data-lucide="award" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-slate-900">Clinically Tested</h3>
+                    <p class="text-xs text-slate-500">Safe for all hair types</p>
+                </div>
+                <div class="space-y-3">
+                    <div
+                        class="w-12 h-12 mx-auto bg-white rounded-full flex items-center justify-center shadow-sm text-slate-900">
+                        <i data-lucide="trending-up" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-slate-900">4.9 Star Rating</h3>
+                    <p class="text-xs text-slate-500">From 2,847+ reviews</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REAL RESULTS (Split) -->
+    <section id="results" class="py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Left: Content -->
+                <div class="order-2 lg:order-1">
+                    <h2 class="text-4xl lg:text-5xl font-serif font-bold text-slate-900 mb-6">
+                        Real Results, <br>
+                        <span class="italic text-slate-400">Undetectable</span> Finish.
+                    </h2>
+                    <p class="text-slate-600 text-lg leading-relaxed mb-8">
+                        See the difference Halo Fibers can make in seconds. Our statically charged keratin fibers bond
+                        to your existing hair for a completely natural look that lasts all day.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-8 mb-8">
+                        <div>
+                            <div class="text-3xl font-serif font-bold text-[#D4A520] mb-1">98%</div>
+                            <div class="text-sm text-slate-500">Users saw instantly thicker looking hair</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-serif font-bold text-[#D4A520] mb-1">24h</div>
+                            <div class="text-sm text-slate-500">Long lasting hold through wind & rain</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Slider (Second Instance) -->
+                <div class="order-1 lg:order-2">
+                    <div class="relative w-full aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-slate-200 slider-container"
+                        id="beforeAfterResults">
+                        <!-- After Image (Base) -->
+                        <img src="images/afterhalo.jpg" class="absolute inset-0 w-full h-full object-cover"
+                            alt="Thick Hair Result">
+                        <div
+                            class="absolute top-4 right-4 bg-slate-900 text-white text-xs font-bold px-3 py-1 rounded z-10">
+                            AFTER</div>
+
+                        <!-- Before Image (Overlay) -->
+                        <div class="slider-overlay" style="width: 50%;">
+                            <img src="images/beforehalo.jpg" alt="Thinning Hair">
+                            <div
+                                class="absolute top-4 left-4 bg-white text-slate-900 text-xs font-bold px-3 py-1 rounded z-10">
+                                BEFORE</div>
+                        </div>
+
+                        <!-- Slider Handle -->
+                        <div class="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize slider-handle shadow-lg flex items-center justify-center z-20"
+                            style="left: 50%;">
+                            <div
+                                class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg text-slate-900">
+                                <i data-lucide="move-horizontal" class="w-5 h-5"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="py-24 bg-slate-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-4xl lg:text-5xl font-serif font-bold text-slate-900 mb-4">How It Works</h2>
+                <p class="text-slate-600 text-lg">Three simple steps to thicker, fuller looking hair in under 30
+                    seconds.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div
+                        class="w-20 h-20 mx-auto mb-6 bg-[#D4A520] rounded-full flex items-center justify-center text-white">
+                        <span class="text-3xl font-bold">1</span>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-slate-900 mb-3">Shake</h3>
+                    <p class="text-slate-600 leading-relaxed">Shake Halo Fibers liberally into thinning areas on dry,
+                        styled hair.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="text-center">
+                    <div
+                        class="w-20 h-20 mx-auto mb-6 bg-[#D4A520] rounded-full flex items-center justify-center text-white">
+                        <span class="text-3xl font-bold">2</span>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-slate-900 mb-3">Blend</h3>
+                    <p class="text-slate-600 leading-relaxed">Gently pat hair to disperse fibers. The static charge
+                        bonds them instantly.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="text-center">
+                    <div
+                        class="w-20 h-20 mx-auto mb-6 bg-[#D4A520] rounded-full flex items-center justify-center text-white">
+                        <span class="text-3xl font-bold">3</span>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold text-slate-900 mb-3">Lock</h3>
+                    <p class="text-slate-600 leading-relaxed">Finish with Halo FiberHold Spray for a bond that lasts all
+                        day and night.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCT DETAILS -->
+    <section class="py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Left: Product Image -->
+                <div class="bg-white p-12 rounded-3xl shadow-xl shadow-slate-100 flex items-center justify-center">
+                    <!-- Placeholder for Product Bottle -->
+                    <div
+                        class="relative w-64 h-96 bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg shadow-2xl flex items-center justify-center text-white">
+                        <div class="text-center">
+                            <div class="text-2xl font-serif font-bold tracking-widest mb-2">HALO</div>
+                            <div class="text-[10px] tracking-[0.3em] uppercase opacity-70">Hair Building Fibers</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Details -->
+                <div class="space-y-8">
+                    <div>
+                        <h2 class="text-4xl font-serif font-bold text-slate-900 mb-2">Premium Keratin.</h2>
+                        <h2 class="text-4xl font-serif font-bold text-[#D4A520] mb-6">Scientifically Formulated.</h2>
+                        <p class="text-slate-600 leading-relaxed">
+                            Unlike cheap imitations, Halo Fibers are made from premium colored keratin protein – the
+                            exact same protein that makes up your natural hair. This ensures a perfect blend that is
+                            undetectable even up close.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="flex items-start gap-3">
+                            <div
+                                class="mt-1 w-5 h-5 rounded-full bg-[#D4A520]/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="check" class="w-3 h-3 text-[#D4A520] stroke-[3]"></i>
+                            </div>
+                            <span class="text-sm text-slate-700 font-medium">Instantly conceals thinning areas</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div
+                                class="mt-1 w-5 h-5 rounded-full bg-[#D4A520]/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="check" class="w-3 h-3 text-[#D4A520] stroke-[3]"></i>
+                            </div>
+                            <span class="text-sm text-slate-700 font-medium">Resists wind, rain, and perspiration</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div
+                                class="mt-1 w-5 h-5 rounded-full bg-[#D4A520]/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="check" class="w-3 h-3 text-[#D4A520] stroke-[3]"></i>
+                            </div>
+                            <span class="text-sm text-slate-700 font-medium">Available in 9 natural shades</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div
+                                class="mt-1 w-5 h-5 rounded-full bg-[#D4A520]/20 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="check" class="w-3 h-3 text-[#D4A520] stroke-[3]"></i>
+                            </div>
+                            <span class="text-sm text-slate-700 font-medium">Washes out easily with shampoo</span>
+                        </div>
+                    </div>
+
+                    <!-- Shade Selector Mockup -->
+                    <div class="bg-white p-6 rounded-xl border border-slate-200">
+                        <h3 class="font-serif font-bold text-slate-900 mb-4">Select Your Shade</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <button
+                                class="w-10 h-10 rounded-full bg-black ring-2 ring-offset-2 ring-[#D4A520] shadow-sm"
+                                title="Black"></button>
+                            <button
+                                class="w-10 h-10 rounded-full bg-[#4B3621] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition"
+                                title="Dark Brown"></button>
+                            <button
+                                class="w-10 h-10 rounded-full bg-[#6F4E37] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition"
+                                title="Medium Brown"></button>
+                            <button
+                                class="w-10 h-10 rounded-full bg-[#A0522D] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition"
+                                title="Light Brown"></button>
+                            <button
+                                class="w-10 h-10 rounded-full bg-[#CD853F] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition"
+                                title="Auburn"></button>
+                            <button
+                                class="w-10 h-10 rounded-full bg-[#F5DEB3] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition"
+                                title="Blonde"></button>
+                            <button
+                                class="w-10 h-10 rounded-full bg-gray-400 hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition"
+                                title="Gray"></button>
+                            <button
+                                class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition"
+                                title="White"></button>
+                        </div>
+                    </div>
+
+                    <a href="#offers"
+                        class="inline-block bg-[#0f172a] text-white px-8 py-4 rounded-full font-bold hover:bg-slate-800 transition">
+                        Buy Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY HALO FIBERS WIN -->
+    <section class="py-24 bg-slate-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-4xl lg:text-5xl font-serif font-bold text-slate-900 mb-4">Why Halo Fibers Win</h2>
+                <p class="text-slate-600 text-lg">See how Halo Fibers' premium keratin compares to cheap cotton and wool
+                    alternatives.</p>
+            </div>
+
+            <div class="max-w-5xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- The "Other Guys" -->
+                    <div class="bg-white rounded-2xl p-8 border-2 border-slate-200">
+                        <div class="text-center mb-8">
+                            <h3 class="text-2xl font-serif font-bold text-slate-900 mb-2">The "Other Guys"</h3>
+                            <p class="text-slate-500 text-sm">Cheap Cotton/Wool</p>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="font-bold text-slate-900 mb-2">Look</h4>
+                                <p class="text-slate-600 text-sm">Dull, dusty, and looks like "product."</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 mb-2">Hold</h4>
+                                <p class="text-slate-600 text-sm">Weak static charge (falls onto your forehead).</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 mb-2">Feel</h4>
+                                <p class="text-slate-600 text-sm">Can cause itching or irritation.</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 mb-2">Resistance</h4>
+                                <p class="text-slate-600 text-sm">Runs easily in sweat.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Halo Fibers -->
+                    <div
+                        class="bg-[#D4A520] rounded-2xl p-8 border-2 border-[#D4A520] relative transform md:-translate-y-4">
+                        <div
+                            class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white text-slate-900 px-6 py-1.5 rounded-full text-sm font-bold shadow-lg">
+                            Premium Quality
+                        </div>
+
+                        <div class="text-center mb-8 mt-2">
+                            <h3 class="text-2xl font-serif font-bold text-white mb-2">Halo Fibers</h3>
+                            <p class="text-slate-900 text-sm font-medium">Premium Keratin</p>
+                        </div>
+
+                        <div class="space-y-6">
+                            <div>
+                                <h4 class="font-bold text-white mb-2">Look</h4>
+                                <p class="text-slate-900 text-sm font-medium">Reflects light exactly like human hair
+                                    (Invisible).</p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-2">Hold</h4>
+                                <p class="text-slate-900 text-sm font-medium">300% Stronger "Magnetized" Static Charge.
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-2">Feel</h4>
+                                <p class="text-slate-900 text-sm font-medium">Zero irritation, lightweight, breathable.
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-white mb-2">Resistance</h4>
+                                <p class="text-slate-900 text-sm font-medium">Locks in through wind, rain, and gym
+                                    sessions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFFERS SECTION -->
+    <section id="offers" class="py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="inline-block bg-[#D4A520] text-slate-900 px-6 py-2 rounded-full text-sm font-bold mb-4">SAVE
+                    UP TO 33%</div>
+                <h2 class="text-4xl font-serif font-bold text-slate-900 mb-4">Bundle & Save</h2>
+                <p class="text-slate-500 text-lg">Get more value with our carefully curated bundles. Customers save an
+                    average of $25 per order.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-start">
+
+                <!-- Starter -->
+                <div
+                    class="bg-white rounded-2xl p-8 border border-slate-200 shadow-lg hover:shadow-xl transition group">
+                    <h3 class="text-2xl font-serif font-bold text-slate-900 mb-2">Starter</h3>
+                    <div class="flex items-baseline gap-2 mb-4">
+                        <span class="text-4xl font-bold text-slate-900">$24.99</span>
+                        <span class="text-slate-400 line-through text-sm">$34.99</span>
+                    </div>
+                    <div class="inline-block bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded mb-6">Save
+                        29%</div>
+
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex gap-3 text-sm text-slate-600"><i data-lucide="check"
+                                class="w-5 h-5 text-slate-900"></i> 1x Halo Fibers Bottle</li>
+                        <li class="flex gap-3 text-sm text-slate-600"><i data-lucide="check"
+                                class="w-5 h-5 text-slate-900"></i> Shade matching guide</li>
+                        <li class="flex gap-3 text-sm text-slate-600"><i data-lucide="check"
+                                class="w-5 h-5 text-slate-900"></i> Application tips</li>
+                    </ul>
+
+                    <button
+                        class="w-full py-4 rounded-xl bg-[#0f172a] text-white font-bold hover:bg-slate-800 transition"
+                        onclick="addToCart('Starter', 24.99)">Get Starter</button>
+                </div>
+
+                <!-- Ultimate (Highlight) -->
+                <div
+                    class="bg-white rounded-2xl p-8 border-2 border-[#D4A520] shadow-2xl relative transform md:-translate-y-4">
+                    <div
+                        class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#D4A520] text-slate-900 px-6 py-1.5 rounded-full text-sm font-bold tracking-wide shadow-sm">
+                        Most Popular
+                    </div>
+
+                    <h3 class="text-2xl font-serif font-bold text-slate-900 mb-2">Ultimate Bundle</h3>
+                    <div class="flex items-baseline gap-2 mb-4">
+                        <span class="text-5xl font-bold text-slate-900">$69.95</span>
+                        <span class="text-slate-400 line-through text-sm">$104.93</span>
+                    </div>
+                    <div class="inline-block bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded mb-6">Save
+                        33%</div>
+
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex gap-3 text-sm text-slate-600"><i data-lucide="check"
+                                class="w-5 h-5 text-[#D4A520]"></i> <b>2x</b> Halo Fibers Bottles</li>
+                        <li class="flex gap-3 text-sm text-slate-600"><i data-lucide="check"
+                                class="w-5 h-5 text-[#D4A520]"></i> Premium Glass Applicator</li>
+                        <li class="flex gap-3 text-sm text-slate-600"><i data-lucide="check"
+                                class="w-5 h-5 text-[#D4A520]"></i> Shade matching guide</li>
+                        <li class="flex gap-3 text-sm text-slate-600"><i data-lucide="check"
+                                class="w-5 h-5 text-[#D4A520]"></i> Free Shipping</li>
+                    </ul>
+
+                    <button
+                        class="w-full py-4 rounded-xl bg-[#D4A520] text-slate-900 font-bold hover:bg-[#E6B830] transition shadow-lg shadow-amber-600/25"
+                        onclick="addToCart('Ultimate', 69.95)">Get Ultimate Bundle</button>
+                </div>
+
+                <!-- Pro -->
+                <div
+                    class="bg-white rounded-2xl p-8 border border-slate-200 shadow-lg hover:shadow-xl transition group">
+                    <h3 class="text-2xl font-serif font-bold text-slate-900 mb-2">Pro Bundle</h3>
+                    <div class="flex items-baseline gap-2 mb-4">
+                        <span class="text-4xl font-bold text-slate-900">$44.95</span>
+                        <span class="text-slate-400 line-through text-sm">$69.93</span>
+                    </div>
+                    <div class="inline-block bg-green-100 text-green-700 text-xs font-bold px-2 py-1 rounded mb-6">Save
+                        36%</div>
+
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex gap-3 text-sm text-slate-600"><i data-lucide="check"
+                                class="w-5 h-5 text-slate-900"></i> 2x Halo Fibers Bottles</li>
+                        <li class="flex gap-3 text-sm text-slate-600"><i data-lucide="check"
+                                class="w-5 h-5 text-slate-900"></i> Application tips</li>
+                        <li class="flex gap-3 text-sm text-slate-600"><i data-lucide="check"
+                                class="w-5 h-5 text-slate-900"></i> Money-back guarantee</li>
+                    </ul>
+
+                    <button
+                        class="w-full py-4 rounded-xl bg-[#0f172a] text-white font-bold hover:bg-slate-800 transition"
+                        onclick="addToCart('Pro', 44.95)">Get Pro Bundle</button>
+                </div>
+
+            </div>
+
+            <div class="text-center mt-12 text-slate-500 text-sm flex items-center justify-center gap-2">
+                <i data-lucide="heart" class="w-4 h-4 text-green-500 fill-current"></i> All orders include our 30-day
+                money-back guarantee
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-24 bg-slate-50">
+        <div class="container mx-auto px-4 max-w-3xl">
+            <h2 class="text-4xl font-serif font-bold text-slate-900 text-center mb-4">Frequently Asked Questions</h2>
+            <p class="text-slate-500 text-center mb-12">Everything you need to know about Halo Fibers</p>
+
+            <div class="space-y-4">
+                <!-- Q1 -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                    <button
+                        class="w-full px-6 py-5 text-left flex items-center justify-between font-bold text-slate-900 hover:bg-slate-50 transition">
+                        Will Halo Fibers match my hair color?
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400"></i>
+                    </button>
+                </div>
+                <!-- Q2 -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                    <button
+                        class="w-full px-6 py-5 text-left flex items-center justify-between font-bold text-slate-900 hover:bg-slate-50 transition">
+                        Will Halo Fibers stay in place in wind, rain, and sweat?
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400"></i>
+                    </button>
+                </div>
+                <!-- Q3 -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                    <button
+                        class="w-full px-6 py-5 text-left flex items-center justify-between font-bold text-slate-900 hover:bg-slate-50 transition">
+                        Is Halo Fibers safe for sensitive scalps?
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400"></i>
+                    </button>
+                </div>
+                <!-- Q4 -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+                    <button
+                        class="w-full px-6 py-5 text-left flex items-center justify-between font-bold text-slate-900 hover:bg-slate-50 transition">
+                        How do I remove Halo Fibers?
+                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MOBILE STICKY CART -->
+    <div id="stickyCTA"
+        class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 p-4 shadow-[0_-5px_20px_rgba(0,0,0,0.1)] z-40 sticky-mobile-cta md:hidden">
+        <div class="flex items-center gap-4">
+            <div class="flex-1">
+                <div class="text-xs font-bold text-red-500 uppercase">Selling Fast</div>
+                <div class="font-bold text-slate-900">Confidence Bundle</div>
+            </div>
+            <button onclick="window.location.href='#offers'"
+                class="bg-[#D4A520] text-slate-900 px-6 py-3 rounded-xl font-bold text-sm shadow-lg shadow-amber-600/25">
+                Shop Now
+            </button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#0f172a] text-slate-300 py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-3xl font-serif font-bold text-white mb-2">HALO FIBERS</h3>
+                    <p class="text-slate-400 text-sm">The secret to confidence.</p>
+                </div>
+                <div class="text-right">
+                    <p class="text-sm text-slate-500">© 2024 Halo Fibers. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // 1. Icons
+        lucide.createIcons();
+
+        // 2. Slider Logic (Generic function for both sliders)
+        function initSlider(id) {
+            const slider = document.getElementById(id);
+            if (!slider) return;
+
+            const overlay = slider.querySelector('.slider-overlay');
+            const handle = slider.querySelector('.slider-handle');
+            let isDragging = false;
+
+            function updatePosition(e) {
+                e.preventDefault();
+
+                const rect = slider.getBoundingClientRect();
+                const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+                let x = clientX - rect.left;
+                let percent = (x / rect.width) * 100;
+
+                // Clamp between 0 and 100
+                percent = Math.max(0, Math.min(100, percent));
+
+                overlay.style.width = `${percent}%`;
+                handle.style.left = `${percent}%`;
+            }
+
+            // Mouse events
+            slider.addEventListener('mousedown', (e) => {
+                isDragging = true;
+                updatePosition(e);
+            });
+
+            document.addEventListener('mousemove', (e) => {
+                if (isDragging) {
+                    updatePosition(e);
+                }
+            });
+
+            document.addEventListener('mouseup', () => {
+                isDragging = false;
+            });
+
+            // Touch events
+            slider.addEventListener('touchstart', (e) => {
+                isDragging = true;
+                updatePosition(e);
+            });
+
+            document.addEventListener('touchmove', (e) => {
+                if (isDragging) {
+                    updatePosition(e);
+                }
+            });
+
+            document.addEventListener('touchend', () => {
+                isDragging = false;
+            });
+
+            // Click to position
+            slider.addEventListener('click', (e) => {
+                updatePosition(e);
+            });
+        }
+
+        initSlider('beforeAfterResults');
+
+        // 3. Sticky CTA Logic
+        const observer = new IntersectionObserver((entries) => {
+            const cta = document.getElementById('stickyCTA');
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    cta.classList.add('visible');
+                } else {
+                    cta.classList.remove('visible');
+                }
+            });
+        });
+        observer.observe(document.querySelector('header'));
+
+        // 4. Cart Logic
+        function addToCart(name, price) {
+            const btn = event.target;
+            const originalText = btn.innerText;
+
+            btn.innerText = "Added! ✓";
+            btn.classList.add("bg-green-600", "text-white");
+            btn.classList.remove("bg-[#0f172a]", "bg-[#D4A520]"); // Remove original bg colors
+
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.classList.remove("bg-green-600", "text-white");
+                // Re-add original classes based on button type (simplified logic)
+                if (name === 'Ultimate') {
+                    btn.classList.add("bg-[#D4A520]");
+                } else {
+                    btn.classList.add("bg-[#0f172a]", "text-white");
+                }
+            }, 2000);
+        }
+    </script>
+</body>
+
+</html>
