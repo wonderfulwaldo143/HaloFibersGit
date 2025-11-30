@@ -331,6 +331,37 @@
             transform: scale(0.95);
         }
 
+        /* SHADE SELECTOR */
+        .shade-btn {
+            position: relative;
+        }
+
+        .shade-btn.selected::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 16px;
+            height: 16px;
+            background: #10b981;
+            border-radius: 50%;
+            border: 2px solid white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .shade-btn.selected::before {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            z-index: 1;
+        }
+
         /* SOCIAL PROOF COUNTER */
         .social-proof-counter {
             display: inline-flex;
@@ -1070,40 +1101,43 @@
 
                     <!-- Shade Selector Mockup -->
                     <div class="bg-white p-6 rounded-xl border border-slate-200">
-                        <h3 class="font-serif font-bold text-slate-900 mb-4">Select Your Shade</h3>
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="font-serif font-bold text-slate-900">Select Your Shade</h3>
+                            <span id="selectedShadeName" class="text-sm font-semibold text-[#D4A520]"></span>
+                        </div>
                         <div class="flex flex-wrap gap-3">
                             <button
-                                class="w-10 h-10 rounded-full bg-black ring-2 ring-offset-2 ring-[#D4A520] shadow-sm shade-btn"
-                                aria-label="Select Black shade" data-shade="black"></button>
+                                class="w-10 h-10 rounded-full bg-black ring-2 ring-offset-2 ring-[#D4A520] shadow-sm shade-btn selected"
+                                aria-label="Select Black shade" data-shade="black" data-shade-name="Black"></button>
                             <button
                                 class="w-10 h-10 rounded-full bg-[#4B3621] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
-                                aria-label="Select Dark Brown shade" data-shade="dark-brown"></button>
+                                aria-label="Select Dark Brown shade" data-shade="dark-brown" data-shade-name="Dark Brown"></button>
                             <button
                                 class="w-10 h-10 rounded-full bg-[#6F4E37] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
-                                aria-label="Select Medium Brown shade" data-shade="medium-brown"></button>
+                                aria-label="Select Medium Brown shade" data-shade="medium-brown" data-shade-name="Medium Brown"></button>
                             <button
                                 class="w-10 h-10 rounded-full bg-[#A0522D] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
-                                aria-label="Select Light Brown shade" data-shade="light-brown"></button>
+                                aria-label="Select Light Brown shade" data-shade="light-brown" data-shade-name="Light Brown"></button>
                             <button
                                 class="w-10 h-10 rounded-full bg-[#CD853F] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
-                                aria-label="Select Auburn shade" data-shade="auburn"></button>
+                                aria-label="Select Auburn shade" data-shade="auburn" data-shade-name="Auburn"></button>
                             <button
                                 class="w-10 h-10 rounded-full bg-[#F5DEB3] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
-                                aria-label="Select Blonde shade" data-shade="blonde"></button>
+                                aria-label="Select Blonde shade" data-shade="blonde" data-shade-name="Blonde"></button>
                             <button
                                 class="w-10 h-10 rounded-full bg-gray-400 hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
-                                aria-label="Select Gray shade" data-shade="gray"></button>
+                                aria-label="Select Gray shade" data-shade="gray" data-shade-name="Gray"></button>
                             <button
                                 class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
-                                aria-label="Select White shade" data-shade="white"></button>
+                                aria-label="Select White shade" data-shade="white" data-shade-name="White"></button>
                         </div>
                     </div>
 
                     <div class="flex flex-col gap-3">
-                        <a href="#offers"
+                        <button id="buyNowProductDetails" onclick="buyNowWithShade()"
                             class="inline-block bg-[#D4A520] text-slate-900 px-8 py-4 rounded-full font-bold hover:bg-[#c59617] transition btn-shine shadow-lg shadow-amber-600/30">
                             Buy Now
-                        </a>
+                        </button>
                         <div class="flex items-center gap-2 flex-wrap">
                             <span class="trust-badge">
                                 <i data-lucide="shield-check" class="w-3 h-3"></i> 30-Day Money Back
@@ -1839,12 +1873,25 @@
         // 4. Cart Logic
         const CART_STORAGE_KEY = 'haloFibersCart';
         let cartAutoCloseTimeout = null; // Track auto-close timeout
+        let selectedShade = 'black'; // Default selected shade
 
         // Product data
         const products = {
             'Starter': { name: 'Starter Bundle', price: 24.99, image: 'images/product-bottle.png' },
             'Ultimate': { name: 'Ultimate Bundle', price: 69.95, image: 'images/product-bottle.png' },
             'Pro': { name: 'Pro Bundle', price: 44.95, image: 'images/product-bottle.png' }
+        };
+
+        // Shade names mapping
+        const shadeNames = {
+            'black': 'Black',
+            'dark-brown': 'Dark Brown',
+            'medium-brown': 'Medium Brown',
+            'light-brown': 'Light Brown',
+            'auburn': 'Auburn',
+            'blonde': 'Blonde',
+            'gray': 'Gray',
+            'white': 'White'
         };
 
         // Get cart from localStorage
@@ -1875,19 +1922,24 @@
             const originalText = btn.dataset.originalText;
             
             const cart = getCart();
+            const shade = selectedShade || 'black';
             
-            // Find existing item by id (not name, since name is transformed)
-            const existingItem = cart.find(item => item.id === name);
+            // Create unique ID that includes shade (e.g., "Starter-black", "Starter-blonde")
+            const itemId = `${name}-${shade}`;
+            
+            // Find existing item by id (includes shade)
+            const existingItem = cart.find(item => item.id === itemId);
             
             if (existingItem) {
                 existingItem.quantity += 1;
             } else {
                 cart.push({
-                    id: name,
+                    id: itemId,
                     name: products[name]?.name || name,
                     price: price,
                     quantity: 1,
-                    image: products[name]?.image || 'images/product-bottle.png'
+                    image: products[name]?.image || 'images/product-bottle.png',
+                    shade: shade // Include selected shade
                 });
             }
             
@@ -2049,7 +2101,7 @@
                                     <img src="${item.image}" alt="${item.name}" 
                                         class="w-16 h-16 object-contain rounded-lg bg-slate-50">
                                     <div class="flex-1">
-                                        <h3 class="font-bold text-slate-900 mb-1">${item.name}</h3>
+                                        <h3 class="font-bold text-slate-900 mb-1">${item.name}${item.shade ? ` - ${shadeNames[item.shade] || item.shade}` : ''}</h3>
                                         <p class="text-sm text-slate-600 mb-2">$${item.price.toFixed(2)}</p>
                                         <div class="flex items-center gap-3">
                                             <div class="flex items-center gap-2 border border-slate-200 rounded-lg">
@@ -2195,16 +2247,53 @@
         revealElements.forEach(el => revealObserver.observe(el));
 
         // 7. Shade Selector Logic
-        document.querySelectorAll('.shade-btn').forEach(button => {
-            button.addEventListener('click', function () {
-                // Remove active state from all buttons
-                document.querySelectorAll('.shade-btn').forEach(btn => {
-                    btn.classList.remove('ring-2', 'ring-offset-2', 'ring-[#D4A520]');
+        function initShadeSelector() {
+            const shadeButtons = document.querySelectorAll('.shade-btn');
+            const selectedShadeNameEl = document.getElementById('selectedShadeName');
+            
+            shadeButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const shade = this.dataset.shade;
+                    const shadeName = this.dataset.shadeName;
+                    
+                    // Remove active state from all buttons
+                    shadeButtons.forEach(btn => {
+                        btn.classList.remove('ring-2', 'ring-offset-2', 'ring-[#D4A520]', 'selected');
+                    });
+                    
+                    // Add active state to clicked button
+                    this.classList.add('ring-2', 'ring-offset-2', 'ring-[#D4A520]', 'selected');
+                    
+                    // Update selected shade
+                    selectedShade = shade;
+                    
+                    // Update displayed shade name
+                    if (selectedShadeNameEl) {
+                        selectedShadeNameEl.textContent = shadeName;
+                    }
                 });
-                // Add active state to clicked button
-                this.classList.add('ring-2', 'ring-offset-2', 'ring-[#D4A520]');
             });
-        });
+            
+            // Set initial selected shade name
+            if (selectedShadeNameEl) {
+                const initialButton = document.querySelector('.shade-btn.selected');
+                if (initialButton) {
+                    selectedShadeNameEl.textContent = initialButton.dataset.shadeName || 'Black';
+                }
+            }
+        }
+        initShadeSelector();
+
+        // 7.1. Buy Now with Selected Shade
+        function buyNowWithShade() {
+            // Default to Starter bundle if no specific product selected
+            // You can modify this to use a different default or product selector
+            const buyNowBtn = document.getElementById('buyNowProductDetails');
+            if (buyNowBtn) {
+                // Use Starter bundle as default (you can change this)
+                addToCart(buyNowBtn, 'Starter', 24.99);
+            }
+        }
 
         // 8. Exit Intent Logic
         const exitModal = document.getElementById('exitModal');
