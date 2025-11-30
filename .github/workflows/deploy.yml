@@ -1,5 +1,5 @@
-# GitHub Pages deployment workflow
-name: Deploy to GitHub Pages
+# Hostinger deployment workflow for www.halofibers.com
+name: Deploy to Hostinger
 
 on:
   # Runs on pushes targeting the main branch
@@ -9,36 +9,25 @@ on:
   # Allows manual triggering from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 # Allow only one concurrent deployment
 concurrency:
-  group: "pages"
+  group: "deploy"
   cancel-in-progress: false
 
 jobs:
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Deploy to Hostinger via SSH
+        uses: easingthemes/ssh-deploy@v5.1.0
         with:
-          # Upload entire repository
-          path: '.'
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          REMOTE_PORT: ${{ secrets.REMOTE_PORT }}
+          TARGET: ${{ secrets.REMOTE_TARGET }}
+          SOURCE: "./"
+          EXCLUDE: ".git, .github, .gitignore, .gitattributes, .DS_Store, CLAUDE.md, README.md"
