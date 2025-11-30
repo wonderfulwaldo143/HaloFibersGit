@@ -8,7 +8,7 @@
     <meta name="description"
         content="Instantly conceal thinning hair in 30 seconds with Halo Fibers™ premium keratin hair building fibers. Wind-resistant, undetectable, 30-day money-back guarantee.">
     <link rel="icon" type="image/png" href="images/favicon.png">
-    
+
     <!-- Structured Data (Schema.org) -->
     <script type="application/ld+json">
     {
@@ -384,8 +384,17 @@
         }
 
         @keyframes pulse-dot {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.2); }
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(1.2);
+            }
         }
 
         /* SCROLL PROGRESS BAR */
@@ -472,6 +481,38 @@
             color: #dc2626;
             margin-top: 0.25rem;
         }
+
+        /* SECURE CHECKOUT BADGE */
+        .secure-checkout-badge {
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            margin-top: 1rem;
+            width: fit-content;
+        }
+
+        .secure-checkout-badge.dark {
+            border-color: #334155;
+        }
+
+        .secure-checkout-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #64748b;
+            padding: 0 0.5rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .secure-checkout-badge.dark .secure-checkout-title {
+            color: #94a3b8;
+        }
+
+        .secure-checkout-icons {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
     </style>
 </head>
 
@@ -500,8 +541,7 @@
                     <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-[#D4A520]"></i>
                         Money Back Guarantee</span>
                 </div>
-                <button
-                    onclick="toggleCart()"
+                <button onclick="toggleCart()"
                     class="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-slate-800 hover:bg-slate-700 transition relative">
                     <i data-lucide="shopping-bag" class="w-4 h-4 text-slate-300"></i>
                     <span id="cartBadge" class="cart-badge" style="display: none;">0</span>
@@ -536,7 +576,8 @@
     <section class="relative min-h-[85vh] lg:min-h-[90vh] bg-[#0f172a] overflow-hidden">
         <!-- Background Image -->
         <div class="absolute inset-0">
-            <img src="images/hero-bg.jpg" alt="Halo Fibers - Premium hair building fibers for instant thickness" class="w-full h-full object-cover object-center" loading="eager">
+            <img src="images/hero-bg.jpg" alt="Halo Fibers - Premium hair building fibers for instant thickness"
+                class="w-full h-full object-cover object-center" loading="eager">
             <!-- Dark overlay for text readability -->
             <div class="absolute inset-0 bg-[#0f172a]/25"></div>
             <div class="absolute inset-0 bg-gradient-to-r from-[#0f172a]/85 via-[#0f172a]/60 to-transparent"></div>
@@ -603,51 +644,57 @@
                 </div>
 
                 <!-- Trust Badges (Hero) -->
-                <div
-                    class="pt-2 flex items-center gap-3 opacity-70 grayscale hover:grayscale-0 transition duration-300">
-                    <!-- Visa -->
-                    <svg class="h-6 w-auto" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="48" height="32" rx="2" fill="white" />
-                        <path
-                            d="M19.96 7.264L16.832 24.736H12.64L10.048 10.96C9.92 10.384 9.056 8.784 7.072 7.792L6.368 7.48L6.464 6.968H11.776C12.448 6.968 13.056 7.416 13.2 8.152L14.064 12.728L16.96 6.968H20.44L19.96 7.264ZM37.936 16.76C37.968 10.744 29.584 10.456 29.648 8.28C29.664 7.608 30.32 6.904 31.76 6.76C32.48 6.68 34.464 6.632 36.512 7.56L37.232 4.296C36.288 3.96 35.072 3.64 33.568 3.64C29.696 3.64 26.96 5.688 26.944 8.648C26.912 10.84 28.912 12.072 30.416 12.808C31.968 13.56 32.48 14.04 32.48 14.712C32.464 15.768 31.216 16.232 30.048 16.232C28.992 16.232 27.088 15.944 26.128 15.512L25.344 18.984C26.336 19.448 28.176 19.848 30.256 19.864C34.336 19.864 37.024 17.832 37.024 14.792L37.936 16.76ZM44.752 7.264H41.536C40.544 7.264 39.728 7.84 39.36 8.72L33.6 22.296L33.088 19.832L36.656 7.264H33.088L33.04 7.488L29.472 24.736H33.44L36.4 10.44L39.888 24.736H43.92L47.952 7.264H44.752ZM24.64 7.264L22.56 24.736H19.04L21.12 7.264H24.64Z"
-                            fill="#1434CB" />
-                    </svg>
-                    <!-- Mastercard -->
-                    <svg class="h-6 w-auto" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="48" height="32" rx="2" fill="white" />
-                        <path
-                            d="M19.2 25.6C22.7346 25.6 25.6 22.7346 25.6 19.2C25.6 15.6654 22.7346 12.8 19.2 12.8C15.6654 12.8 12.8 15.6654 12.8 19.2C12.8 22.7346 15.6654 25.6 19.2 25.6Z"
-                            fill="#EB001B" />
-                        <path
-                            d="M32 25.6C35.5346 25.6 38.4 22.7346 38.4 19.2C38.4 15.6654 35.5346 12.8 32 12.8C28.4654 12.8 25.6 15.6654 25.6 19.2C25.6 22.7346 28.4654 25.6 32 25.6Z"
-                            fill="#F79E1B" />
-                        <path
-                            d="M25.6 19.2C25.6 22.16 24.032 24.736 21.68 26.16C22.8 26.8 24.128 27.2 25.6 27.2C29.1346 27.2 32 24.3346 32 20.8C32 19.2 31.36 17.76 30.32 16.72C29.2 15.6 27.52 14.8 25.6 14.8C24.128 14.8 22.8 15.2 21.68 15.84C24.032 17.264 25.6 19.84 25.6 22.8V19.2Z"
-                            fill="#FF5F00" />
-                    </svg>
-                    <!-- PayPal -->
-                    <svg class="h-6 w-auto" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="48" height="32" rx="2" fill="white" />
-                        <path
-                            d="M35.6 11.6C35.4 10.4 34.6 8.8 32.2 8.8H20.6C20 8.8 19.6 9.2 19.4 9.8L16.2 29.8C16.2 30.2 16.4 30.4 16.8 30.4H21.4C21.8 30.4 22.2 30 22.2 29.6L23 24.6H25.8C30.2 24.6 33.6 22.8 34.4 18.2C34.6 17.2 34.6 16.4 34.4 15.6C34.2 14.8 33.8 14 33.2 13.4C34.4 13 35.2 12.4 35.6 11.6Z"
-                            fill="#003087" />
-                        <path
-                            d="M19.4 9.8L16.2 29.8C16.2 30.2 16.4 30.4 16.8 30.4H21.4C21.8 30.4 22.2 30 22.2 29.6L23 24.6H25.8C30.2 24.6 33.6 22.8 34.4 18.2C34.6 17.2 34.6 16.4 34.4 15.6C34.2 14.8 33.8 14 33.2 13.4C32.4 12.6 31.2 12.2 29.6 12.2H21.8C21.2 12.2 20.8 12.6 20.6 13.2L19.4 9.8Z"
-                            fill="#003087" />
-                        <path
-                            d="M32.2 8.8H20.6C20 8.8 19.6 9.2 19.4 9.8L16.2 29.8C16.2 30.2 16.4 30.4 16.8 30.4H21.4C21.8 30.4 22.2 30 22.2 29.6L23 24.6H25.8C30.2 24.6 33.6 22.8 34.4 18.2C34.6 17.2 34.6 16.4 34.4 15.6C34.2 14.8 33.8 14 33.2 13.4C32.4 12.6 31.2 12.2 29.6 12.2H21.8C21.2 12.2 20.8 12.6 20.6 13.2L19.4 9.8Z"
-                            fill="#009CDE" />
-                        <path
-                            d="M29.6 12.2H21.8C21.2 12.2 20.8 12.6 20.6 13.2L18.4 26.8C18.4 27.2 18.6 27.4 19 27.4H22.8C23.2 27.4 23.6 27 23.6 26.6L24.2 22.8H25.8C29.2 22.8 31.8 21.4 32.4 17.8C32.8 15.4 31.8 13.6 29.6 12.2Z"
-                            fill="#012169" />
-                        <path
-                            d="M24.2 22.8L24.6 20.2H25.8C28.2 20.2 30 19.2 30.4 16.8C30.6 15.8 30.4 15 30 14.4C30.8 15.2 31.2 16.4 31 17.6C30.4 21.2 27.8 22.6 24.4 22.6H24.2V22.8Z"
-                            fill="#009CDE" />
-                    </svg>
-                    <div class="flex items-center gap-1 text-[10px] uppercase font-bold text-slate-500 ml-1">
-                        <i data-lucide="lock" class="w-3 h-3"></i> Secure Checkout
+                <fieldset class="secure-checkout-badge dark">
+                    <legend class="secure-checkout-title">100% Secure Checkout</legend>
+                    <div class="secure-checkout-icons opacity-70 grayscale hover:grayscale-0 transition duration-300">
+                        <!-- Visa -->
+                        <svg class="h-6 w-auto" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="32" rx="2" fill="white" />
+                            <path
+                                d="M19.96 7.264L16.832 24.736H12.64L10.048 10.96C9.92 10.384 9.056 8.784 7.072 7.792L6.368 7.48L6.464 6.968H11.776C12.448 6.968 13.056 7.416 13.2 8.152L14.064 12.728L16.96 6.968H20.44L19.96 7.264ZM37.936 16.76C37.968 10.744 29.584 10.456 29.648 8.28C29.664 7.608 30.32 6.904 31.76 6.76C32.48 6.68 34.464 6.632 36.512 7.56L37.232 4.296C36.288 3.96 35.072 3.64 33.568 3.64C29.696 3.64 26.96 5.688 26.944 8.648C26.912 10.84 28.912 12.072 30.416 12.808C31.968 13.56 32.48 14.04 32.48 14.712C32.464 15.768 31.216 16.232 30.048 16.232C28.992 16.232 27.088 15.944 26.128 15.512L25.344 18.984C26.336 19.448 28.176 19.848 30.256 19.864C34.336 19.864 37.024 17.832 37.024 14.792L37.936 16.76ZM44.752 7.264H41.536C40.544 7.264 39.728 7.84 39.36 8.72L33.6 22.296L33.088 19.832L36.656 7.264H33.088L33.04 7.488L29.472 24.736H33.44L36.4 10.44L39.888 24.736H43.92L47.952 7.264H44.752ZM24.64 7.264L22.56 24.736H19.04L21.12 7.264H24.64Z"
+                                fill="#1434CB" />
+                        </svg>
+                        <!-- Mastercard -->
+                        <svg class="h-6 w-auto" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="32" rx="2" fill="white" />
+                            <path
+                                d="M19.2 25.6C22.7346 25.6 25.6 22.7346 25.6 19.2C25.6 15.6654 22.7346 12.8 19.2 12.8C15.6654 12.8 12.8 15.6654 12.8 19.2C12.8 22.7346 15.6654 25.6 19.2 25.6Z"
+                                fill="#EB001B" />
+                            <path
+                                d="M32 25.6C35.5346 25.6 38.4 22.7346 38.4 19.2C38.4 15.6654 35.5346 12.8 32 12.8C28.4654 12.8 25.6 15.6654 25.6 19.2C25.6 22.7346 28.4654 25.6 32 25.6Z"
+                                fill="#F79E1B" />
+                            <path
+                                d="M25.6 19.2C25.6 22.16 24.032 24.736 21.68 26.16C22.8 26.8 24.128 27.2 25.6 27.2C29.1346 27.2 32 24.3346 32 20.8C32 19.2 31.36 17.76 30.32 16.72C29.2 15.6 27.52 14.8 25.6 14.8C24.128 14.8 22.8 15.2 21.68 15.84C24.032 17.264 25.6 19.84 25.6 22.8V19.2Z"
+                                fill="#FF5F00" />
+                        </svg>
+                        <!-- Amex -->
+                        <svg class="h-6 w-auto" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="32" rx="2" fill="#006FCF" />
+                            <path
+                                d="M10 12L12 12L13 15L14 12L16 12L14 18H12L10 12ZM18 12L20 18H18L17.5 16H15.5L15 18H13L15 12H18ZM16 13.5L16 15H17L16 13.5ZM22 12H26V13.5H23.5V14.5H25.5V16H23.5V18H26V16.5H22V12ZM28 12L30 18H28L27 15L26 18H24L26 12H28Z"
+                                fill="white" />
+                        </svg>
+                        <!-- PayPal -->
+                        <svg class="h-6 w-auto" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="48" height="32" rx="2" fill="white" />
+                            <path
+                                d="M35.6 11.6C35.4 10.4 34.6 8.8 32.2 8.8H20.6C20 8.8 19.6 9.2 19.4 9.8L16.2 29.8C16.2 30.2 16.4 30.4 16.8 30.4H21.4C21.8 30.4 22.2 30 22.2 29.6L23 24.6H25.8C30.2 24.6 33.6 22.8 34.4 18.2C34.6 17.2 34.6 16.4 34.4 15.6C34.2 14.8 33.8 14 33.2 13.4C34.4 13 35.2 12.4 35.6 11.6Z"
+                                fill="#003087" />
+                            <path
+                                d="M19.4 9.8L16.2 29.8C16.2 30.2 16.4 30.4 16.8 30.4H21.4C21.8 30.4 22.2 30 22.2 29.6L23 24.6H25.8C30.2 24.6 33.6 22.8 34.4 18.2C34.6 17.2 34.6 16.4 34.4 15.6C34.2 14.8 33.8 14 33.2 13.4C32.4 12.6 31.2 12.2 29.6 12.2H21.8C21.2 12.2 20.8 12.6 20.6 13.2L19.4 9.8Z"
+                                fill="#003087" />
+                            <path
+                                d="M32.2 8.8H20.6C20 8.8 19.6 9.2 19.4 9.8L16.2 29.8C16.2 30.2 16.4 30.4 16.8 30.4H21.4C21.8 30.4 22.2 30 22.2 29.6L23 24.6H25.8C30.2 24.6 33.6 22.8 34.4 18.2C34.6 17.2 34.6 16.4 34.4 15.6C34.2 14.8 33.8 14 33.2 13.4C32.4 12.6 31.2 12.2 29.6 12.2H21.8C21.2 12.2 20.8 12.6 20.6 13.2L19.4 9.8Z"
+                                fill="#009CDE" />
+                            <path
+                                d="M29.6 12.2H21.8C21.2 12.2 20.8 12.6 20.6 13.2L18.4 26.8C18.4 27.2 18.6 27.4 19 27.4H22.8C23.2 27.4 23.6 27 23.6 26.6L24.2 22.8H25.8C29.2 22.8 31.8 21.4 32.4 17.8C32.8 15.4 31.8 13.6 29.6 12.2Z"
+                                fill="#012169" />
+                            <path
+                                d="M24.2 22.8L24.6 20.2H25.8C28.2 20.2 30 19.2 30.4 16.8C30.6 15.8 30.4 15 30 14.4C30.8 15.2 31.2 16.4 31 17.6C30.4 21.2 27.8 22.6 24.4 22.6H24.2V22.8Z"
+                                fill="#009CDE" />
+                        </svg>
                     </div>
-                </div>
+                </fieldset>
             </div>
         </div>
 
@@ -947,14 +994,15 @@
                         Real Results, <br>
                         <span class="italic text-slate-400">Undetectable</span> Finish.
                     </h2>
-                        <p class="text-slate-700 text-lg leading-relaxed mb-8">
+                    <p class="text-slate-700 text-lg leading-relaxed mb-8">
                         See the difference Halo Fibers can make in seconds. Our statically charged keratin fibers bond
                         to your existing hair for a completely natural look that lasts all day.
                     </p>
 
                     <div class="grid grid-cols-2 gap-8 mb-8">
                         <div>
-                            <div class="text-3xl font-serif font-bold text-[#D4A520] mb-1 count-up" data-target="98">0</div>
+                            <div class="text-3xl font-serif font-bold text-[#D4A520] mb-1 count-up" data-target="98">0
+                            </div>
                             <div class="text-sm text-slate-600">Users saw instantly thicker looking hair</div>
                         </div>
                         <div>
@@ -1052,7 +1100,8 @@
                 <!-- Left: Product Image -->
                 <div
                     class="bg-white p-12 rounded-3xl shadow-xl shadow-slate-100 flex items-center justify-center reveal product-image-container">
-                    <img src="images/product-bottle.png" alt="Halo Fibers Premium Keratin Hair Building Fibers Product Bottle"
+                    <img src="images/product-bottle.png"
+                        alt="Halo Fibers Premium Keratin Hair Building Fibers Product Bottle"
                         class="w-full max-w-sm object-contain drop-shadow-2xl" loading="lazy">
                 </div>
 
@@ -1111,13 +1160,16 @@
                                 aria-label="Select Black shade" data-shade="black" data-shade-name="Black"></button>
                             <button
                                 class="w-10 h-10 rounded-full bg-[#4B3621] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
-                                aria-label="Select Dark Brown shade" data-shade="dark-brown" data-shade-name="Dark Brown"></button>
+                                aria-label="Select Dark Brown shade" data-shade="dark-brown"
+                                data-shade-name="Dark Brown"></button>
                             <button
                                 class="w-10 h-10 rounded-full bg-[#6F4E37] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
-                                aria-label="Select Medium Brown shade" data-shade="medium-brown" data-shade-name="Medium Brown"></button>
+                                aria-label="Select Medium Brown shade" data-shade="medium-brown"
+                                data-shade-name="Medium Brown"></button>
                             <button
                                 class="w-10 h-10 rounded-full bg-[#A0522D] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
-                                aria-label="Select Light Brown shade" data-shade="light-brown" data-shade-name="Light Brown"></button>
+                                aria-label="Select Light Brown shade" data-shade="light-brown"
+                                data-shade-name="Light Brown"></button>
                             <button
                                 class="w-10 h-10 rounded-full bg-[#CD853F] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
                                 aria-label="Select Auburn shade" data-shade="auburn" data-shade-name="Auburn"></button>
@@ -1152,54 +1204,65 @@
                     </div>
 
                     <!-- Payment Icons -->
-                    <div class="mt-6 flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 w-fit">
-                        <!-- Visa -->
-                        <svg class="h-5 w-auto" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="48" height="32" rx="2" fill="white" />
-                            <path
-                                d="M19.96 7.264L16.832 24.736H12.64L10.048 10.96C9.92 10.384 9.056 8.784 7.072 7.792L6.368 7.48L6.464 6.968H11.776C12.448 6.968 13.056 7.416 13.2 8.152L14.064 12.728L16.96 6.968H20.44L19.96 7.264ZM37.936 16.76C37.968 10.744 29.584 10.456 29.648 8.28C29.664 7.608 30.32 6.904 31.76 6.76C32.48 6.68 34.464 6.632 36.512 7.56L37.232 4.296C36.288 3.96 35.072 3.64 33.568 3.64C29.696 3.64 26.96 5.688 26.944 8.648C26.912 10.84 28.912 12.072 30.416 12.808C31.968 13.56 32.48 14.04 32.48 14.712C32.464 15.768 31.216 16.232 30.048 16.232C28.992 16.232 27.088 15.944 26.128 15.512L25.344 18.984C26.336 19.448 28.176 19.848 30.256 19.864C34.336 19.864 37.024 17.832 37.024 14.792L37.936 16.76ZM44.752 7.264H41.536C40.544 7.264 39.728 7.84 39.36 8.72L33.6 22.296L33.088 19.832L36.656 7.264H33.088L33.04 7.488L29.472 24.736H33.44L36.4 10.44L39.888 24.736H43.92L47.952 7.264H44.752ZM24.64 7.264L22.56 24.736H19.04L21.12 7.264H24.64Z"
-                                fill="#1434CB" />
-                        </svg>
-                        <!-- Mastercard -->
-                        <svg class="h-5 w-auto" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="48" height="32" rx="2" fill="white" />
-                            <path
-                                d="M19.2 25.6C22.7346 25.6 25.6 22.7346 25.6 19.2C25.6 15.6654 22.7346 12.8 19.2 12.8C15.6654 12.8 12.8 15.6654 12.8 19.2C12.8 22.7346 15.6654 25.6 19.2 25.6Z"
-                                fill="#EB001B" />
-                            <path
-                                d="M32 25.6C35.5346 25.6 38.4 22.7346 38.4 19.2C38.4 15.6654 35.5346 12.8 32 12.8C28.4654 12.8 25.6 15.6654 25.6 19.2C25.6 22.7346 28.4654 25.6 32 25.6Z"
-                                fill="#F79E1B" />
-                            <path
-                                d="M25.6 19.2C25.6 22.16 24.032 24.736 21.68 26.16C22.8 26.8 24.128 27.2 25.6 27.2C29.1346 27.2 32 24.3346 32 20.8C32 19.2 31.36 17.76 30.32 16.72C29.2 15.6 27.52 14.8 25.6 14.8C24.128 14.8 22.8 15.2 21.68 15.84C24.032 17.264 25.6 19.84 25.6 22.8V19.2Z"
-                                fill="#FF5F00" />
-                        </svg>
-                        <!-- PayPal -->
-                        <svg class="h-5 w-auto" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="48" height="32" rx="2" fill="white" />
-                            <path
-                                d="M35.6 11.6C35.4 10.4 34.6 8.8 32.2 8.8H20.6C20 8.8 19.6 9.2 19.4 9.8L16.2 29.8C16.2 30.2 16.4 30.4 16.8 30.4H21.4C21.8 30.4 22.2 30 22.2 29.6L23 24.6H25.8C30.2 24.6 33.6 22.8 34.4 18.2C34.6 17.2 34.6 16.4 34.4 15.6C34.2 14.8 33.8 14 33.2 13.4C34.4 13 35.2 12.4 35.6 11.6Z"
-                                fill="#003087" />
-                            <path
-                                d="M19.4 9.8L16.2 29.8C16.2 30.2 16.4 30.4 16.8 30.4H21.4C21.8 30.4 22.2 30 22.2 29.6L23 24.6H25.8C30.2 24.6 33.6 22.8 34.4 18.2C34.6 17.2 34.6 16.4 34.4 15.6C34.2 14.8 33.8 14 33.2 13.4C32.4 12.6 31.2 12.2 29.6 12.2H21.8C21.2 12.2 20.8 12.6 20.6 13.2L19.4 9.8Z"
-                                fill="#003087" />
-                            <path
-                                d="M32.2 8.8H20.6C20 8.8 19.6 9.2 19.4 9.8L16.2 29.8C16.2 30.2 16.4 30.4 16.8 30.4H21.4C21.8 30.4 22.2 30 22.2 29.6L23 24.6H25.8C30.2 24.6 33.6 22.8 34.4 18.2C34.6 17.2 34.6 16.4 34.4 15.6C34.2 14.8 33.8 14 33.2 13.4C32.4 12.6 31.2 12.2 29.6 12.2H21.8C21.2 12.2 20.8 12.6 20.6 13.2L19.4 9.8Z"
-                                fill="#009CDE" />
-                            <path
-                                d="M29.6 12.2H21.8C21.2 12.2 20.8 12.6 20.6 13.2L18.4 26.8C18.4 27.2 18.6 27.4 19 27.4H22.8C23.2 27.4 23.6 27 23.6 26.6L24.2 22.8H25.8C29.2 22.8 31.8 21.4 32.4 17.8C32.8 15.4 31.8 13.6 29.6 12.2Z"
-                                fill="#012169" />
-                            <path
-                                d="M24.2 22.8L24.6 20.2H25.8C28.2 20.2 30 19.2 30.4 16.8C30.6 15.8 30.4 15 30 14.4C30.8 15.2 31.2 16.4 31 17.6C30.4 21.2 27.8 22.6 24.4 22.6H24.2V22.8Z"
-                                fill="#009CDE" />
-                        </svg>
-                    </div>
+                    <fieldset class="secure-checkout-badge">
+                        <legend class="secure-checkout-title">100% Secure Checkout</legend>
+                        <div class="secure-checkout-icons">
+                            <!-- Visa -->
+                            <svg class="h-5 w-auto" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="48" height="32" rx="2" fill="white" />
+                                <path
+                                    d="M19.96 7.264L16.832 24.736H12.64L10.048 10.96C9.92 10.384 9.056 8.784 7.072 7.792L6.368 7.48L6.464 6.968H11.776C12.448 6.968 13.056 7.416 13.2 8.152L14.064 12.728L16.96 6.968H20.44L19.96 7.264ZM37.936 16.76C37.968 10.744 29.584 10.456 29.648 8.28C29.664 7.608 30.32 6.904 31.76 6.76C32.48 6.68 34.464 6.632 36.512 7.56L37.232 4.296C36.288 3.96 35.072 3.64 33.568 3.64C29.696 3.64 26.96 5.688 26.944 8.648C26.912 10.84 28.912 12.072 30.416 12.808C31.968 13.56 32.48 14.04 32.48 14.712C32.464 15.768 31.216 16.232 30.048 16.232C28.992 16.232 27.088 15.944 26.128 15.512L25.344 18.984C26.336 19.448 28.176 19.848 30.256 19.864C34.336 19.864 37.024 17.832 37.024 14.792L37.936 16.76ZM44.752 7.264H41.536C40.544 7.264 39.728 7.84 39.36 8.72L33.6 22.296L33.088 19.832L36.656 7.264H33.088L33.04 7.488L29.472 24.736H33.44L36.4 10.44L39.888 24.736H43.92L47.952 7.264H44.752ZM24.64 7.264L22.56 24.736H19.04L21.12 7.264H24.64Z"
+                                    fill="#1434CB" />
+                            </svg>
+                            <!-- Mastercard -->
+                            <svg class="h-5 w-auto" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="48" height="32" rx="2" fill="white" />
+                                <path
+                                    d="M19.2 25.6C22.7346 25.6 25.6 22.7346 25.6 19.2C25.6 15.6654 22.7346 12.8 19.2 12.8C15.6654 12.8 12.8 15.6654 12.8 19.2C12.8 22.7346 15.6654 25.6 19.2 25.6Z"
+                                    fill="#EB001B" />
+                                <path
+                                    d="M32 25.6C35.5346 25.6 38.4 22.7346 38.4 19.2C38.4 15.6654 35.5346 12.8 32 12.8C28.4654 12.8 25.6 15.6654 25.6 19.2C25.6 22.7346 28.4654 25.6 32 25.6Z"
+                                    fill="#F79E1B" />
+                                <path
+                                    d="M25.6 19.2C25.6 22.16 24.032 24.736 21.68 26.16C22.8 26.8 24.128 27.2 25.6 27.2C29.1346 27.2 32 24.3346 32 20.8C32 19.2 31.36 17.76 30.32 16.72C29.2 15.6 27.52 14.8 25.6 14.8C24.128 14.8 22.8 15.2 21.68 15.84C24.032 17.264 25.6 19.84 25.6 22.8V19.2Z"
+                                    fill="#FF5F00" />
+                            </svg>
+                            <!-- Amex -->
+                            <svg class="h-5 w-auto" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="48" height="32" rx="2" fill="#006FCF" />
+                                <path
+                                    d="M10 12L12 12L13 15L14 12L16 12L14 18H12L10 12ZM18 12L20 18H18L17.5 16H15.5L15 18H13L15 12H18ZM16 13.5L16 15H17L16 13.5ZM22 12H26V13.5H23.5V14.5H25.5V16H23.5V18H26V16.5H22V12ZM28 12L30 18H28L27 15L26 18H24L26 12H28Z"
+                                    fill="white" />
+                            </svg>
+                            <!-- PayPal -->
+                            <svg class="h-5 w-auto" viewBox="0 0 48 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="48" height="32" rx="2" fill="white" />
+                                <path
+                                    d="M35.6 11.6C35.4 10.4 34.6 8.8 32.2 8.8H20.6C20 8.8 19.6 9.2 19.4 9.8L16.2 29.8C16.2 30.2 16.4 30.4 16.8 30.4H21.4C21.8 30.4 22.2 30 22.2 29.6L23 24.6H25.8C30.2 24.6 33.6 22.8 34.4 18.2C34.6 17.2 34.6 16.4 34.4 15.6C34.2 14.8 33.8 14 33.2 13.4C34.4 13 35.2 12.4 35.6 11.6Z"
+                                    fill="#003087" />
+                                <path
+                                    d="M19.4 9.8L16.2 29.8C16.2 30.2 16.4 30.4 16.8 30.4H21.4C21.8 30.4 22.2 30 22.2 29.6L23 24.6H25.8C30.2 24.6 33.6 22.8 34.4 18.2C34.6 17.2 34.6 16.4 34.4 15.6C34.2 14.8 33.8 14 33.2 13.4C32.4 12.6 31.2 12.2 29.6 12.2H21.8C21.2 12.2 20.8 12.6 20.6 13.2L19.4 9.8Z"
+                                    fill="#003087" />
+                                <path
+                                    d="M32.2 8.8H20.6C20 8.8 19.6 9.2 19.4 9.8L16.2 29.8C16.2 30.2 16.4 30.4 16.8 30.4H21.4C21.8 30.4 22.2 30 22.2 29.6L23 24.6H25.8C30.2 24.6 33.6 22.8 34.4 18.2C34.6 17.2 34.6 16.4 34.4 15.6C34.2 14.8 33.8 14 33.2 13.4C32.4 12.6 31.2 12.2 29.6 12.2H21.8C21.2 12.2 20.8 12.6 20.6 13.2L19.4 9.8Z"
+                                    fill="#009CDE" />
+                                <path
+                                    d="M29.6 12.2H21.8C21.2 12.2 20.8 12.6 20.6 13.2L18.4 26.8C18.4 27.2 18.6 27.4 19 27.4H22.8C23.2 27.4 23.6 27 23.6 26.6L24.2 22.8H25.8C29.2 22.8 31.8 21.4 32.4 17.8C32.8 15.4 31.8 13.6 29.6 12.2Z"
+                                    fill="#012169" />
+                                <path
+                                    d="M24.2 22.8L24.6 20.2H25.8C28.2 20.2 30 19.2 30.4 16.8C30.6 15.8 30.4 15 30 14.4C30.8 15.2 31.2 16.4 31 17.6C30.4 21.2 27.8 22.6 24.4 22.6H24.2V22.8Z"
+                                    fill="#009CDE" />
+                            </svg>
+                        </div>
+                    </fieldset>
                 </div>
             </div>
 
             <!-- As Seen In Media Logos -->
             <div class="text-center mt-16 reveal">
                 <p class="text-sm text-slate-500 mb-4 font-semibold">As Seen In</p>
-                <div class="flex items-center justify-center gap-6 flex-wrap opacity-60 grayscale hover:grayscale-0 transition">
+                <div
+                    class="flex items-center justify-center gap-6 flex-wrap opacity-60 grayscale hover:grayscale-0 transition">
                     <img src="images/media-forbes.svg" alt="Forbes" class="h-8 w-auto" loading="lazy">
                     <img src="images/media-gq.svg" alt="GQ" class="h-8 w-auto" loading="lazy">
                     <img src="images/media-mens-health.svg" alt="Men's Health" class="h-8 w-auto" loading="lazy">
@@ -1322,9 +1385,9 @@
                     </ul>
 
                     <div class="space-y-3">
-                    <button
-                        class="w-full py-4 rounded-xl bg-[#0f172a] text-white font-bold hover:bg-slate-800 transition shadow-lg"
-                        onclick="addToCart(this, 'Starter', 24.99)">Get Starter</button>
+                        <button
+                            class="w-full py-4 rounded-xl bg-[#0f172a] text-white font-bold hover:bg-slate-800 transition shadow-lg"
+                            onclick="addToCart(this, 'Starter', 24.99)">Get Starter</button>
                         <div class="flex items-center justify-center gap-2 text-xs">
                             <span class="trust-badge bg-green-50 text-green-700">
                                 <i data-lucide="shield-check" class="w-3 h-3"></i> Guaranteed
@@ -1363,9 +1426,9 @@
                     </ul>
 
                     <div class="space-y-3">
-                    <button
-                        class="w-full py-4 rounded-xl bg-[#D4A520] text-slate-900 font-bold hover:bg-[#E6B830] transition shadow-lg shadow-amber-600/25 btn-shine"
-                        onclick="addToCart(this, 'Ultimate', 69.95)">Get Ultimate Bundle</button>
+                        <button
+                            class="w-full py-4 rounded-xl bg-[#D4A520] text-slate-900 font-bold hover:bg-[#E6B830] transition shadow-lg shadow-amber-600/25 btn-shine"
+                            onclick="addToCart(this, 'Ultimate', 69.95)">Get Ultimate Bundle</button>
                         <div class="flex items-center justify-center gap-2 text-xs flex-wrap">
                             <span class="trust-badge bg-green-50 text-green-700">
                                 <i data-lucide="shield-check" class="w-3 h-3"></i> 30-Day Guarantee
@@ -1398,9 +1461,9 @@
                     </ul>
 
                     <div class="space-y-3">
-                    <button
-                        class="w-full py-4 rounded-xl bg-[#0f172a] text-white font-bold hover:bg-slate-800 transition shadow-lg"
-                        onclick="addToCart(this, 'Pro', 44.95)">Get Pro Bundle</button>
+                        <button
+                            class="w-full py-4 rounded-xl bg-[#0f172a] text-white font-bold hover:bg-slate-800 transition shadow-lg"
+                            onclick="addToCart(this, 'Pro', 44.95)">Get Pro Bundle</button>
                         <div class="flex items-center justify-center gap-2 text-xs">
                             <span class="trust-badge bg-green-50 text-green-700">
                                 <i data-lucide="shield-check" class="w-3 h-3"></i> Guaranteed
@@ -1447,8 +1510,10 @@
                         </div>
                         <div class="px-6 pb-4 flex items-center gap-2">
                             <span class="text-xs text-slate-400">Was this helpful?</span>
-                            <button onclick="faqFeedback(this, true)" class="text-xs px-3 py-1 bg-green-100 text-green-700 rounded hover:bg-green-200 transition">Yes</button>
-                            <button onclick="faqFeedback(this, false)" class="text-xs px-3 py-1 bg-red-100 text-red-700 rounded hover:bg-red-200 transition">No</button>
+                            <button onclick="faqFeedback(this, true)"
+                                class="text-xs px-3 py-1 bg-green-100 text-green-700 rounded hover:bg-green-200 transition">Yes</button>
+                            <button onclick="faqFeedback(this, false)"
+                                class="text-xs px-3 py-1 bg-red-100 text-red-700 rounded hover:bg-red-200 transition">No</button>
                         </div>
                     </div>
                 </div>
@@ -1469,8 +1534,10 @@
                         </div>
                         <div class="px-6 pb-4 flex items-center gap-2">
                             <span class="text-xs text-slate-400">Was this helpful?</span>
-                            <button onclick="faqFeedback(this, true)" class="text-xs px-3 py-1 bg-green-100 text-green-700 rounded hover:bg-green-200 transition">Yes</button>
-                            <button onclick="faqFeedback(this, false)" class="text-xs px-3 py-1 bg-red-100 text-red-700 rounded hover:bg-red-200 transition">No</button>
+                            <button onclick="faqFeedback(this, true)"
+                                class="text-xs px-3 py-1 bg-green-100 text-green-700 rounded hover:bg-green-200 transition">Yes</button>
+                            <button onclick="faqFeedback(this, false)"
+                                class="text-xs px-3 py-1 bg-red-100 text-red-700 rounded hover:bg-red-200 transition">No</button>
                         </div>
                     </div>
                 </div>
@@ -1491,8 +1558,10 @@
                         </div>
                         <div class="px-6 pb-4 flex items-center gap-2">
                             <span class="text-xs text-slate-400">Was this helpful?</span>
-                            <button onclick="faqFeedback(this, true)" class="text-xs px-3 py-1 bg-green-100 text-green-700 rounded hover:bg-green-200 transition">Yes</button>
-                            <button onclick="faqFeedback(this, false)" class="text-xs px-3 py-1 bg-red-100 text-red-700 rounded hover:bg-red-200 transition">No</button>
+                            <button onclick="faqFeedback(this, true)"
+                                class="text-xs px-3 py-1 bg-green-100 text-green-700 rounded hover:bg-green-200 transition">Yes</button>
+                            <button onclick="faqFeedback(this, false)"
+                                class="text-xs px-3 py-1 bg-red-100 text-red-700 rounded hover:bg-red-200 transition">No</button>
                         </div>
                     </div>
                 </div>
@@ -1512,8 +1581,10 @@
                         </div>
                         <div class="px-6 pb-4 flex items-center gap-2">
                             <span class="text-xs text-slate-400">Was this helpful?</span>
-                            <button onclick="faqFeedback(this, true)" class="text-xs px-3 py-1 bg-green-100 text-green-700 rounded hover:bg-green-200 transition">Yes</button>
-                            <button onclick="faqFeedback(this, false)" class="text-xs px-3 py-1 bg-red-100 text-red-700 rounded hover:bg-red-200 transition">No</button>
+                            <button onclick="faqFeedback(this, true)"
+                                class="text-xs px-3 py-1 bg-green-100 text-green-700 rounded hover:bg-green-200 transition">Yes</button>
+                            <button onclick="faqFeedback(this, false)"
+                                class="text-xs px-3 py-1 bg-red-100 text-red-700 rounded hover:bg-red-200 transition">No</button>
                         </div>
                     </div>
                 </div>
@@ -1542,7 +1613,8 @@
                     <span class="text-xs text-slate-400 line-through">$104.93</span>
                     <span class="text-xs font-bold text-green-600">Save 33%</span>
                 </div>
-                <div class="countdown-timer" id="mobileCountdown">Sale ends in <span id="countdownTime">23:45:12</span></div>
+                <div class="countdown-timer" id="mobileCountdown">Sale ends in <span id="countdownTime">23:45:12</span>
+                </div>
             </div>
             <button onclick="window.location.href='#offers'"
                 class="bg-[#D4A520] text-slate-900 px-6 py-4 rounded-full font-bold text-base shadow-lg shadow-amber-600/30 hover:bg-[#c59617] transition transform hover:-translate-y-1 btn-shine animate-pulse-gold">
@@ -1609,7 +1681,8 @@
             </div>
 
             <h3 class="text-2xl font-serif font-bold text-slate-900 mb-2">Get 15% Off Your First Order</h3>
-            <p class="text-slate-600 mb-6">Join our newsletter and receive exclusive discounts, hair care tips, and early access to new products.</p>
+            <p class="text-slate-600 mb-6">Join our newsletter and receive exclusive discounts, hair care tips, and
+                early access to new products.</p>
 
             <form id="emailForm" onsubmit="handleEmailSubmit(event)" class="space-y-4">
                 <input type="email" id="emailInput" placeholder="Enter your email" required
@@ -1632,7 +1705,8 @@
         <!-- Cart Header -->
         <div class="flex items-center justify-between p-6 border-b border-slate-200">
             <h2 class="text-2xl font-serif font-bold text-slate-900">Shopping Cart</h2>
-            <button onclick="toggleCart()" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100 transition">
+            <button onclick="toggleCart()"
+                class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-slate-100 transition">
                 <i data-lucide="x" class="w-5 h-5 text-slate-600"></i>
             </button>
         </div>
@@ -1642,7 +1716,7 @@
             <div id="emptyCart" class="text-center py-12">
                 <i data-lucide="shopping-bag" class="w-16 h-16 text-slate-300 mx-auto mb-4"></i>
                 <p class="text-slate-500 font-medium">Your cart is empty</p>
-                <button onclick="toggleCart(); window.location.href='#offers'" 
+                <button onclick="toggleCart(); window.location.href='#offers'"
                     class="mt-4 bg-[#D4A520] text-slate-900 px-6 py-2 rounded-lg font-semibold hover:bg-[#E6B830] transition">
                     Start Shopping
                 </button>
@@ -1655,7 +1729,7 @@
                 <span class="text-lg font-bold text-slate-900">Total:</span>
                 <span id="cartTotal" class="text-2xl font-bold text-[#D4A520]">$0.00</span>
             </div>
-            <button onclick="checkout()" 
+            <button onclick="checkout()"
                 class="w-full bg-[#D4A520] text-slate-900 py-4 rounded-xl font-bold hover:bg-[#E6B830] transition shadow-lg shadow-amber-600/20 btn-shine">
                 Proceed to Checkout
             </button>
@@ -1674,11 +1748,11 @@
         function updateSocialProof() {
             const viewersEl = document.getElementById('viewersCount');
             if (!viewersEl) return;
-            
+
             let viewers = parseInt(viewersEl.textContent) || 23;
             const min = 18;
             const max = 47;
-            
+
             setInterval(() => {
                 viewers = Math.floor(Math.random() * (max - min + 1)) + min;
                 viewersEl.textContent = viewers;
@@ -1690,7 +1764,7 @@
         function initScrollProgress() {
             const progressBar = document.getElementById('scrollProgress');
             if (!progressBar) return;
-            
+
             window.addEventListener('scroll', () => {
                 const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
                 const scrolled = (window.scrollY / windowHeight) * 100;
@@ -1703,11 +1777,11 @@
         function initCountdownTimer() {
             const countdownEl = document.getElementById('countdownTime');
             if (!countdownEl) return;
-            
+
             let hours = 23;
             let minutes = 45;
             let seconds = 12;
-            
+
             // Display initial time immediately
             function updateDisplay() {
                 const h = String(hours).padStart(2, '0');
@@ -1715,10 +1789,10 @@
                 const s = String(seconds).padStart(2, '0');
                 countdownEl.textContent = `${h}:${m}:${s}`;
             }
-            
+
             // Show initial time
             updateDisplay();
-            
+
             // Then start countdown
             setInterval(() => {
                 seconds--;
@@ -1748,7 +1822,7 @@
                 const duration = 2000;
                 const increment = target / (duration / 16);
                 let current = 0;
-                
+
                 const updateCounter = () => {
                     current += increment;
                     if (current < target) {
@@ -1758,7 +1832,7 @@
                         counter.textContent = target + '%';
                     }
                 };
-                
+
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
@@ -1905,27 +1979,27 @@
         // Add item to cart
         function addToCart(button, name, price) {
             const btn = button;
-            
+
             // Prevent double-clicks: if button is already showing feedback, ignore
             if (btn.innerText === "Added! ✓" || btn.disabled) {
                 return;
             }
-            
+
             // Store original text in data attribute if not already stored
             if (!btn.dataset.originalText) {
                 btn.dataset.originalText = btn.innerText;
             }
             const originalText = btn.dataset.originalText;
-            
+
             const cart = getCart();
             const shade = selectedShade || 'black';
-            
+
             // Create unique ID that includes shade (e.g., "Starter-black", "Starter-blonde")
             const itemId = `${name}-${shade}`;
-            
+
             // Find existing item by id (includes shade)
             const existingItem = cart.find(item => item.id === itemId);
-            
+
             if (existingItem) {
                 existingItem.quantity += 1;
             } else {
@@ -1938,7 +2012,7 @@
                     shade: shade // Include selected shade
                 });
             }
-            
+
             saveCart(cart);
 
             // Visual feedback - disable button during feedback period
@@ -1989,7 +2063,7 @@
         function updateQuantity(id, change) {
             const cart = getCart();
             const item = cart.find(item => item.id === id);
-            
+
             if (item) {
                 item.quantity += change;
                 if (item.quantity <= 0) {
@@ -2004,16 +2078,16 @@
         function toggleCart() {
             const overlay = document.getElementById('cartOverlay');
             const drawer = document.getElementById('cartDrawer');
-            
+
             if (overlay && drawer) {
                 const isOpening = !drawer.classList.contains('active');
-                
+
                 overlay.classList.toggle('active');
                 drawer.classList.toggle('active');
-                
+
                 // Prevent body scroll when cart is open
                 document.body.style.overflow = drawer.classList.contains('active') ? 'hidden' : '';
-                
+
                 // If user manually closes drawer, cancel auto-close timeout
                 if (!isOpening && cartAutoCloseTimeout) {
                     clearTimeout(cartAutoCloseTimeout);
@@ -2035,7 +2109,7 @@
             // Update badges (desktop and mobile)
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
             const badgeText = totalItems > 99 ? '99+' : totalItems;
-            
+
             [cartBadge, cartBadgeMobile].forEach(badge => {
                 if (badge) {
                     if (totalItems > 0) {
@@ -2050,7 +2124,7 @@
             // Update cart items
             if (cartItems && cartFooter) {
                 let total = 0; // Declare total outside if/else block
-                
+
                 if (cart.length === 0) {
                     // Get or recreate emptyCart element
                     let emptyCart = document.getElementById('emptyCart');
@@ -2072,7 +2146,7 @@
                     cartFooter.style.display = 'none';
                     cartItems.innerHTML = '';
                     cartItems.appendChild(emptyCart);
-                    
+
                     // Re-initialize icons after appending (whether created or reused)
                     if (typeof lucide !== 'undefined') {
                         lucide.createIcons();
@@ -2084,13 +2158,13 @@
                         emptyCart.style.display = 'none';
                     }
                     cartFooter.style.display = 'block';
-                    
+
                     let html = '';
 
                     cart.forEach(item => {
                         const itemTotal = item.price * item.quantity;
                         total += itemTotal;
-                        
+
                         html += `
                             <div class="cart-item">
                                 <div class="flex gap-4">
@@ -2124,7 +2198,7 @@
                     });
 
                     cartItems.innerHTML = html;
-                    
+
                     // Re-initialize icons
                     if (typeof lucide !== 'undefined') {
                         lucide.createIcons();
@@ -2145,11 +2219,11 @@
                 alert('Your cart is empty');
                 return;
             }
-            
+
             // TODO: Integrate with payment processor (Stripe, PayPal, etc.)
-            alert('Checkout functionality - integrate with your payment processor\n\nTotal: $' + 
+            alert('Checkout functionality - integrate with your payment processor\n\nTotal: $' +
                 cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2));
-            
+
             // For now, just show an alert
             // In production, redirect to checkout page or open payment modal
         }
@@ -2179,11 +2253,11 @@
             const searchInput = document.getElementById('faqSearch');
             const faqContainer = document.getElementById('faqContainer');
             if (!searchInput || !faqContainer) return;
-            
+
             searchInput.addEventListener('input', (e) => {
                 const query = e.target.value.toLowerCase();
                 const faqItems = faqContainer.querySelectorAll('[onclick*="toggleFaq"]');
-                
+
                 faqItems.forEach(item => {
                     const text = item.textContent.toLowerCase();
                     const faqCard = item.closest('.bg-white');
@@ -2202,16 +2276,16 @@
         // 5.2. FAQ Feedback
         function faqFeedback(button, helpful) {
             const feedbackContainer = button.parentElement;
-            
+
             // Store original HTML if not already stored
             if (!feedbackContainer.dataset.originalHtml) {
                 feedbackContainer.dataset.originalHtml = feedbackContainer.innerHTML;
             }
-            
+
             // Hide buttons and show thank you message
             const buttons = feedbackContainer.querySelectorAll('button');
             buttons.forEach(btn => btn.style.display = 'none');
-            
+
             // Create or show thank you message
             let thankYouMsg = feedbackContainer.querySelector('.faq-thank-you');
             if (!thankYouMsg) {
@@ -2246,30 +2320,30 @@
         function initShadeSelector() {
             const shadeButtons = document.querySelectorAll('.shade-btn');
             const selectedShadeNameEl = document.getElementById('selectedShadeName');
-            
+
             shadeButtons.forEach(button => {
                 button.addEventListener('click', function () {
                     const shade = this.dataset.shade;
                     const shadeName = this.dataset.shadeName;
-                    
+
                     // Remove active state from all buttons
                     shadeButtons.forEach(btn => {
                         btn.classList.remove('ring-2', 'ring-offset-2', 'ring-[#D4A520]', 'selected');
                     });
-                    
+
                     // Add active state to clicked button
                     this.classList.add('ring-2', 'ring-offset-2', 'ring-[#D4A520]', 'selected');
-                    
+
                     // Update selected shade
                     selectedShade = shade;
-                    
+
                     // Update displayed shade name
                     if (selectedShadeNameEl) {
                         selectedShadeNameEl.textContent = shadeName;
                     }
                 });
             });
-            
+
             // Set initial selected shade name
             if (selectedShadeNameEl) {
                 const initialButton = document.querySelector('.shade-btn.selected');
