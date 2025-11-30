@@ -1910,7 +1910,7 @@
                 btn.disabled = false; // Re-enable button
             }, 2000);
 
-            // Show cart drawer briefly (only if cart has items)
+            // Show cart drawer and keep it open for 15 seconds (only if cart has items)
             if (cart.length > 0) {
                 const drawer = document.getElementById('cartDrawer');
                 if (drawer && !drawer.classList.contains('active')) {
@@ -1919,14 +1919,14 @@
                     if (cartAutoCloseTimeout) {
                         clearTimeout(cartAutoCloseTimeout);
                     }
-                    // Schedule auto-close only if drawer is still open
+                    // Schedule auto-close after 15 seconds, only if drawer is still open
                     cartAutoCloseTimeout = setTimeout(() => {
                         const drawerCheck = document.getElementById('cartDrawer');
                         if (drawerCheck && drawerCheck.classList.contains('active')) {
                             toggleCart();
                         }
                         cartAutoCloseTimeout = null;
-                    }, 1500);
+                    }, 15000); // 15 seconds instead of 1.5 seconds
                 }
             }
         }
