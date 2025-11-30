@@ -119,6 +119,57 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* INFINITE MARQUEE */
+        .marquee-container {
+            overflow: hidden;
+            position: relative;
+            mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+
+        .marquee-content {
+            display: flex;
+            gap: 1.5rem;
+            width: max-content;
+            animation: scroll 40s linear infinite;
+        }
+
+        .marquee-content:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* PULSE GOLD ANIMATION */
+        @keyframes pulse-gold {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(212, 165, 32, 0.7);
+            }
+
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 10px rgba(212, 165, 32, 0);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(212, 165, 32, 0);
+            }
+        }
+
+        .animate-pulse-gold {
+            animation: pulse-gold 2s infinite;
+        }
     </style>
 </head>
 
@@ -252,106 +303,225 @@
             <h2 class="text-3xl lg:text-4xl font-serif font-bold text-slate-900 mb-4">
                 Trusted by <span class="text-[#D4A520]">2,847+</span> Happy Customers
             </h2>
-            <div class="flex justify-center gap-1 text-[#D4A520] mb-2">
-                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+            <div class="flex items-center justify-center gap-2 mb-12">
+                <div class="flex text-[#D4A520]">
+                    <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                    <i data-lucide="star" class="w-5 h-5 fill-current"></i>
+                </div>
+                <span class="text-slate-600 font-medium">4.9/5 Average Rating</span>
             </div>
-            <p class="text-slate-500 font-medium mb-12">4.9/5 Average Rating</p>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Review 1 -->
-                <div
-                    class="bg-white p-6 rounded-xl shadow-lg shadow-slate-100 border border-slate-100 text-left reveal">
-                    <div class="flex text-[#D4A520] mb-4">
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                    </div>
-                    <p class="text-slate-700 text-sm leading-relaxed mb-6">"These fibers are incredible! They make my
-                        hair look thick and natural instantly. I'd recommend them to anyone."</p>
-                    <div class="flex items-center gap-3">
-                        <div
-                            class="w-8 h-8 bg-[#D4A520]/10 rounded-full flex items-center justify-center text-[#D4A520] font-bold text-xs">
-                            JM</div>
-                        <div>
-                            <div class="font-bold text-sm text-slate-900">James M.</div>
-                            <div class="text-xs text-slate-400">Verified Buyer</div>
+            <!-- Marquee Container -->
+            <div class="marquee-container py-4">
+                <div class="marquee-content">
+                    <!-- ORIGINAL SET -->
+                    <!-- Review 1 -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg shadow-slate-100 border border-slate-100 text-left w-80 flex-shrink-0">
+                        <div class="flex text-[#D4A520] mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-slate-700 mb-4">"I was skeptical at first, but this actually works. My crown
+                            looks
+                            completely full now."</p>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
+                                JD</div>
+                            <div>
+                                <div class="font-bold text-slate-900">James D.</div>
+                                <div class="text-xs text-green-600 flex items-center gap-1">
+                                    <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Review 2 -->
-                <div
-                    class="bg-white p-6 rounded-xl shadow-lg shadow-slate-100 border border-slate-100 text-left reveal">
-                    <div class="flex text-[#D4A520] mb-4">
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                    </div>
-                    <p class="text-slate-700 text-sm leading-relaxed mb-6">"I was skeptical at first, but this product
-                        changed my life. No one can tell the difference. Been using for 6 months."</p>
-                    <div class="flex items-center gap-3">
-                        <div
-                            class="w-8 h-8 bg-[#D4A520]/10 rounded-full flex items-center justify-center text-[#D4A520] font-bold text-xs">
-                            MP</div>
-                        <div>
-                            <div class="font-bold text-sm text-slate-900">Michael P.</div>
-                            <div class="text-xs text-slate-400">Verified Buyer</div>
+                    <!-- Review 2 -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg shadow-slate-100 border border-slate-100 text-left w-80 flex-shrink-0">
+                        <div class="flex text-[#D4A520] mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-slate-700 mb-4">"Best hair fibers I've used. The color match is spot on and it
+                            stays
+                            in all day."</p>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
+                                MP</div>
+                            <div>
+                                <div class="font-bold text-slate-900">Michael P.</div>
+                                <div class="text-xs text-green-600 flex items-center gap-1">
+                                    <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Review 3 -->
-                <div
-                    class="bg-white p-6 rounded-xl shadow-lg shadow-slate-100 border border-slate-100 text-left reveal">
-                    <div class="flex text-[#D4A520] mb-4">
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                    </div>
-                    <p class="text-slate-700 text-sm leading-relaxed mb-6">"Best investment I've made. The confidence
-                        boost is real. Shipped fast and customer service was excellent."</p>
-                    <div class="flex items-center gap-3">
-                        <div
-                            class="w-8 h-8 bg-[#D4A520]/10 rounded-full flex items-center justify-center text-[#D4A520] font-bold text-xs">
-                            DK</div>
-                        <div>
-                            <div class="font-bold text-sm text-slate-900">David K.</div>
-                            <div class="text-xs text-slate-400">Verified Buyer</div>
+                    <!-- Review 3 -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg shadow-slate-100 border border-slate-100 text-left w-80 flex-shrink-0">
+                        <div class="flex text-[#D4A520] mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-slate-700 mb-4">"Gave me my confidence back. Takes 30 seconds in the morning and
+                            I'm
+                            good to go."</p>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
+                                RK</div>
+                            <div>
+                                <div class="font-bold text-slate-900">Robert K.</div>
+                                <div class="text-xs text-green-600 flex items-center gap-1">
+                                    <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- Review 4 -->
-                <div
-                    class="bg-white p-6 rounded-xl shadow-lg shadow-slate-100 border border-slate-100 text-left reveal">
-                    <div class="flex text-[#D4A520] mb-4">
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                    <!-- Review 4 -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg shadow-slate-100 border border-slate-100 text-left w-80 flex-shrink-0">
+                        <div class="flex text-[#D4A520] mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-slate-700 mb-4">"Undetectable even up close. My wife couldn't even tell I had
+                            them
+                            in. Highly recommend."</p>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
+                                DL</div>
+                            <div>
+                                <div class="font-bold text-slate-900">David L.</div>
+                                <div class="text-xs text-green-600 flex items-center gap-1">
+                                    <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p class="text-slate-700 text-sm leading-relaxed mb-6">"Works exactly as advertised. I use it every
-                        day and it handles wind, rain, everything. Highly recommend!"</p>
-                    <div class="flex items-center gap-3">
-                        <div
-                            class="w-8 h-8 bg-[#D4A520]/10 rounded-full flex items-center justify-center text-[#D4A520] font-bold text-xs">
-                            RL</div>
-                        <div>
-                            <div class="font-bold text-sm text-slate-900">Robert L.</div>
-                            <div class="text-xs text-slate-400">Verified Buyer</div>
+
+                    <!-- DUPLICATE SET FOR INFINITE LOOP -->
+                    <!-- Review 1 Copy -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg shadow-slate-100 border border-slate-100 text-left w-80 flex-shrink-0">
+                        <div class="flex text-[#D4A520] mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-slate-700 mb-4">"I was skeptical at first, but this actually works. My crown
+                            looks
+                            completely full now."</p>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
+                                JD</div>
+                            <div>
+                                <div class="font-bold text-slate-900">James D.</div>
+                                <div class="text-xs text-green-600 flex items-center gap-1">
+                                    <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Review 2 Copy -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg shadow-slate-100 border border-slate-100 text-left w-80 flex-shrink-0">
+                        <div class="flex text-[#D4A520] mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-slate-700 mb-4">"Best hair fibers I've used. The color match is spot on and it
+                            stays
+                            in all day."</p>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
+                                MP</div>
+                            <div>
+                                <div class="font-bold text-slate-900">Michael P.</div>
+                                <div class="text-xs text-green-600 flex items-center gap-1">
+                                    <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Review 3 Copy -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg shadow-slate-100 border border-slate-100 text-left w-80 flex-shrink-0">
+                        <div class="flex text-[#D4A520] mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-slate-700 mb-4">"Gave me my confidence back. Takes 30 seconds in the morning and
+                            I'm
+                            good to go."</p>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
+                                RK</div>
+                            <div>
+                                <div class="font-bold text-slate-900">Robert K.</div>
+                                <div class="text-xs text-green-600 flex items-center gap-1">
+                                    <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Review 4 Copy -->
+                    <div
+                        class="bg-white p-6 rounded-xl shadow-lg shadow-slate-100 border border-slate-100 text-left w-80 flex-shrink-0">
+                        <div class="flex text-[#D4A520] mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-slate-700 mb-4">"Undetectable even up close. My wife couldn't even tell I had
+                            them
+                            in. Highly recommend."</p>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
+                                DL</div>
+                            <div>
+                                <div class="font-bold text-slate-900">David L.</div>
+                                <div class="text-xs text-green-600 flex items-center gap-1">
+                                    <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 
     <!-- FEATURES ICONS -->
@@ -509,14 +679,8 @@
                 <!-- Left: Product Image -->
                 <div
                     class="bg-white p-12 rounded-3xl shadow-xl shadow-slate-100 flex items-center justify-center reveal">
-                    <!-- Placeholder for Product Bottle -->
-                    <div
-                        class="relative w-64 h-96 bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg shadow-2xl flex items-center justify-center text-white">
-                        <div class="text-center">
-                            <div class="text-2xl font-serif font-bold tracking-widest mb-2">HALO</div>
-                            <div class="text-[10px] tracking-[0.3em] uppercase opacity-70">Hair Building Fibers</div>
-                        </div>
-                    </div>
+                    <img src="images/product-bottle.png" alt="Halo Fibers Product Bottle"
+                        class="w-full max-w-sm object-contain drop-shadow-2xl">
                 </div>
 
                 <!-- Right: Details -->
@@ -865,15 +1029,24 @@
 
     <!-- MOBILE STICKY CART -->
     <div id="stickyCTA"
-        class="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 p-4 shadow-[0_-5px_20px_rgba(0,0,0,0.1)] z-40 sticky-mobile-cta md:hidden">
+        class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-white/50 p-4 shadow-[0_-5px_20px_rgba(0,0,0,0.1)] z-40 sticky-mobile-cta md:hidden">
         <div class="flex items-center gap-4">
             <div class="flex-1">
-                <div class="text-xs font-bold text-red-500 uppercase">Selling Fast</div>
-                <div class="font-bold text-slate-900">Confidence Bundle</div>
+                <div class="flex items-center gap-1 mb-0.5">
+                    <div class="flex text-[#D4A520]">
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
+                    </div>
+                    <span class="text-[10px] font-bold text-slate-600">4.9</span>
+                </div>
+                <div class="font-bold text-slate-900 text-sm">Confidence Bundle</div>
             </div>
             <button onclick="window.location.href='#offers'"
-                class="bg-[#D4A520] text-slate-900 px-6 py-3 rounded-xl font-bold text-sm shadow-lg shadow-amber-600/25 btn-shine">
-                Shop Now
+                class="bg-[#D4A520] text-slate-900 px-8 py-4 rounded-full font-bold text-lg shadow-lg shadow-amber-600/20 hover:bg-[#c59617] transition transform hover:-translate-y-1 btn-shine animate-pulse-gold">
+                Shop Now & Save 50%
             </button>
         </div>
     </div>
