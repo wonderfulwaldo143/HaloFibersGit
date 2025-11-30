@@ -57,7 +57,9 @@
             top: 0;
             left: 0;
             bottom: 0;
+            right: 0;
             overflow: hidden;
+            pointer-events: none;
         }
 
         .slider-overlay img {
@@ -65,9 +67,13 @@
             top: 0;
             left: 0;
             height: 100%;
-            width: auto;
-            min-width: 100%;
+            max-width: none;
             object-fit: cover;
+        }
+
+        .slider-handle {
+            transform: translateX(-50%);
+            pointer-events: all;
         }
 
         .sticky-mobile-cta {
@@ -76,6 +82,41 @@
         }
 
         .sticky-mobile-cta.visible {
+            transform: translateY(0);
+        }
+
+        /* SHINE EFFECT */
+        .btn-shine {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-shine::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
+            transform: skewX(-25deg);
+            transition: left 0.7s ease;
+        }
+
+        .btn-shine:hover::after {
+            left: 200%;
+            transition: left 0.7s ease;
+        }
+
+        /* SCROLL REVEAL ANIMATION */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
             transform: translateY(0);
         }
     </style>
@@ -111,7 +152,7 @@
                     <i data-lucide="shopping-bag" class="w-4 h-4 text-slate-300"></i>
                 </button>
                 <a href="#offers"
-                    class="bg-[#D4A520] text-slate-900 px-5 py-2 rounded-md font-semibold text-sm hover:bg-[#E6B830] transition">
+                    class="bg-[#D4A520] text-slate-900 px-5 py-2 rounded-md font-semibold text-sm hover:bg-[#E6B830] transition btn-shine">
                     Shop Now
                 </a>
             </div>
@@ -165,7 +206,7 @@
                 <!-- CTAs -->
                 <div class="flex flex-col sm:flex-row gap-3 pt-2">
                     <a href="#offers"
-                        class="inline-flex items-center justify-center bg-[#D4A520] text-slate-900 px-6 py-3 rounded-lg font-semibold text-sm hover:bg-[#E6B830] transition">
+                        class="inline-flex items-center justify-center bg-[#D4A520] text-slate-900 px-6 py-3 rounded-lg font-semibold text-sm hover:bg-[#E6B830] transition btn-shine">
                         Find Your Shade
                     </a>
                     <a href="#how-it-works"
@@ -207,7 +248,7 @@
 
     <!-- TRUSTED BY (Light Theme Starts) -->
     <section class="py-20 bg-white">
-        <div class="container mx-auto px-4 text-center">
+        <div class="container mx-auto px-4 text-center reveal">
             <h2 class="text-3xl lg:text-4xl font-serif font-bold text-slate-900 mb-4">
                 Trusted by <span class="text-[#D4A520]">2,847+</span> Happy Customers
             </h2>
@@ -222,7 +263,8 @@
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <!-- Review 1 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg shadow-slate-100 border border-slate-100 text-left">
+                <div
+                    class="bg-white p-6 rounded-xl shadow-lg shadow-slate-100 border border-slate-100 text-left reveal">
                     <div class="flex text-[#D4A520] mb-4">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -243,7 +285,8 @@
                     </div>
                 </div>
                 <!-- Review 2 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg shadow-slate-100 border border-slate-100 text-left">
+                <div
+                    class="bg-white p-6 rounded-xl shadow-lg shadow-slate-100 border border-slate-100 text-left reveal">
                     <div class="flex text-[#D4A520] mb-4">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -264,7 +307,8 @@
                     </div>
                 </div>
                 <!-- Review 3 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg shadow-slate-100 border border-slate-100 text-left">
+                <div
+                    class="bg-white p-6 rounded-xl shadow-lg shadow-slate-100 border border-slate-100 text-left reveal">
                     <div class="flex text-[#D4A520] mb-4">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -285,7 +329,8 @@
                     </div>
                 </div>
                 <!-- Review 4 -->
-                <div class="bg-white p-6 rounded-xl shadow-lg shadow-slate-100 border border-slate-100 text-left">
+                <div
+                    class="bg-white p-6 rounded-xl shadow-lg shadow-slate-100 border border-slate-100 text-left reveal">
                     <div class="flex text-[#D4A520] mb-4">
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                         <i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -313,7 +358,7 @@
     <section class="py-12 border-y border-slate-100 bg-slate-50">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div class="space-y-3">
+                <div class="space-y-3 reveal">
                     <div
                         class="w-12 h-12 mx-auto bg-white rounded-full flex items-center justify-center shadow-sm text-slate-900">
                         <i data-lucide="shield-check" class="w-6 h-6"></i>
@@ -321,7 +366,7 @@
                     <h3 class="font-serif font-bold text-slate-900">100% Natural Keratin</h3>
                     <p class="text-xs text-slate-500">Made from premium keratin protein</p>
                 </div>
-                <div class="space-y-3">
+                <div class="space-y-3 reveal">
                     <div
                         class="w-12 h-12 mx-auto bg-white rounded-full flex items-center justify-center shadow-sm text-slate-900">
                         <i data-lucide="clock" class="w-6 h-6"></i>
@@ -329,7 +374,7 @@
                     <h3 class="font-serif font-bold text-slate-900">30-Day Money Back</h3>
                     <p class="text-xs text-slate-500">Risk-free guarantee</p>
                 </div>
-                <div class="space-y-3">
+                <div class="space-y-3 reveal">
                     <div
                         class="w-12 h-12 mx-auto bg-white rounded-full flex items-center justify-center shadow-sm text-slate-900">
                         <i data-lucide="award" class="w-6 h-6"></i>
@@ -337,7 +382,7 @@
                     <h3 class="font-serif font-bold text-slate-900">Clinically Tested</h3>
                     <p class="text-xs text-slate-500">Safe for all hair types</p>
                 </div>
-                <div class="space-y-3">
+                <div class="space-y-3 reveal">
                     <div
                         class="w-12 h-12 mx-auto bg-white rounded-full flex items-center justify-center shadow-sm text-slate-900">
                         <i data-lucide="trending-up" class="w-6 h-6"></i>
@@ -354,7 +399,7 @@
         <div class="container mx-auto px-4">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <!-- Left: Content -->
-                <div class="order-2 lg:order-1">
+                <div class="order-2 lg:order-1 reveal">
                     <h2 class="text-4xl lg:text-5xl font-serif font-bold text-slate-900 mb-6">
                         Real Results, <br>
                         <span class="italic text-slate-400">Undetectable</span> Finish.
@@ -376,43 +421,45 @@
                     </div>
                 </div>
 
-                <!-- Right: Slider (Second Instance) -->
-                <div class="order-1 lg:order-2">
-                    <div class="relative w-full aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-slate-200 slider-container"
-                        id="beforeAfterResults">
-                        <!-- After Image (Base) -->
-                        <img src="images/afterhalo.jpg" class="absolute inset-0 w-full h-full object-cover"
-                            alt="Thick Hair Result">
+            </div>
+
+            <!-- Right: Slider (Second Instance) -->
+            <div class="order-1 lg:order-2 reveal">
+                <div class="relative w-full aspect-square rounded-2xl overflow-hidden shadow-2xl shadow-slate-200 slider-container"
+                    id="beforeAfterResults">
+                    <!-- After Image (Base) -->
+                    <img src="images/afterhalo.jpg" class="absolute inset-0 w-full h-full object-cover"
+                        alt="Thick Hair Result">
+                    <div
+                        class="absolute top-4 right-4 bg-slate-900 text-white text-xs font-bold px-3 py-1 rounded z-10">
+                        AFTER</div>
+
+                    <!-- Before Image (Overlay) -->
+                    <div class="slider-overlay" style="width: 50%;">
+                        <img src="images/beforehalo.jpg" alt="Thinning Hair">
                         <div
-                            class="absolute top-4 right-4 bg-slate-900 text-white text-xs font-bold px-3 py-1 rounded z-10">
-                            AFTER</div>
+                            class="absolute top-4 left-4 bg-white text-slate-900 text-xs font-bold px-3 py-1 rounded z-10">
+                            BEFORE</div>
+                    </div>
 
-                        <!-- Before Image (Overlay) -->
-                        <div class="slider-overlay" style="width: 50%;">
-                            <img src="images/beforehalo.jpg" alt="Thinning Hair">
-                            <div
-                                class="absolute top-4 left-4 bg-white text-slate-900 text-xs font-bold px-3 py-1 rounded z-10">
-                                BEFORE</div>
-                        </div>
-
-                        <!-- Slider Handle -->
-                        <div class="absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize slider-handle shadow-lg flex items-center justify-center z-20"
-                            style="left: 50%;">
-                            <div
-                                class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg text-slate-900">
-                                <i data-lucide="move-horizontal" class="w-5 h-5"></i>
-                            </div>
+                    <!-- Slider Handle -->
+                    <div class="slider-handle absolute top-0 bottom-0 w-1 bg-white cursor-ew-resize shadow-lg flex items-center justify-center z-20"
+                        style="left: 50%;">
+                        <div
+                            class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg text-slate-900">
+                            <i data-lucide="move-horizontal" class="w-5 h-5"></i>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 
     <!-- HOW IT WORKS -->
     <section id="how-it-works" class="py-24 bg-slate-50">
         <div class="container mx-auto px-4">
-            <div class="text-center max-w-3xl mx-auto mb-16">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
                 <h2 class="text-4xl lg:text-5xl font-serif font-bold text-slate-900 mb-4">How It Works</h2>
                 <p class="text-slate-600 text-lg">Three simple steps to thicker, fuller looking hair in under 30
                     seconds.</p>
@@ -420,7 +467,7 @@
 
             <div class="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
                 <!-- Step 1 -->
-                <div class="text-center">
+                <div class="text-center reveal">
                     <div
                         class="w-20 h-20 mx-auto mb-6 bg-[#D4A520] rounded-full flex items-center justify-center text-white">
                         <span class="text-3xl font-bold">1</span>
@@ -431,7 +478,7 @@
                 </div>
 
                 <!-- Step 2 -->
-                <div class="text-center">
+                <div class="text-center reveal">
                     <div
                         class="w-20 h-20 mx-auto mb-6 bg-[#D4A520] rounded-full flex items-center justify-center text-white">
                         <span class="text-3xl font-bold">2</span>
@@ -442,7 +489,7 @@
                 </div>
 
                 <!-- Step 3 -->
-                <div class="text-center">
+                <div class="text-center reveal">
                     <div
                         class="w-20 h-20 mx-auto mb-6 bg-[#D4A520] rounded-full flex items-center justify-center text-white">
                         <span class="text-3xl font-bold">3</span>
@@ -460,7 +507,8 @@
         <div class="container mx-auto px-4">
             <div class="grid lg:grid-cols-2 gap-16 items-center">
                 <!-- Left: Product Image -->
-                <div class="bg-white p-12 rounded-3xl shadow-xl shadow-slate-100 flex items-center justify-center">
+                <div
+                    class="bg-white p-12 rounded-3xl shadow-xl shadow-slate-100 flex items-center justify-center reveal">
                     <!-- Placeholder for Product Bottle -->
                     <div
                         class="relative w-64 h-96 bg-gradient-to-br from-slate-800 to-slate-900 rounded-lg shadow-2xl flex items-center justify-center text-white">
@@ -472,7 +520,7 @@
                 </div>
 
                 <!-- Right: Details -->
-                <div class="space-y-8">
+                <div class="space-y-8 reveal">
                     <div>
                         <h2 class="text-4xl font-serif font-bold text-slate-900 mb-2">Premium Keratin.</h2>
                         <h2 class="text-4xl font-serif font-bold text-[#D4A520] mb-6">Scientifically Formulated.</h2>
@@ -557,7 +605,7 @@
     <!-- WHY HALO FIBERS WIN -->
     <section class="py-24 bg-slate-50">
         <div class="container mx-auto px-4">
-            <div class="text-center max-w-3xl mx-auto mb-16">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
                 <h2 class="text-4xl lg:text-5xl font-serif font-bold text-slate-900 mb-4">Why Halo Fibers Win</h2>
                 <p class="text-slate-600 text-lg">See how Halo Fibers' premium keratin compares to cheap cotton and wool
                     alternatives.</p>
@@ -566,7 +614,7 @@
             <div class="max-w-5xl mx-auto">
                 <div class="grid md:grid-cols-2 gap-8">
                     <!-- The "Other Guys" -->
-                    <div class="bg-white rounded-2xl p-8 border-2 border-slate-200">
+                    <div class="bg-white rounded-2xl p-8 border-2 border-slate-200 reveal">
                         <div class="text-center mb-8">
                             <h3 class="text-2xl font-serif font-bold text-slate-900 mb-2">The "Other Guys"</h3>
                             <p class="text-slate-500 text-sm">Cheap Cotton/Wool</p>
@@ -594,7 +642,7 @@
 
                     <!-- Halo Fibers -->
                     <div
-                        class="bg-[#D4A520] rounded-2xl p-8 border-2 border-[#D4A520] relative transform md:-translate-y-4">
+                        class="bg-[#D4A520] rounded-2xl p-8 border-2 border-[#D4A520] relative transform md:-translate-y-4 reveal">
                         <div
                             class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white text-slate-900 px-6 py-1.5 rounded-full text-sm font-bold shadow-lg">
                             Premium Quality
@@ -636,7 +684,7 @@
     <!-- OFFERS SECTION -->
     <section id="offers" class="py-24 bg-white">
         <div class="container mx-auto px-4">
-            <div class="text-center max-w-3xl mx-auto mb-16">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
                 <div class="inline-block bg-[#D4A520] text-slate-900 px-6 py-2 rounded-full text-sm font-bold mb-4">SAVE
                     UP TO 33%</div>
                 <h2 class="text-4xl font-serif font-bold text-slate-900 mb-4">Bundle & Save</h2>
@@ -648,7 +696,7 @@
 
                 <!-- Starter -->
                 <div
-                    class="bg-white rounded-2xl p-8 border border-slate-200 shadow-lg hover:shadow-xl transition group">
+                    class="bg-white rounded-2xl p-8 border border-slate-200 shadow-lg hover:shadow-xl transition group reveal">
                     <h3 class="text-2xl font-serif font-bold text-slate-900 mb-2">Starter</h3>
                     <div class="flex items-baseline gap-2 mb-4">
                         <span class="text-4xl font-bold text-slate-900">$24.99</span>
@@ -673,7 +721,7 @@
 
                 <!-- Ultimate (Highlight) -->
                 <div
-                    class="bg-white rounded-2xl p-8 border-2 border-[#D4A520] shadow-2xl relative transform md:-translate-y-4">
+                    class="bg-white rounded-2xl p-8 border-2 border-[#D4A520] shadow-2xl relative transform md:-translate-y-4 reveal">
                     <div
                         class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#D4A520] text-slate-900 px-6 py-1.5 rounded-full text-sm font-bold tracking-wide shadow-sm">
                         Most Popular
@@ -699,13 +747,13 @@
                     </ul>
 
                     <button
-                        class="w-full py-4 rounded-xl bg-[#D4A520] text-slate-900 font-bold hover:bg-[#E6B830] transition shadow-lg shadow-amber-600/25"
+                        class="w-full py-4 rounded-xl bg-[#D4A520] text-slate-900 font-bold hover:bg-[#E6B830] transition shadow-lg shadow-amber-600/25 btn-shine"
                         onclick="addToCart('Ultimate', 69.95)">Get Ultimate Bundle</button>
                 </div>
 
                 <!-- Pro -->
                 <div
-                    class="bg-white rounded-2xl p-8 border border-slate-200 shadow-lg hover:shadow-xl transition group">
+                    class="bg-white rounded-2xl p-8 border border-slate-200 shadow-lg hover:shadow-xl transition group reveal">
                     <h3 class="text-2xl font-serif font-bold text-slate-900 mb-2">Pro Bundle</h3>
                     <div class="flex items-baseline gap-2 mb-4">
                         <span class="text-4xl font-bold text-slate-900">$44.95</span>
@@ -739,7 +787,7 @@
 
     <!-- FAQ -->
     <section id="faq" class="py-24 bg-slate-50">
-        <div class="container mx-auto px-4 max-w-3xl">
+        <div class="container mx-auto px-4 max-w-3xl reveal">
             <h2 class="text-4xl font-serif font-bold text-slate-900 text-center mb-4">Frequently Asked Questions</h2>
             <p class="text-slate-500 text-center mb-12">Everything you need to know about Halo Fibers</p>
 
@@ -747,34 +795,69 @@
                 <!-- Q1 -->
                 <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
                     <button
-                        class="w-full px-6 py-5 text-left flex items-center justify-between font-bold text-slate-900 hover:bg-slate-50 transition">
+                        class="w-full px-6 py-5 text-left flex items-center justify-between font-bold text-slate-900 hover:bg-slate-50 transition"
+                        onclick="toggleFaq(this)">
                         Will Halo Fibers match my hair color?
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400"></i>
+                        <i data-lucide="chevron-down"
+                            class="w-5 h-5 text-slate-400 transition-transform duration-300"></i>
                     </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <div class="p-6 pt-0 text-slate-600 leading-relaxed">
+                            Yes! Halo Fibers are available in 9 natural shades that can be mixed to match any hair
+                            color. Because the fibers are made of natural keratin, they blend seamlessly with your
+                            existing hair for an undetectable finish.
+                        </div>
+                    </div>
                 </div>
                 <!-- Q2 -->
                 <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
                     <button
-                        class="w-full px-6 py-5 text-left flex items-center justify-between font-bold text-slate-900 hover:bg-slate-50 transition">
+                        class="w-full px-6 py-5 text-left flex items-center justify-between font-bold text-slate-900 hover:bg-slate-50 transition"
+                        onclick="toggleFaq(this)">
                         Will Halo Fibers stay in place in wind, rain, and sweat?
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400"></i>
+                        <i data-lucide="chevron-down"
+                            class="w-5 h-5 text-slate-400 transition-transform duration-300"></i>
                     </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <div class="p-6 pt-0 text-slate-600 leading-relaxed">
+                            Absolutely. Halo Fibers are charged with static electricity to bond securely to your hair.
+                            For extra durability, we recommend using our Halo FiberHold Spray, which locks the fibers in
+                            place through wind, rain, and perspiration.
+                        </div>
+                    </div>
                 </div>
                 <!-- Q3 -->
                 <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
                     <button
-                        class="w-full px-6 py-5 text-left flex items-center justify-between font-bold text-slate-900 hover:bg-slate-50 transition">
+                        class="w-full px-6 py-5 text-left flex items-center justify-between font-bold text-slate-900 hover:bg-slate-50 transition"
+                        onclick="toggleFaq(this)">
                         Is Halo Fibers safe for sensitive scalps?
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400"></i>
+                        <i data-lucide="chevron-down"
+                            class="w-5 h-5 text-slate-400 transition-transform duration-300"></i>
                     </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <div class="p-6 pt-0 text-slate-600 leading-relaxed">
+                            Yes, Halo Fibers are hypoallergenic and made from 100% natural keratin protein—the same
+                            protein your hair is made of. They are free from harmful chemicals and safe for daily use on
+                            all skin types.
+                        </div>
+                    </div>
                 </div>
                 <!-- Q4 -->
                 <div class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
                     <button
-                        class="w-full px-6 py-5 text-left flex items-center justify-between font-bold text-slate-900 hover:bg-slate-50 transition">
+                        class="w-full px-6 py-5 text-left flex items-center justify-between font-bold text-slate-900 hover:bg-slate-50 transition"
+                        onclick="toggleFaq(this)">
                         How do I remove Halo Fibers?
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-400"></i>
+                        <i data-lucide="chevron-down"
+                            class="w-5 h-5 text-slate-400 transition-transform duration-300"></i>
                     </button>
+                    <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
+                        <div class="p-6 pt-0 text-slate-600 leading-relaxed">
+                            Removing Halo Fibers is easy. Simply wash your hair with your favorite shampoo, and the
+                            fibers will wash out completely. No special removal products are needed.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -789,7 +872,7 @@
                 <div class="font-bold text-slate-900">Confidence Bundle</div>
             </div>
             <button onclick="window.location.href='#offers'"
-                class="bg-[#D4A520] text-slate-900 px-6 py-3 rounded-xl font-bold text-sm shadow-lg shadow-amber-600/25">
+                class="bg-[#D4A520] text-slate-900 px-6 py-3 rounded-xl font-bold text-sm shadow-lg shadow-amber-600/25 btn-shine">
                 Shop Now
             </button>
         </div>
@@ -821,12 +904,25 @@
             if (!slider) return;
 
             const overlay = slider.querySelector('.slider-overlay');
+            const overlayImg = overlay.querySelector('img');
             const handle = slider.querySelector('.slider-handle');
             let isDragging = false;
 
-            function updatePosition(e) {
-                e.preventDefault();
+            // Set the overlay image to match the slider dimensions
+            function resizeOverlayImage() {
+                const sliderWidth = slider.offsetWidth;
+                const sliderHeight = slider.offsetHeight;
+                overlayImg.style.width = `${sliderWidth}px`;
+                overlayImg.style.height = `${sliderHeight}px`;
+            }
 
+            // Initial resize
+            resizeOverlayImage();
+
+            // Resize on window resize
+            window.addEventListener('resize', resizeOverlayImage);
+
+            function updatePosition(e) {
                 const rect = slider.getBoundingClientRect();
                 const clientX = e.touches ? e.touches[0].clientX : e.clientX;
                 let x = clientX - rect.left;
@@ -839,41 +935,45 @@
                 handle.style.left = `${percent}%`;
             }
 
-            // Mouse events
-            slider.addEventListener('mousedown', (e) => {
+            function startDrag(e) {
                 isDragging = true;
+                slider.style.cursor = 'ew-resize';
                 updatePosition(e);
-            });
+            }
 
-            document.addEventListener('mousemove', (e) => {
-                if (isDragging) {
-                    updatePosition(e);
-                }
-            });
-
-            document.addEventListener('mouseup', () => {
+            function stopDrag() {
                 isDragging = false;
-            });
+                slider.style.cursor = '';
+            }
+
+            function move(e) {
+                if (!isDragging) return;
+                e.preventDefault();
+                updatePosition(e);
+            }
+
+            // Mouse events
+            slider.addEventListener('mousedown', startDrag);
+            document.addEventListener('mousemove', move);
+            document.addEventListener('mouseup', stopDrag);
 
             // Touch events
             slider.addEventListener('touchstart', (e) => {
-                isDragging = true;
-                updatePosition(e);
-            });
+                startDrag(e);
+            }, { passive: false });
 
             document.addEventListener('touchmove', (e) => {
                 if (isDragging) {
+                    e.preventDefault();
                     updatePosition(e);
                 }
-            });
+            }, { passive: false });
 
-            document.addEventListener('touchend', () => {
-                isDragging = false;
-            });
+            document.addEventListener('touchend', stopDrag);
 
-            // Click to position
-            slider.addEventListener('click', (e) => {
-                updatePosition(e);
+            // Prevent text selection while dragging
+            slider.addEventListener('dragstart', (e) => {
+                e.preventDefault();
             });
         }
 
@@ -912,6 +1012,41 @@
                 }
             }, 2000);
         }
+
+        // 5. FAQ Logic
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+
+            // Toggle content
+            if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                content.style.maxHeight = '0px';
+                content.style.opacity = '0';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                content.style.opacity = '1';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+
+        // 6. Scroll Reveal Logic
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Optional: Stop observing once revealed
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
     </script>
 </body>
 
