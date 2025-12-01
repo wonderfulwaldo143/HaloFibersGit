@@ -1140,7 +1140,7 @@
                             class="inline-block bg-[#D4A520] text-slate-900 px-8 py-4 rounded-full font-bold hover:bg-[#c59617] transition btn-shine shadow-lg shadow-amber-600/30">
                             Buy Now
                         </button>
-                        <div class="flex items-center gap-2 flex-wrap">
+                        <div class="flex items-center justify-center gap-2 flex-wrap">
                             <span class="trust-badge">
                                 <i data-lucide="shield-check" class="w-3 h-3"></i> 30-Day Money Back
                             </span>
@@ -1156,7 +1156,7 @@
                     <!-- Payment Icons -->
                     <img src="images/guaranteed-safe-checkout.png"
                         alt="Guaranteed SAFE Checkout - Norton Secured, Money Back Guarantee, Visa, Mastercard, Amex, PayPal, Discover"
-                        class="h-14 w-auto max-w-full">
+                        class="h-14 w-auto max-w-full mx-auto">
                 </div>
             </div>
 
@@ -1262,6 +1262,10 @@
                 <h2 class="text-4xl font-serif font-bold text-slate-900 mb-6">Bundle & Save</h2>
                 <p class="text-slate-600 text-lg">Get more value with our carefully curated bundles. Customers save an
                     average of $25 per order.</p>
+                <div class="mt-6 inline-flex items-center gap-2 bg-amber-50 border border-amber-200 px-4 py-3 rounded-lg">
+                    <i data-lucide="info" class="w-5 h-5 text-amber-600"></i>
+                    <span class="text-sm text-slate-700">All bundles will be in <strong id="bundleSelectedShade">Black</strong> shade</span>
+                </div>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
@@ -1281,9 +1285,9 @@
                         <li class="flex gap-3 text-sm text-slate-600"><i data-lucide="check"
                                 class="w-5 h-5 text-slate-900"></i> 1x Halo Fibers Bottle</li>
                         <li class="flex gap-3 text-sm text-slate-600"><i data-lucide="check"
-                                class="w-5 h-5 text-slate-900"></i> Shade matching guide</li>
+                                class="w-5 h-5 text-slate-900"></i> Premium Keratin Formula</li>
                         <li class="flex gap-3 text-sm text-slate-600"><i data-lucide="check"
-                                class="w-5 h-5 text-slate-900"></i> Application tips</li>
+                                class="w-5 h-5 text-slate-900"></i> Natural-Looking Results</li>
                         <li class="flex gap-3 text-sm text-slate-600 opacity-0 pointer-events-none"><i
                                 data-lucide="check" class="w-5 h-5 text-slate-900"></i> </li>
                         <li class="flex gap-3 text-sm text-slate-600 opacity-0 pointer-events-none"><i
@@ -1294,7 +1298,7 @@
                         <button
                             class="w-full py-4 rounded-xl bg-[#0f172a] text-white font-bold hover:bg-slate-800 transition shadow-lg"
                             onclick="addToCart(this, 'Starter', 24.99)">Get Starter</button>
-                        <div class="flex items-center justify-center gap-2 text-xs">
+                        <div class="flex items-center justify-center gap-2 text-xs flex-wrap">
                             <span class="trust-badge bg-green-50 text-green-700">
                                 <i data-lucide="shield-check" class="w-3 h-3"></i> Guaranteed
                             </span>
@@ -1324,7 +1328,7 @@
                         <li class="flex gap-3 text-sm text-slate-600"><i data-lucide="check"
                                 class="w-5 h-5 text-[#D4A520]"></i> Premium Glass Applicator</li>
                         <li class="flex gap-3 text-sm text-slate-600"><i data-lucide="check"
-                                class="w-5 h-5 text-[#D4A520]"></i> Shade matching guide</li>
+                                class="w-5 h-5 text-[#D4A520]"></i> Water & Sweat Resistant</li>
                         <li class="flex gap-3 text-sm text-slate-600"><i data-lucide="check"
                                 class="w-5 h-5 text-[#D4A520]"></i> Free Shipping</li>
                         <li class="flex gap-3 text-sm text-slate-600"><i data-lucide="check"
@@ -1361,11 +1365,11 @@
                         <li class="flex gap-3 text-sm text-slate-600"><i data-lucide="check"
                                 class="w-5 h-5 text-slate-900"></i> 2x Halo Fibers Bottles</li>
                         <li class="flex gap-3 text-sm text-slate-600"><i data-lucide="check"
-                                class="w-5 h-5 text-slate-900"></i> Application tips</li>
+                                class="w-5 h-5 text-slate-900"></i> Premium Keratin Formula</li>
+                        <li class="flex gap-3 text-sm text-slate-600"><i data-lucide="check"
+                                class="w-5 h-5 text-slate-900"></i> Free Shipping</li>
                         <li class="flex gap-3 text-sm text-slate-600"><i data-lucide="check"
                                 class="w-5 h-5 text-slate-900"></i> Money-back guarantee</li>
-                        <li class="flex gap-3 text-sm text-slate-600 opacity-0 pointer-events-none"><i
-                                data-lucide="check" class="w-5 h-5 text-slate-900"></i> </li>
                         <li class="flex gap-3 text-sm text-slate-600 opacity-0 pointer-events-none"><i
                                 data-lucide="check" class="w-5 h-5 text-slate-900"></i> </li>
                     </ul>
@@ -1374,9 +1378,12 @@
                         <button
                             class="w-full py-4 rounded-xl bg-[#0f172a] text-white font-bold hover:bg-slate-800 transition shadow-lg"
                             onclick="addToCart(this, 'Pro', 44.95)">Get Pro Bundle</button>
-                        <div class="flex items-center justify-center gap-2 text-xs">
+                        <div class="flex items-center justify-center gap-2 text-xs flex-wrap">
                             <span class="trust-badge bg-green-50 text-green-700">
                                 <i data-lucide="shield-check" class="w-3 h-3"></i> Guaranteed
+                            </span>
+                            <span class="trust-badge bg-blue-50 text-blue-700">
+                                <i data-lucide="truck" class="w-3 h-3"></i> Free Shipping
                             </span>
                         </div>
                     </div>
@@ -1984,6 +1991,45 @@
             }
         }
 
+        // Change item shade in cart
+        function changeItemShade(oldId, newShade) {
+            const cart = getCart();
+            const oldItem = cart.find(item => item.id === oldId);
+            
+            if (!oldItem) return;
+            
+            // If shade hasn't changed, do nothing
+            if (oldItem.shade === newShade) return;
+            
+            // Extract product name from old ID (format: "ProductName-shade")
+            const productName = oldId.substring(0, oldId.lastIndexOf('-'));
+            const newId = `${productName}-${newShade}`;
+            
+            // Check if an item with the new shade already exists
+            const existingItemIndex = cart.findIndex(item => item.id === newId);
+            
+            if (existingItemIndex !== -1) {
+                // Merge quantities if item with new shade already exists
+                cart[existingItemIndex].quantity += oldItem.quantity;
+            } else {
+                // Create new item with new shade
+                const newItem = {
+                    ...oldItem,
+                    id: newId,
+                    shade: newShade
+                };
+                cart.push(newItem);
+            }
+            
+            // Remove old item
+            const oldItemIndex = cart.findIndex(item => item.id === oldId);
+            if (oldItemIndex !== -1) {
+                cart.splice(oldItemIndex, 1);
+            }
+            
+            saveCart(cart);
+        }
+
         // Toggle cart drawer
         function toggleCart() {
             const overlay = document.getElementById('cartOverlay');
@@ -2075,15 +2121,28 @@
                         const itemTotal = item.price * item.quantity;
                         total += itemTotal;
 
+                        // Generate shade options for dropdown
+                        const shadeOptions = Object.keys(shadeNames).map(shadeKey => {
+                            const selected = item.shade === shadeKey ? 'selected' : '';
+                            return `<option value="${shadeKey}" ${selected}>${shadeNames[shadeKey]}</option>`;
+                        }).join('');
+
                         html += `
                             <div class="cart-item">
                                 <div class="flex gap-4">
                                     <img src="${item.image}" alt="${item.name}" 
                                         class="w-16 h-16 object-contain rounded-lg bg-slate-50">
                                     <div class="flex-1">
-                                        <h3 class="font-bold text-slate-900 mb-1">${item.name}${item.shade ? ` - ${shadeNames[item.shade] || item.shade}` : ''}</h3>
+                                        <h3 class="font-bold text-slate-900 mb-1">${item.name}</h3>
+                                        <div class="mb-2">
+                                            <label class="text-xs text-slate-500 block mb-1">Shade:</label>
+                                            <select onchange="changeItemShade('${item.id}', this.value)" 
+                                                class="text-sm border border-slate-300 rounded px-2 py-1 focus:border-[#D4A520] focus:outline-none focus:ring-1 focus:ring-[#D4A520]">
+                                                ${shadeOptions}
+                                            </select>
+                                        </div>
                                         <p class="text-sm text-slate-600 mb-2">$${item.price.toFixed(2)}</p>
-                                        <div class="flex items-center gap-3">
+                                        <div class="flex items-center gap-3 flex-wrap">
                                             <div class="flex items-center gap-2 border border-slate-200 rounded-lg">
                                                 <button onclick="updateQuantity('${item.id}', -1)" 
                                                     class="quantity-btn">
@@ -2230,6 +2289,7 @@
         function initShadeSelector() {
             const shadeButtons = document.querySelectorAll('.shade-btn');
             const selectedShadeNameEl = document.getElementById('selectedShadeName');
+            const bundleSelectedShadeEl = document.getElementById('bundleSelectedShade');
 
             shadeButtons.forEach(button => {
                 button.addEventListener('click', function () {
@@ -2247,19 +2307,27 @@
                     // Update selected shade
                     selectedShade = shade;
 
-                    // Update displayed shade name
+                    // Update displayed shade name in product details section
                     if (selectedShadeNameEl) {
                         selectedShadeNameEl.textContent = shadeName;
+                    }
+
+                    // Update displayed shade name in bundle section
+                    if (bundleSelectedShadeEl) {
+                        bundleSelectedShadeEl.textContent = shadeName;
                     }
                 });
             });
 
             // Set initial selected shade name
+            const initialButton = document.querySelector('.shade-btn.selected');
+            const initialShadeName = initialButton ? (initialButton.dataset.shadeName || 'Black') : 'Black';
+            
             if (selectedShadeNameEl) {
-                const initialButton = document.querySelector('.shade-btn.selected');
-                if (initialButton) {
-                    selectedShadeNameEl.textContent = initialButton.dataset.shadeName || 'Black';
-                }
+                selectedShadeNameEl.textContent = initialShadeName;
+            }
+            if (bundleSelectedShadeEl) {
+                bundleSelectedShadeEl.textContent = initialShadeName;
             }
         }
         initShadeSelector();
