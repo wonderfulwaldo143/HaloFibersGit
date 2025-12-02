@@ -93,6 +93,7 @@ try {
         'phone_number_collection' => [
             'enabled' => true,
         ],
+        'allow_promotion_codes' => true, // Enable promotion code field (e.g., WALDO for 99% off)
         'customer_email' => isset($data['email']) ? $data['email'] : null,
         'metadata' => [
             'order_source' => 'HaloFibers Website',
