@@ -6,6 +6,12 @@
  * The customer is then redirected to Stripe's hosted checkout page.
  */
 
+// Clean any output buffers and start fresh
+while (ob_get_level()) {
+    ob_end_clean();
+}
+ob_start();
+
 // Enable error reporting for debugging (disable in production)
 error_reporting(E_ALL);
 ini_set('display_errors', 0); // Don't display errors to user
@@ -26,16 +32,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 // Only allow POST requests
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
-    echo json_encode(['error' => 'Method not allowed. Please use POST.']);
+    echo json_encode(['success' => false, 'error' => 'Method not allowed. Please use POST.']);
     exit();
 }
 
 try {
+    // Check if config file exists
+    $configPath = __DIR__ . '/config.php';
+    if (!file_exists($configPath)) {
+        throw new Exception('Configuration file not found. Please ensure config.php is uploaded to the stripe folder.');
+    }
+    
     // Load Stripe configuration
-    require_once(__DIR__ . '/config.php');
+    require_once($configPath);
+    
+    // Verify constants are defined
+    if (!defined('STRIPE_SECRET_KEY') || !defined('DOMAIN') || !defined('CURRENCY')) {
+        throw new Exception('Configuration incomplete. Please check config.php settings.');
+    }
+    
+    // Check if Stripe PHP library exists
+    $stripePath = __DIR__ . '/stripe-php/init.php';
+    if (!file_exists($stripePath)) {
+        throw new Exception('Stripe PHP library not found. Please ensure stripe-php folder is uploaded.');
+    }
     
     // Load Stripe PHP library
-    require_once(__DIR__ . '/stripe-php/init.php');
+    require_once($stripePath);
     
     // Set Stripe API key
     \Stripe\Stripe::setApiKey(STRIPE_SECRET_KEY);
@@ -44,17 +67,30 @@ try {
     $input = file_get_contents('php://input');
     $data = json_decode($input, true);
     
-    if (!$data || !isset($data['items']) || empty($data['items'])) {
-        throw new Exception('Invalid cart data. Please add items to your cart.');
+    // Detailed validation with better error messages
+    if (!$input) {
+        throw new Exception('No data received. Please ensure cart data is being sent.');
+    }
+    
+    if (!$data) {
+        throw new Exception('Invalid JSON data received. Error: ' . json_last_error_msg());
+    }
+    
+    if (!isset($data['items'])) {
+        throw new Exception('Cart items missing from request.');
+    }
+    
+    if (empty($data['items'])) {
+        throw new Exception('Your cart is empty. Please add items to your cart.');
     }
     
     $cartItems = $data['items'];
     $lineItems = [];
     
     // Build line items for Stripe Checkout
-    foreach ($cartItems as $item) {
+    foreach ($cartItems as $index => $item) {
         if (!isset($item['name']) || !isset($item['price']) || !isset($item['quantity'])) {
-            throw new Exception('Invalid item data.');
+            throw new Exception('Invalid item data at position ' . ($index + 1) . '. Missing name, price, or quantity.');
         }
         
         // Get the shade information if available
@@ -101,6 +137,9 @@ try {
         ],
     ]);
     
+    // Clean output buffer before sending JSON
+    ob_end_clean();
+    
     // Return the checkout session URL
     echo json_encode([
         'success' => true,
@@ -110,6 +149,7 @@ try {
     
 } catch (\Stripe\Exception\ApiErrorException $e) {
     // Stripe API error
+    ob_end_clean();
     http_response_code(500);
     echo json_encode([
         'success' => false,
@@ -117,12 +157,13 @@ try {
     ]);
     
     // Log the error (optional)
-    if (DEBUG_MODE) {
+    if (defined('DEBUG_MODE') && DEBUG_MODE) {
         error_log('Stripe API Error: ' . $e->getMessage());
     }
     
 } catch (Exception $e) {
     // General error
+    ob_end_clean();
     http_response_code(400);
     echo json_encode([
         'success' => false,
@@ -130,8 +171,17 @@ try {
     ]);
     
     // Log the error (optional)
-    if (DEBUG_MODE) {
+    if (defined('DEBUG_MODE') && DEBUG_MODE) {
         error_log('Checkout Error: ' . $e->getMessage());
     }
+} catch (Error $e) {
+    // Fatal errors (PHP 7+)
+    ob_end_clean();
+    http_response_code(500);
+    echo json_encode([
+        'success' => false,
+        'error' => 'System error: ' . $e->getMessage(),
+    ]);
+    
+    error_log('Fatal Error in checkout: ' . $e->getMessage());
 }
-
