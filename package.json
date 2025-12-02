@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@ansonzeng/nano-banana-mcp-server": "^1.2.0"
+  }
+}

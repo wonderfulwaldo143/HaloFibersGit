@@ -4,3 +4,4 @@ stripe/config.php
 
 # Only commit the template
 !stripe/config.php.template
+node_modules
