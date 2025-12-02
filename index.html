@@ -15,7 +15,7 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "name": "Halo Fibers",
-        "image": "https://halofibers.com/images/product-bottle.png",
+        "image": "https://halofibers.com/images/product-bottle-transparent.png",
         "description": "Premium keratin hair building fibers that instantly eliminate the appearance of thinning hair.",
         "brand": {
             "@type": "Brand",
@@ -1050,7 +1050,7 @@
                 <!-- Left: Product Image -->
                 <div
                     class="bg-white p-12 rounded-3xl shadow-xl shadow-slate-100 flex items-center justify-center reveal product-image-container">
-                    <img src="images/product-bottle.png"
+                    <img src="images/product-bottle-transparent.png"
                         alt="Halo Fibers Premium Keratin Hair Building Fibers Product Bottle"
                         class="w-full max-w-sm object-contain drop-shadow-2xl" loading="lazy">
                 </div>
@@ -1540,6 +1540,66 @@
         </div>
     </div>
 
+    <!-- PRIVACY POLICY -->
+    <section id="privacy" class="py-24 bg-white">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-4xl font-serif font-bold text-slate-900 mb-8">Privacy Policy</h2>
+            <div class="prose prose-slate max-w-none">
+                <p class="text-slate-600 leading-relaxed mb-4">
+                    At Halo Fibers, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy outlines how we collect, use, and safeguard your data when you visit our website or purchase our products.
+                </p>
+                <h3 class="text-2xl font-serif font-bold text-slate-900 mt-8 mb-4">Information We Collect</h3>
+                <p class="text-slate-600 leading-relaxed mb-4">
+                    We collect information that you provide directly to us, including your name, email address, shipping address, and payment information when you place an order. We also collect information about your browsing behavior on our website through cookies and similar technologies.
+                </p>
+                <h3 class="text-2xl font-serif font-bold text-slate-900 mt-8 mb-4">How We Use Your Information</h3>
+                <p class="text-slate-600 leading-relaxed mb-4">
+                    We use your information to process and fulfill your orders, communicate with you about your purchases, improve our products and services, and send you promotional materials if you have opted in to receive them. We do not sell your personal information to third parties.
+                </p>
+                <h3 class="text-2xl font-serif font-bold text-slate-900 mt-8 mb-4">Data Security</h3>
+                <p class="text-slate-600 leading-relaxed mb-4">
+                    We implement industry-standard security measures to protect your personal information from unauthorized access, disclosure, or misuse. All payment transactions are processed through secure, encrypted connections.
+                </p>
+                <h3 class="text-2xl font-serif font-bold text-slate-900 mt-8 mb-4">Your Rights</h3>
+                <p class="text-slate-600 leading-relaxed mb-4">
+                    You have the right to access, update, or delete your personal information at any time. If you have any questions or concerns about our privacy practices, please contact us at info@halofibers.com.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TERMS OF SERVICE -->
+    <section id="terms" class="py-24 bg-slate-50">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h2 class="text-4xl font-serif font-bold text-slate-900 mb-8">Terms of Service</h2>
+            <div class="prose prose-slate max-w-none">
+                <p class="text-slate-600 leading-relaxed mb-4">
+                    By accessing and using the Halo Fibers website and purchasing our products, you agree to be bound by these Terms of Service. Please read them carefully before making a purchase.
+                </p>
+                <h3 class="text-2xl font-serif font-bold text-slate-900 mt-8 mb-4">Product Information</h3>
+                <p class="text-slate-600 leading-relaxed mb-4">
+                    We strive to provide accurate descriptions and images of our products. However, we do not warrant that product descriptions, colors, or other content on our website are completely accurate, current, or free from errors.
+                </p>
+                <h3 class="text-2xl font-serif font-bold text-slate-900 mt-8 mb-4">30-Day Money-Back Guarantee</h3>
+                <p class="text-slate-600 leading-relaxed mb-4">
+                    We stand behind the quality of our products with a 30-day money-back guarantee. If you are not completely satisfied with your purchase, you may return it within 30 days of receipt for a full refund. Products must be in their original condition with at least 75% of the product remaining.
+                </p>
+                <h3 class="text-2xl font-serif font-bold text-slate-900 mt-8 mb-4">Shipping and Delivery</h3>
+                <p class="text-slate-600 leading-relaxed mb-4">
+                    We offer free shipping on all U.S. orders over $39. Orders are typically processed within 1-2 business days and delivered within 5-7 business days. International shipping rates and delivery times vary by location.
+                </p>
+                <h3 class="text-2xl font-serif font-bold text-slate-900 mt-8 mb-4">Limitation of Liability</h3>
+                <p class="text-slate-600 leading-relaxed mb-4">
+                    Halo Fibers products are cosmetic products intended for external use only. Individual results may vary. We are not liable for any indirect, incidental, or consequential damages arising from the use of our products.
+                </p>
+                <h3 class="text-2xl font-serif font-bold text-slate-900 mt-8 mb-4">Contact Us</h3>
+                <p class="text-slate-600 leading-relaxed mb-4">
+                    If you have any questions about these Terms of Service, please contact us at info@halofibers.com.
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- FOOTER -->
     <footer class="bg-[#0f172a] text-slate-300 py-16">
         <div class="container mx-auto px-4">
@@ -1659,7 +1719,9 @@
     <!-- JAVASCRIPT -->
     <script>
         // 1. Icons
-        lucide.createIcons();
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
 
         // 1.5. Social Proof Counter
         function updateSocialProof() {
@@ -1864,9 +1926,9 @@
 
         // Product data
         const products = {
-            'Starter': { name: 'Starter Bundle', price: 24.99, image: 'images/product-bottle.png' },
-            'Ultimate': { name: 'Ultimate Bundle', price: 69.95, image: 'images/product-bottle.png' },
-            'Pro': { name: 'Pro Bundle', price: 44.95, image: 'images/product-bottle.png' }
+            'Starter': { name: 'Starter Bundle', price: 24.99, image: 'images/product-bottle-transparent.png' },
+            'Ultimate': { name: 'Ultimate Bundle', price: 69.95, image: 'images/product-bottle-transparent.png' },
+            'Pro': { name: 'Pro Bundle', price: 44.95, image: 'images/product-bottle-transparent.png' }
         };
 
         // Shade names mapping
@@ -1902,11 +1964,15 @@
                 return;
             }
 
-            // Store original text in data attribute if not already stored
+            // Store original text and classes if not already stored
             if (!btn.dataset.originalText) {
                 btn.dataset.originalText = btn.innerText;
             }
+            if (!btn.dataset.originalClasses) {
+                btn.dataset.originalClasses = btn.className;
+            }
             const originalText = btn.dataset.originalText;
+            const originalClasses = btn.dataset.originalClasses;
 
             const cart = getCart();
             const shade = selectedShade || 'black';
@@ -1925,7 +1991,7 @@
                     name: products[name]?.name || name,
                     price: price,
                     quantity: 1,
-                    image: products[name]?.image || 'images/product-bottle.png',
+                    image: products[name]?.image || 'images/product-bottle-transparent.png',
                     shade: shade // Include selected shade
                 });
             }
@@ -1935,17 +2001,11 @@
             // Visual feedback - disable button during feedback period
             btn.disabled = true;
             btn.innerText = "Added! ✓";
-            btn.classList.add("bg-green-600", "text-white");
-            btn.classList.remove("bg-[#0f172a]", "bg-[#D4A520]");
+            btn.className = "bg-green-600 text-white " + originalClasses.replace(/bg-\[#[^\]]+\]/g, '').replace(/bg-\w+-\d+/g, '').replace(/text-\w+-\d+/g, '').trim();
 
             setTimeout(() => {
                 btn.innerText = originalText;
-                btn.classList.remove("bg-green-600", "text-white");
-                if (name === 'Ultimate') {
-                    btn.classList.add("bg-[#D4A520]", "text-slate-900");
-                } else {
-                    btn.classList.add("bg-[#0f172a]", "text-white");
-                }
+                btn.className = originalClasses;
                 btn.disabled = false; // Re-enable button
             }, 2000);
 
