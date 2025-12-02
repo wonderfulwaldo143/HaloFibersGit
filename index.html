@@ -283,6 +283,37 @@
             transform: translateX(0);
         }
 
+        /* Mobile cart adjustments - prevent footer from being hidden */
+        @media (max-width: 768px) {
+            .cart-drawer {
+                max-width: 100%;
+            }
+            
+            #cartItems {
+                max-height: calc(100vh - 260px);
+                /* Account for header (~85px) and footer (~175px) */
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            #cartFooter {
+                flex-shrink: 0;
+                /* Ensure footer stays at bottom and never shrinks */
+            }
+        }
+
+        /* Extra safe area for iOS notch/home indicator */
+        @media (max-width: 768px) and (max-height: 900px) {
+            #cartItems {
+                max-height: calc(100vh - 280px);
+                /* More space for smaller portrait screens */
+            }
+            
+            #cartFooter {
+                padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+            }
+        }
+
         .cart-badge {
             position: absolute;
             top: -6px;
@@ -1709,7 +1740,7 @@
                 <span class="text-lg font-bold text-slate-900">Total:</span>
                 <span id="cartTotal" class="text-2xl font-bold text-[#D4A520]">$0.00</span>
             </div>
-            <button onclick="checkout()"
+            <button id="checkoutBtn" onclick="checkout()"
                 class="w-full bg-[#D4A520] text-slate-900 py-4 rounded-xl font-bold hover:bg-[#E6B830] transition shadow-lg shadow-amber-600/20 btn-shine">
                 Proceed to Checkout
             </button>
