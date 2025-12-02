@@ -1106,31 +1106,34 @@
                         </div>
                         <div class="flex flex-wrap gap-3">
                             <button
-                                class="w-10 h-10 rounded-full bg-black ring-2 ring-offset-2 ring-[#D4A520] shadow-sm shade-btn selected"
+                                class="w-10 h-10 rounded-full bg-[#1A1A1A] ring-2 ring-offset-2 ring-[#D4A520] shadow-sm shade-btn selected"
                                 aria-label="Select Black shade" data-shade="black" data-shade-name="Black"></button>
                             <button
-                                class="w-10 h-10 rounded-full bg-[#4B3621] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
+                                class="w-10 h-10 rounded-full bg-[#2C1810] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
                                 aria-label="Select Dark Brown shade" data-shade="dark-brown"
                                 data-shade-name="Dark Brown"></button>
                             <button
-                                class="w-10 h-10 rounded-full bg-[#6F4E37] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
+                                class="w-10 h-10 rounded-full bg-[#5C3D2E] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
                                 aria-label="Select Medium Brown shade" data-shade="medium-brown"
                                 data-shade-name="Medium Brown"></button>
                             <button
-                                class="w-10 h-10 rounded-full bg-[#A0522D] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
+                                class="w-10 h-10 rounded-full bg-[#8B6914] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
                                 aria-label="Select Light Brown shade" data-shade="light-brown"
                                 data-shade-name="Light Brown"></button>
                             <button
-                                class="w-10 h-10 rounded-full bg-[#CD853F] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
+                                class="w-10 h-10 rounded-full bg-[#8B3A1C] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
                                 aria-label="Select Auburn shade" data-shade="auburn" data-shade-name="Auburn"></button>
                             <button
-                                class="w-10 h-10 rounded-full bg-[#F5DEB3] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
-                                aria-label="Select Blonde shade" data-shade="blonde" data-shade-name="Blonde"></button>
+                                class="w-10 h-10 rounded-full bg-[#C4A77D] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
+                                aria-label="Select Medium Blonde shade" data-shade="medium-blonde" data-shade-name="Medium Blonde"></button>
                             <button
-                                class="w-10 h-10 rounded-full bg-gray-400 hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
+                                class="w-10 h-10 rounded-full bg-[#E8D4A8] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
+                                aria-label="Select Light Blonde shade" data-shade="light-blonde" data-shade-name="Light Blonde"></button>
+                            <button
+                                class="w-10 h-10 rounded-full bg-[#9CA3AF] hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
                                 aria-label="Select Gray shade" data-shade="gray" data-shade-name="Gray"></button>
                             <button
-                                class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
+                                class="w-10 h-10 rounded-full bg-[#F5F5F0] border border-slate-200 hover:ring-2 hover:ring-offset-2 hover:ring-slate-300 transition shade-btn"
                                 aria-label="Select White shade" data-shade="white" data-shade-name="White"></button>
                         </div>
                     </div>
@@ -1938,7 +1941,8 @@
             'medium-brown': 'Medium Brown',
             'light-brown': 'Light Brown',
             'auburn': 'Auburn',
-            'blonde': 'Blonde',
+            'medium-blonde': 'Medium Blonde',
+            'light-blonde': 'Light Blonde',
             'gray': 'Gray',
             'white': 'White'
         };
@@ -1977,7 +1981,7 @@
             const cart = getCart();
             const shade = selectedShade || 'black';
 
-            // Create unique ID that includes shade (e.g., "Starter-black", "Starter-blonde")
+            // Create unique ID that includes shade (e.g., "Starter-black", "Starter-light-blonde")
             const itemId = `${name}-${shade}`;
 
             // Find existing item by id (includes shade)
