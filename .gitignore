@@ -1,24 +1,6 @@
-# macOS
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+# Stripe Configuration (contains sensitive API keys)
+# NEVER commit this file with real API keys!
+stripe/config.php
 
-# Editor directories and files
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# Temporary files
-*.tmp
-*.log
-
-# Backup files
-*.bak
-*~
-
+# Only commit the template
+!stripe/config.php.template

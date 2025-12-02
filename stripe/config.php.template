@@ -1,0 +1,35 @@
+<?php
+/**
+ * Stripe Configuration Template
+ * 
+ * INSTRUCTIONS:
+ * 1. Copy this file to config.php
+ * 2. Replace the placeholder values with your actual Stripe API keys
+ * 3. NEVER commit config.php with real keys to Git!
+ * 
+ * Get your keys from: https://dashboard.stripe.com/apikeys
+ * 
+ * For LIVE mode:
+ * - Secret Key starts with: sk_live_...
+ * - Publishable Key starts with: pk_live_...
+ * 
+ * For TEST mode (recommended for initial testing):
+ * - Secret Key starts with: sk_test_...
+ * - Publishable Key starts with: pk_test_...
+ */
+
+// Stripe Secret Key (used server-side only - NEVER expose to the client)
+define('STRIPE_SECRET_KEY', 'sk_live_YOUR_SECRET_KEY_HERE');
+
+// Stripe Publishable Key (safe to use client-side)
+define('STRIPE_PUBLISHABLE_KEY', 'pk_live_YOUR_PUBLISHABLE_KEY_HERE');
+
+// Your domain (update this to match your actual domain)
+define('DOMAIN', 'https://halofibers.com');
+
+// Currency (USD for US Dollar)
+define('CURRENCY', 'usd');
+
+// Enable/disable debug mode (set to false in production)
+define('DEBUG_MODE', false);
+

@@ -1,0 +1,23 @@
+# Stripe Directory Security Settings
+
+# Deny access to config.php (contains sensitive API keys)
+<Files "config.php">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Allow access to create-checkout.php (needs to be called by the frontend)
+<Files "create-checkout.php">
+    Order allow,deny
+    Allow from all
+</Files>
+
+# Prevent directory listing
+Options -Indexes
+
+# Additional security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "DENY"
+</IfModule>
+

@@ -2253,12 +2253,47 @@
                 return;
             }
 
-            // TODO: Integrate with payment processor (Stripe, PayPal, etc.)
-            alert('Checkout functionality - integrate with your payment processor\n\nTotal: $' +
-                cart.reduce((sum, item) => sum + (item.price * item.quantity), 0).toFixed(2));
+            // Show loading state
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            const originalText = checkoutBtn.innerHTML;
+            checkoutBtn.disabled = true;
+            checkoutBtn.innerHTML = '<i data-lucide="loader" class="w-5 h-5 animate-spin"></i> Processing...';
+            lucide.createIcons();
 
-            // For now, just show an alert
-            // In production, redirect to checkout page or open payment modal
+            // Prepare cart data for Stripe
+            const items = cart.map(item => ({
+                name: item.name,
+                price: item.price,
+                quantity: item.quantity,
+                shade: item.shade || 'Black'
+            }));
+
+            // Send cart data to server to create Stripe Checkout Session
+            fetch('/stripe/create-checkout.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ items: items })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success && data.url) {
+                    // Redirect to Stripe Checkout
+                    window.location.href = data.url;
+                } else {
+                    throw new Error(data.error || 'Failed to create checkout session');
+                }
+            })
+            .catch(error => {
+                console.error('Checkout Error:', error);
+                alert('Unable to proceed to checkout. Please try again.\n\nError: ' + error.message);
+                
+                // Restore button state
+                checkoutBtn.disabled = false;
+                checkoutBtn.innerHTML = originalText;
+                lucide.createIcons();
+            });
         }
 
         // Initialize cart UI on page load
