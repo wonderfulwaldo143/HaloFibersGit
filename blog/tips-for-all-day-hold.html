@@ -18,6 +18,22 @@
     <meta name="description"
         content="Get maximum staying power from your hair fibers with these professional application techniques. Learn how to make Halo Fibers last all day long.">
 
+    <link rel="canonical" href="https://halofibers.com/blog/tips-for-all-day-hold.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="5 Tips to Make Hair Fibers Last All Day | Halo Fibers">
+    <meta property="og:description" content="Get maximum staying power from your hair fibers with these professional application techniques. Learn how to make Halo Fibers last all day long.">
+    <meta property="og:url" content="https://halofibers.com/blog/tips-for-all-day-hold.html">
+    <meta property="og:image" content="https://halofibers.com/blog/images/styling-technique.png">
+    <meta property="og:site_name" content="Halo Fibers">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="5 Tips to Make Hair Fibers Last All Day | Halo Fibers">
+    <meta name="twitter:description" content="Get maximum staying power from your hair fibers with these professional application techniques. Learn how to make Halo Fibers last all day long.">
+    <meta name="twitter:image" content="https://halofibers.com/blog/images/styling-technique.png">
+
     <link rel="icon" type="image/png" href="../images/favicon.png">
     <link rel="apple-touch-icon" href="../images/favicon.png">
 
@@ -54,7 +70,7 @@
     </script>
 
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 
     <!-- Schema.org Markup -->
     <script type="application/ld+json">
@@ -72,7 +88,7 @@
         "name": "Halo Fibers",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://halofibers.com/logo.png"
+          "url": "https://halofibers.com/images/favicon.png"
         }
       },
       "datePublished": "2024-01-15",
@@ -109,9 +125,21 @@
                     class="bg-[#C9A227] text-[#0a0f1a] px-6 py-2.5 rounded-full font-semibold text-sm tracking-wide hover:bg-[#E8C547] transition-colors">
                     Shop Now
                 </a>
+                <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
             </div>
         </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#0a0f1a] border-b border-white/10">
+        <nav class="container mx-auto px-4 py-4 flex flex-col gap-4">
+            <a href="../index.html#offers" class="text-slate-300 hover:text-[#C9A227]">Shop</a>
+            <a href="../index.html#results" class="text-slate-300 hover:text-[#C9A227]">Results</a>
+            <a href="index.html" class="text-[#C9A227]">Blog</a>
+        </nav>
+    </div>
 
     <!-- ARTICLE HERO -->
     <section class="py-16 lg:py-24 bg-gradient-to-b from-[#0a0f1a] to-[#1a2235] text-white relative overflow-hidden">
@@ -176,7 +204,7 @@
                                 Styled Hair</h2>
                         </div>
                     </div>
-                    <img src="images/dry-hair-application.png" alt="Applying hair fibers to dry styled hair"
+                    <img src="images/dry-hair-application.png" alt="Applying Halo hair fibers to completely dry, styled hair for best adhesion"
                         data-image-search="applying hair fibers, hair styling dry hair" class="w-full rounded-2xl mb-6"
                         loading="lazy" width="1024" height="1024" />
                     <div class="prose prose-lg max-w-none">
@@ -591,16 +619,25 @@
                             class="text-slate-400 hover:text-[#C9A227] transition-colors">Results</a>
                         <a href="index.html" class="text-slate-400 hover:text-[#C9A227] transition-colors">Blog</a>
                     </div>
-                    <p class="text-xs text-slate-600">© 2024 Halo Fibers. All rights reserved.</p>
+                    <p class="text-xs text-slate-600">© 2025 Halo Fibers. All rights reserved.</p>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
+        function initIcons() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                setTimeout(initIcons, 50);
+            }
         }
+        initIcons();
+        
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
     </script>
 </body>
 

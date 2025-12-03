@@ -18,8 +18,39 @@
     <meta name="description"
         content="Expert tips on hair fibers, shade matching, and thinning hair solutions. Learn how to get the most natural-looking results with Halo Fibers.">
 
+    <link rel="canonical" href="https://halofibers.com/blog/index.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Hair Care Tips & Guides | Halo Fibers Blog">
+    <meta property="og:description" content="Expert tips on hair fibers, shade matching, and thinning hair solutions. Learn how to get the most natural-looking results with Halo Fibers.">
+    <meta property="og:url" content="https://halofibers.com/blog/index.html">
+    <meta property="og:image" content="https://halofibers.com/blog/images/card-shade-matching.png">
+    <meta property="og:site_name" content="Halo Fibers">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hair Care Tips & Guides | Halo Fibers Blog">
+    <meta name="twitter:description" content="Expert tips on hair fibers, shade matching, and thinning hair solutions. Learn how to get the most natural-looking results with Halo Fibers.">
+    <meta name="twitter:image" content="https://halofibers.com/blog/images/card-shade-matching.png">
+
     <link rel="icon" type="image/png" href="../images/favicon.png">
     <link rel="apple-touch-icon" href="../images/favicon.png">
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Halo Fibers Blog",
+        "description": "Expert tips on hair fibers, shade matching, and thinning hair solutions.",
+        "url": "https://halofibers.com/blog/",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Halo Fibers"
+        }
+    }
+    </script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,7 +85,7 @@
     </script>
 
     <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
 
 <body class="font-sans text-slate-900 antialiased bg-white">
@@ -85,9 +116,21 @@
                     class="bg-[#C9A227] text-[#0a0f1a] px-6 py-2.5 rounded-full font-semibold text-sm tracking-wide hover:bg-[#E8C547] transition-colors">
                     Shop Now
                 </a>
+                <button id="mobile-menu-btn" class="md:hidden text-white p-2">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
             </div>
         </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#0a0f1a] border-b border-white/10">
+        <nav class="container mx-auto px-4 py-4 flex flex-col gap-4">
+            <a href="../index.html#offers" class="text-slate-300 hover:text-[#C9A227]">Shop</a>
+            <a href="../index.html#results" class="text-slate-300 hover:text-[#C9A227]">Results</a>
+            <a href="index.html" class="text-[#C9A227]">Blog</a>
+        </nav>
+    </div>
 
     <!-- HERO -->
     <section class="py-12 lg:py-16 bg-gradient-to-b from-[#0a0f1a] to-[#1a2235] text-white relative overflow-hidden">
@@ -151,7 +194,7 @@
                     class="bg-white rounded-3xl overflow-hidden shadow-lg shadow-[#0a0f1a]/5 border border-[#C9A227]/10 hover:shadow-xl transition-all duration-300 group">
                     <a href="tips-for-all-day-hold.html" class="block">
                         <div class="aspect-video bg-gradient-to-br from-[#C9A227]/20 to-[#0a0f1a]/5 overflow-hidden">
-                            <img src="images/card-styling-tips.png" alt="Hair styling and application technique"
+                            <img src="images/card-styling-tips.png" alt="Professional demonstrating hair fiber application technique"
                                 data-image-search="hair styling, hair application, hair product application"
                                 class="w-full h-full object-cover" loading="lazy" width="1024" height="1024" />
                         </div>
@@ -288,16 +331,25 @@
                             class="text-slate-400 hover:text-[#C9A227] transition-colors">Results</a>
                         <a href="index.html" class="text-slate-400 hover:text-[#C9A227] transition-colors">Blog</a>
                     </div>
-                    <p class="text-xs text-slate-600">© 2024 Halo Fibers. All rights reserved.</p>
+                    <p class="text-xs text-slate-600">© 2025 Halo Fibers. All rights reserved.</p>
                 </div>
             </div>
         </div>
     </footer>
 
     <script>
-        if (typeof lucide !== 'undefined') {
-            lucide.createIcons();
+        function initIcons() {
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            } else {
+                setTimeout(initIcons, 50);
+            }
         }
+        initIcons();
+        
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
     </script>
 </body>
 
