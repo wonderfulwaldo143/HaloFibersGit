@@ -18,6 +18,7 @@
     <meta name="description"
         content="Instantly conceal thinning hair in 30 seconds with Halo Fibers™ premium keratin hair building fibers. Wind-resistant, undetectable, 30-day money-back guarantee.">
     <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
 
     <!-- Structured Data (Schema.org) -->
     <script type="application/ld+json">
@@ -754,7 +755,7 @@
             </nav>
 
             <div class="flex items-center gap-3">
-                <button onclick="toggleCart()"
+                <button onclick="toggleCart()" aria-label="Open cart"
                     class="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 relative group">
                     <i data-lucide="shopping-bag"
                         class="w-4 h-4 text-slate-300 group-hover:text-white transition-colors"></i>
@@ -796,7 +797,7 @@
         <!-- Background Image with Enhanced Overlay -->
         <div class="absolute inset-0">
             <img src="images/hero-bg.jpg" alt="Halo Fibers - Premium hair building fibers for instant thickness"
-                class="w-full h-full object-cover object-center" loading="eager">
+                class="w-full h-full object-cover object-center" loading="eager" width="1024" height="558">
             <!-- Sophisticated gradient overlays -->
             <div class="absolute inset-0 bg-gradient-to-r from-[#0a0f1a] via-[#0a0f1a]/80 to-transparent"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-[#0a0f1a]/60 via-transparent to-[#0a0f1a]/30"></div>
@@ -1305,7 +1306,8 @@
                         id="beforeAfterResults">
                         <!-- After Image (Base) -->
                         <img src="images/after-halo.jpg" class="absolute inset-0 w-full h-full object-cover"
-                            alt="After using Halo Fibers - Thick, full hair result" loading="lazy">
+                            alt="After using Halo Fibers - Thick, full hair result" loading="lazy" width="467"
+                            height="574">
                         <div
                             class="absolute top-5 right-5 bg-[#0a0f1a] text-white text-[10px] font-semibold px-4 py-2 rounded-full uppercase tracking-wider z-10">
                             After</div>
@@ -1313,7 +1315,7 @@
                         <!-- Before Image (Overlay) -->
                         <div class="slider-overlay" style="width: 50%;">
                             <img src="images/before-halo.jpg" alt="Before using Halo Fibers - Thinning hair"
-                                loading="lazy">
+                                class="w-full h-full object-cover" loading="lazy" width="468" height="574">
                             <div
                                 class="absolute top-5 left-5 bg-white text-[#0a0f1a] text-[10px] font-semibold px-4 py-2 rounded-full uppercase tracking-wider z-10 shadow-sm">
                                 Before</div>
@@ -1430,7 +1432,7 @@
                         <img src="images/product-bottle-transparent.png"
                             alt="Halo Fibers Premium Keratin Hair Building Fibers Product Bottle"
                             class="w-full max-w-sm mx-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500"
-                            loading="lazy">
+                            loading="lazy" width="1024" height="1024">
                     </div>
                 </div>
 
@@ -1557,7 +1559,7 @@
                     <!-- Payment Icons -->
                     <img src="images/guaranteed-safe-checkout.png"
                         alt="Guaranteed SAFE Checkout - Norton Secured, Money Back Guarantee, Visa, Mastercard, Amex, PayPal, Discover"
-                        class="h-14 w-auto max-w-full mx-auto">
+                        class="h-14 w-auto max-w-full mx-auto" loading="lazy" width="835" height="184">
                 </div>
             </div>
 
@@ -1566,10 +1568,13 @@
                 <p class="text-sm text-slate-500 mb-4 font-semibold">As Seen In</p>
                 <div
                     class="flex items-center justify-center gap-6 flex-wrap opacity-60 grayscale hover:grayscale-0 transition">
-                    <img src="images/media-forbes.svg" alt="Forbes" class="h-8 w-auto" loading="lazy">
-                    <img src="images/media-gq.svg" alt="GQ" class="h-8 w-auto" loading="lazy">
-                    <img src="images/media-mens-health.svg" alt="Men's Health" class="h-8 w-auto" loading="lazy">
-                    <img src="images/media-allure.svg" alt="Allure" class="h-8 w-auto" loading="lazy">
+                    <img src="images/media-forbes.svg" alt="Forbes" class="h-8 w-auto" loading="lazy" width="120"
+                        height="30">
+                    <img src="images/media-gq.svg" alt="GQ" class="h-8 w-auto" loading="lazy" width="120" height="30">
+                    <img src="images/media-mens-health.svg" alt="Men's Health" class="h-8 w-auto" loading="lazy"
+                        width="120" height="30">
+                    <img src="images/media-allure.svg" alt="Allure" class="h-8 w-auto" loading="lazy" width="120"
+                        height="30">
                 </div>
             </div>
         </div>
@@ -2244,7 +2249,7 @@
         <!-- Cart Header -->
         <div class="flex items-center justify-between p-6 border-b border-[#C9A227]/10 bg-[#FBF8F3]">
             <h2 class="text-2xl font-serif font-medium text-[#0a0f1a]">Shopping Cart</h2>
-            <button onclick="toggleCart()"
+            <button onclick="toggleCart()" aria-label="Close cart"
                 class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/80 border border-[#C9A227]/10 transition-all">
                 <i data-lucide="x" class="w-5 h-5 text-slate-600"></i>
             </button>
@@ -2762,6 +2767,7 @@
                                         <div class="mb-2">
                                             <label class="text-xs text-slate-500 block mb-1">Shade:</label>
                                             <select onchange="changeItemShade('${item.id}', this.value)" 
+                                                aria-label="Select shade for ${item.name}"
                                                 class="text-sm border border-slate-300 rounded px-2 py-1 focus:border-[#D4A520] focus:outline-none focus:ring-1 focus:ring-[#D4A520]">
                                                 ${shadeOptions}
                                             </select>
@@ -2770,11 +2776,13 @@
                                         <div class="flex items-center gap-3 flex-wrap">
                                             <div class="flex items-center gap-2 border border-slate-200 rounded-lg">
                                                 <button onclick="updateQuantity('${item.id}', -1)" 
+                                                    aria-label="Decrease quantity"
                                                     class="quantity-btn">
                                                     <i data-lucide="minus" class="w-4 h-4"></i>
                                                 </button>
                                                 <span class="w-8 text-center font-semibold text-slate-900">${item.quantity}</span>
                                                 <button onclick="updateQuantity('${item.id}', 1)" 
+                                                    aria-label="Increase quantity"
                                                     class="quantity-btn">
                                                     <i data-lucide="plus" class="w-4 h-4"></i>
                                                 </button>
