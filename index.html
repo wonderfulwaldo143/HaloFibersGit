@@ -720,8 +720,8 @@
                 <a href="#results"
                     class="text-slate-400 hover:text-white transition-colors duration-300 tracking-wide">Before &
                     After</a>
-                <a href="#results"
-                    class="text-slate-400 hover:text-white transition-colors duration-300 tracking-wide">Results</a>
+                <a href="#reviews"
+                    class="text-slate-400 hover:text-white transition-colors duration-300 tracking-wide">Reviews</a>
                 <a href="blog/index.html"
                     class="text-slate-400 hover:text-white transition-colors duration-300 tracking-wide">Blog</a>
                 <a href="#how-it-works"
@@ -976,7 +976,7 @@
     </section>
 
     <!-- TRUSTED BY (Warm Cream Background) -->
-    <section class="py-24 bg-[#FBF8F3] relative overflow-hidden gradient-mesh">
+    <section id="reviews" class="py-24 bg-[#FBF8F3] relative overflow-hidden gradient-mesh">
         <!-- Decorative accent -->
         <div
             class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-[#C9A227] to-transparent">
@@ -1478,7 +1478,8 @@
                         <div class="flex items-center justify-between mb-5">
                             <div class="flex items-center gap-3">
                                 <h3 class="font-serif font-medium text-[#0a0f1a] text-lg">Select Your Shade</h3>
-                                <button onclick="openQuiz()" class="text-xs text-slate-400 hover:text-[#C9A227] flex items-center gap-1 transition-colors">
+                                <button onclick="openQuiz()"
+                                    class="text-xs text-slate-400 hover:text-[#C9A227] flex items-center gap-1 transition-colors">
                                     <i data-lucide="help-circle" class="w-3 h-3"></i> Quiz
                                 </button>
                             </div>
@@ -2210,11 +2211,13 @@
 
     <!-- FIND MY SHADE QUIZ MODAL -->
     <div id="quizModal" class="modal-overlay quiz-modal">
-        <div class="modal-content bg-white p-8 rounded-3xl shadow-2xl max-w-md w-full mx-4 relative border border-[#C9A227]/10 transform transition-all scale-100 opacity-100">
-            <button onclick="closeQuiz()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 transition-colors z-10">
+        <div
+            class="modal-content bg-white p-8 rounded-3xl shadow-2xl max-w-md w-full mx-4 relative border border-[#C9A227]/10 transform transition-all scale-100 opacity-100">
+            <button onclick="closeQuiz()"
+                class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 transition-colors z-10">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
-            
+
             <div id="quizContent" class="pt-2">
                 <!-- Dynamic Content -->
             </div>
@@ -2982,7 +2985,7 @@
             const buyNowBtn = document.getElementById('buyNowProductDetails');
             if (buyNowBtn) {
                 // Use Starter bundle as default (you can change this)
-                addToCart(buyNowBtn, 'Starter', 24.99);
+                addToCart(buyNowBtn, 'Starter', 24.95);
             }
         }
 
@@ -3088,7 +3091,7 @@
         // ==========================================
         // FIND MY SHADE QUIZ LOGIC
         // ==========================================
-        
+
         const quizData = {
             step1: {
                 question: "What is your general hair color?",
@@ -3126,7 +3129,7 @@
 
         function openQuiz() {
             const modal = document.getElementById('quizModal');
-            if(modal) {
+            if (modal) {
                 modal.classList.add('active');
                 renderQuizStep('step1');
             }
@@ -3134,7 +3137,7 @@
 
         function closeQuiz() {
             const modal = document.getElementById('quizModal');
-            if(modal) {
+            if (modal) {
                 modal.classList.remove('active');
             }
         }
@@ -3142,8 +3145,8 @@
         function renderQuizStep(stepId) {
             const content = document.getElementById('quizContent');
             const step = quizData[stepId];
-            
-            if(!step) return;
+
+            if (!step) return;
 
             let html = `
                 <h3 class="text-2xl font-serif font-medium text-[#0a0f1a] mb-6 text-center">${step.question}</h3>
@@ -3161,9 +3164,9 @@
             });
 
             html += `</div>`;
-            
+
             // Add back button if not step 1
-             if(stepId !== 'step1') {
+            if (stepId !== 'step1') {
                 html += `
                     <button onclick="renderQuizStep('step1')" class="mt-6 text-sm text-slate-400 hover:text-slate-600 flex items-center gap-1 mx-auto">
                         <i data-lucide="arrow-left" class="w-3 h-3"></i> Back
@@ -3176,7 +3179,7 @@
         }
 
         function handleQuizOption(next, shadeId) {
-            if(next === 'result') {
+            if (next === 'result') {
                 showQuizResult(shadeId);
             } else {
                 renderQuizStep(next);
@@ -3187,13 +3190,13 @@
             const content = document.getElementById('quizContent');
             // Try to find shade name from global object or buttons
             let shadeName = shadeId;
-            if(typeof shadeNames !== 'undefined' && shadeNames[shadeId]) {
+            if (typeof shadeNames !== 'undefined' && shadeNames[shadeId]) {
                 shadeName = shadeNames[shadeId];
             } else {
                 const btn = document.querySelector(`.shade-btn[data-shade="${shadeId}"]`);
-                if(btn) shadeName = btn.dataset.shadeName;
+                if (btn) shadeName = btn.dataset.shadeName;
             }
-            
+
             const html = `
                 <div class="text-center animate-fade-in">
                     <div class="w-24 h-24 rounded-full mx-auto mb-6 shadow-xl ring-4 ring-[#C9A227]/20 bg-slate-100 relative overflow-hidden flex items-center justify-center">
@@ -3212,20 +3215,20 @@
                     </button>
                 </div>
             `;
-            
+
             content.innerHTML = html;
-            
+
             // Helper to set background color of the result circle matching the shade button styles
             setTimeout(() => {
                 const resultCircle = content.querySelector('.result-shade-bg');
                 const shadeBtn = document.querySelector(`.shade-btn[data-shade="${shadeId}"]`);
-                if(shadeBtn && resultCircle) {
-                     // Copy styles
-                     const computedStyle = window.getComputedStyle(shadeBtn);
-                     resultCircle.style.backgroundColor = computedStyle.backgroundColor;
-                     if(shadeBtn.classList.contains('border')) {
-                         resultCircle.style.border = computedStyle.border;
-                     }
+                if (shadeBtn && resultCircle) {
+                    // Copy styles
+                    const computedStyle = window.getComputedStyle(shadeBtn);
+                    resultCircle.style.backgroundColor = computedStyle.backgroundColor;
+                    if (shadeBtn.classList.contains('border')) {
+                        resultCircle.style.border = computedStyle.border;
+                    }
                 }
             }, 0);
         }
@@ -3233,16 +3236,16 @@
         function applyQuizShade(shadeId) {
             // Close modal
             closeQuiz();
-            
+
             // Scroll to shade picker
             const picker = document.getElementById('shade-picker');
-            if(picker) {
+            if (picker) {
                 picker.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                
+
                 // Trigger click on the corresponding shade button after a small delay for scroll
                 setTimeout(() => {
                     const shadeBtn = document.querySelector(`.shade-btn[data-shade="${shadeId}"]`);
-                    if(shadeBtn) {
+                    if (shadeBtn) {
                         shadeBtn.click();
                         // Optional: Add a highlight effect
                         shadeBtn.classList.add('ring-4', 'ring-[#C9A227]');
