@@ -15,25 +15,13 @@
         "@context": "https://schema.org",
         "@type": "Product",
         "name": "Halo Fibers",
-        "image": "https://halofibers.com/images/product-bottle-transparent.png",
-        "description": "Premium keratin hair building fibers that instantly eliminate the appearance of thinning hair.",
+        "image": "https://halofibers.com/images/product-bottle.png",
+        "description": "Premium keratin hair building fibers for instant thickness.",
         "brand": {
             "@type": "Brand",
             "name": "Halo Fibers"
         },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "2847",
-            "bestRating": "5",
-            "worstRating": "1"
-        },
         "offers": {
-            "@type": "AggregateOffer",
-            "offerCount": "3",
-            "lowPrice": "24.99",
-            "highPrice": "69.95",
-            "priceCurrency": "USD"
         }
     }
     </script>
@@ -132,6 +120,7 @@
         .gold-line {
             position: relative;
         }
+
         .gold-line::after {
             content: '';
             position: absolute;
@@ -141,6 +130,7 @@
             height: 2px;
             background: linear-gradient(90deg, #C9A227 0%, transparent 100%);
         }
+
         .gold-line-center::after {
             left: 50%;
             transform: translateX(-50%);
@@ -150,7 +140,7 @@
 
         /* LUXURY CARD STYLE */
         .luxury-card {
-            background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(251,248,243,0.98) 100%);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(251, 248, 243, 0.98) 100%);
             border: 1px solid rgba(201, 162, 39, 0.1);
             box-shadow:
                 0 4px 6px -1px rgba(10, 15, 26, 0.05),
@@ -158,6 +148,7 @@
                 inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
         .luxury-card:hover {
             transform: translateY(-4px);
             box-shadow:
@@ -167,11 +158,25 @@
         }
 
         /* STAGGERED ANIMATION DELAYS */
-        .stagger-1 { animation-delay: 0.1s; }
-        .stagger-2 { animation-delay: 0.2s; }
-        .stagger-3 { animation-delay: 0.3s; }
-        .stagger-4 { animation-delay: 0.4s; }
-        .stagger-5 { animation-delay: 0.5s; }
+        .stagger-1 {
+            animation-delay: 0.1s;
+        }
+
+        .stagger-2 {
+            animation-delay: 0.2s;
+        }
+
+        .stagger-3 {
+            animation-delay: 0.3s;
+        }
+
+        .stagger-4 {
+            animation-delay: 0.4s;
+        }
+
+        .stagger-5 {
+            animation-delay: 0.5s;
+        }
 
         /* CRITICAL CSS ONLY */
         .slider-container {
@@ -252,6 +257,7 @@
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
         .btn-premium-dark::before {
             content: '';
             position: absolute;
@@ -260,9 +266,11 @@
             opacity: 0;
             transition: opacity 0.4s;
         }
+
         .btn-premium-dark:hover::before {
             opacity: 1;
         }
+
         .btn-premium-dark:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 30px -10px rgba(10, 15, 26, 0.5);
@@ -286,6 +294,7 @@
             transform: translateX(-40px);
             transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
         }
+
         .reveal-left.active {
             opacity: 1;
             transform: translateX(0);
@@ -296,6 +305,7 @@
             transform: translateX(40px);
             transition: all 1s cubic-bezier(0.22, 1, 0.36, 1);
         }
+
         .reveal-right.active {
             opacity: 1;
             transform: translateX(0);
@@ -324,6 +334,7 @@
             0% {
                 transform: translateX(0);
             }
+
             100% {
                 transform: translateX(-50%);
             }
@@ -428,14 +439,14 @@
             .cart-drawer {
                 max-width: 100%;
             }
-            
+
             #cartItems {
                 max-height: calc(100vh - 260px);
                 /* Account for header (~85px) and footer (~175px) */
                 overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
             }
-            
+
             #cartFooter {
                 flex-shrink: 0;
                 /* Ensure footer stays at bottom and never shrinks */
@@ -448,7 +459,7 @@
                 max-height: calc(100vh - 280px);
                 /* More space for smaller portrait screens */
             }
-            
+
             #cartFooter {
                 padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
             }
@@ -690,21 +701,32 @@
 <body class="font-sans text-slate-900 antialiased bg-white pb-20 md:pb-0">
 
     <!-- HEADER (Luxury Dark Theme) -->
-    <header class="sticky top-0 z-50 bg-gradient-to-b from-[#0a0f1a] to-[#0d1320] border-b border-white/5 backdrop-blur-md">
+    <header
+        class="sticky top-0 z-50 bg-gradient-to-b from-[#0a0f1a] to-[#0d1320] border-b border-white/5 backdrop-blur-md">
         <div class="container mx-auto px-4 lg:px-8 h-18 flex items-center justify-between py-4">
             <!-- Logo with elegant typography -->
             <a href="#" class="group flex items-center gap-3">
                 <span class="text-2xl font-serif font-medium tracking-[0.15em] text-white uppercase">
                     Halo<span class="text-[#C9A227]">.</span>
                 </span>
-                <span class="hidden sm:block text-[10px] uppercase tracking-[0.2em] text-slate-500 border-l border-slate-700 pl-3">Premium Fibers</span>
+                <span
+                    class="hidden sm:block text-[10px] uppercase tracking-[0.2em] text-slate-500 border-l border-slate-700 pl-3">Premium
+                    Fibers</span>
             </a>
 
             <nav class="hidden md:flex items-center gap-8 text-sm">
-                <a href="#offers" class="text-slate-400 hover:text-white transition-colors duration-300 tracking-wide">Shop</a>
-                <a href="#results" class="text-slate-400 hover:text-white transition-colors duration-300 tracking-wide">Results</a>
-                <a href="blog/index.html" class="text-slate-400 hover:text-white transition-colors duration-300 tracking-wide">Blog</a>
-                <a href="#how-it-works" class="text-slate-400 hover:text-white transition-colors duration-300 tracking-wide">How It Works</a>
+                <a href="#offers"
+                    class="text-slate-400 hover:text-white transition-colors duration-300 tracking-wide">Shop Fibers</a>
+                <a href="#results"
+                    class="text-slate-400 hover:text-white transition-colors duration-300 tracking-wide">Before &
+                    After</a>
+                <a href="#results"
+                    class="text-slate-400 hover:text-white transition-colors duration-300 tracking-wide">Results</a>
+                <a href="blog/index.html"
+                    class="text-slate-400 hover:text-white transition-colors duration-300 tracking-wide">Blog</a>
+                <a href="#how-it-works"
+                    class="text-slate-400 hover:text-white transition-colors duration-300 tracking-wide">How It
+                    Works</a>
                 <span class="flex items-center gap-1.5 text-slate-500">
                     <span class="flex text-[#C9A227]">
                         <i data-lucide="star" class="w-3 h-3 fill-current"></i>
@@ -720,13 +742,14 @@
             <div class="flex items-center gap-3">
                 <button onclick="toggleCart()"
                     class="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 relative group">
-                    <i data-lucide="shopping-bag" class="w-4 h-4 text-slate-300 group-hover:text-white transition-colors"></i>
+                    <i data-lucide="shopping-bag"
+                        class="w-4 h-4 text-slate-300 group-hover:text-white transition-colors"></i>
                     <span id="cartBadge" class="cart-badge hidden md:flex" style="display: none;">0</span>
                     <span id="cartBadgeMobile" class="cart-badge md:hidden" style="display: none;">0</span>
                 </button>
-                <a href="#offers"
+                <a href="#shade-picker"
                     class="bg-[#C9A227] text-[#0a0f1a] px-6 py-2.5 rounded-full font-semibold text-sm tracking-wide btn-shine">
-                    Shop Now
+                    Select Shade
                 </a>
             </div>
         </div>
@@ -736,8 +759,11 @@
     <div class="scroll-progress" id="scrollProgress"></div>
 
     <!-- URGENCY BAR (Refined Gold Gradient) -->
-    <div class="bg-gradient-to-r from-[#C9A227] via-[#E8C547] to-[#C9A227] text-[#0a0f1a] text-xs font-medium py-3 text-center tracking-wider relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22%23000%22 fill-opacity=%220.03%22%3E%3Ccircle cx=%221%22 cy=%221%22 r=%221%22/%3E%3C/g%3E%3C/svg%3E')] opacity-50"></div>
+    <div
+        class="bg-gradient-to-r from-[#C9A227] via-[#E8C547] to-[#C9A227] text-[#0a0f1a] text-xs font-medium py-3 text-center tracking-wider relative overflow-hidden">
+        <div
+            class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2220%22 height=%2220%22 viewBox=%220 0 20 20%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22%23000%22 fill-opacity=%220.03%22%3E%3Ccircle cx=%221%22 cy=%221%22 r=%221%22/%3E%3C/g%3E%3C/svg%3E')] opacity-50">
+        </div>
         <div class="relative z-10 flex items-center justify-center gap-3 flex-wrap">
             <span class="flex items-center gap-2">
                 <i data-lucide="truck" class="w-4 h-4"></i>
@@ -761,18 +787,25 @@
             <div class="absolute inset-0 bg-gradient-to-r from-[#0a0f1a] via-[#0a0f1a]/80 to-transparent"></div>
             <div class="absolute inset-0 bg-gradient-to-t from-[#0a0f1a]/60 via-transparent to-[#0a0f1a]/30"></div>
             <!-- Subtle gold accent glow -->
-            <div class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-[#C9A227]/10 to-transparent pointer-events-none"></div>
+            <div
+                class="absolute bottom-0 left-0 w-1/2 h-1/2 bg-gradient-to-tr from-[#C9A227]/10 to-transparent pointer-events-none">
+            </div>
         </div>
 
         <!-- Decorative Elements -->
-        <div class="absolute top-20 right-10 w-64 h-64 border border-[#C9A227]/10 rounded-full opacity-30 hidden lg:block"></div>
-        <div class="absolute bottom-40 right-20 w-32 h-32 border border-[#C9A227]/5 rounded-full opacity-20 hidden lg:block"></div>
+        <div
+            class="absolute top-20 right-10 w-64 h-64 border border-[#C9A227]/10 rounded-full opacity-30 hidden lg:block">
+        </div>
+        <div
+            class="absolute bottom-40 right-20 w-32 h-32 border border-[#C9A227]/5 rounded-full opacity-20 hidden lg:block">
+        </div>
 
         <!-- Hero Content -->
         <div class="container mx-auto px-4 lg:px-8 relative z-10 h-full flex items-center py-20 lg:py-28">
             <div class="max-w-xl space-y-8">
                 <!-- Refined Badge -->
-                <div class="inline-flex items-center gap-3 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full border border-white/10">
+                <div
+                    class="inline-flex items-center gap-3 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full border border-white/10">
                     <div class="flex text-[#C9A227]">
                         <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
                         <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
@@ -780,7 +813,8 @@
                         <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
                         <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
                     </div>
-                    <span class="text-xs font-medium text-slate-300 tracking-wider uppercase">Dermatologist Recommended</span>
+                    <span class="text-xs font-medium text-slate-300 tracking-wider uppercase">Dermatologist
+                        Recommended</span>
                 </div>
 
                 <!-- Elegant Headline -->
@@ -790,6 +824,10 @@
                     <span class="text-slate-400">in 30 Seconds.</span>
                 </h1>
 
+                <!-- Micro-tagline -->
+                <p class="text-xl md:text-2xl text-[#C9A227] font-medium mt-2 mb-4 font-serif">Hair-Building Fibers for
+                    Thinning Hair.</p>
+
                 <!-- Refined Subtext -->
                 <p class="text-base lg:text-lg text-slate-400 leading-relaxed max-w-md font-light">
                     Premium keratin fibers that seamlessly blend with your natural hair.
@@ -798,9 +836,9 @@
 
                 <!-- CTAs with Enhanced Styling -->
                 <div class="flex flex-col sm:flex-row gap-4 pt-4">
-                    <a href="#shade-picker"
+                    <a href="#product-details"
                         class="inline-flex items-center justify-center bg-[#C9A227] text-[#0a0f1a] px-8 py-4 rounded-full font-semibold text-sm tracking-wide btn-shine shadow-2xl shadow-[#C9A227]/20">
-                        Find Your Perfect Shade
+                        Select Your Shade
                     </a>
                     <a href="#how-it-works"
                         class="inline-flex items-center justify-center gap-2 px-8 py-4 text-white font-medium text-sm bg-white/5 backdrop-blur-sm rounded-full border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group">
@@ -811,15 +849,18 @@
 
                 <!-- Trust Badges Row -->
                 <div class="flex flex-wrap items-center gap-4 pt-4">
-                    <span class="inline-flex items-center gap-2 text-xs text-slate-400 bg-white/5 px-3 py-1.5 rounded-full border border-white/5">
+                    <span
+                        class="inline-flex items-center gap-2 text-xs text-slate-400 bg-white/5 px-3 py-1.5 rounded-full border border-white/5">
                         <i data-lucide="shield-check" class="w-3.5 h-3.5 text-emerald-400"></i>
                         30-Day Guarantee
                     </span>
-                    <span class="inline-flex items-center gap-2 text-xs text-slate-400 bg-white/5 px-3 py-1.5 rounded-full border border-white/5">
+                    <span
+                        class="inline-flex items-center gap-2 text-xs text-slate-400 bg-white/5 px-3 py-1.5 rounded-full border border-white/5">
                         <i data-lucide="truck" class="w-3.5 h-3.5 text-sky-400"></i>
                         Free U.S. Shipping
                     </span>
-                    <span class="inline-flex items-center gap-2 text-xs text-slate-400 bg-white/5 px-3 py-1.5 rounded-full border border-white/5">
+                    <span
+                        class="inline-flex items-center gap-2 text-xs text-slate-400 bg-white/5 px-3 py-1.5 rounded-full border border-white/5">
                         <i data-lucide="leaf" class="w-3.5 h-3.5 text-[#C9A227]"></i>
                         100% Natural
                     </span>
@@ -828,7 +869,8 @@
         </div>
 
         <!-- Bottom Review Bar - Refined -->
-        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0a0f1a] to-[#0a0f1a]/95 backdrop-blur-sm py-5 z-10 border-t border-white/5">
+        <div
+            class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0a0f1a] to-[#0a0f1a]/95 backdrop-blur-sm py-5 z-10 border-t border-white/5">
             <div class="container mx-auto px-4 lg:px-8">
                 <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
                     <div class="flex items-center gap-3">
@@ -842,7 +884,92 @@
                         <span class="text-sm text-white font-medium">4.9/5</span>
                         <span class="text-sm text-slate-500">from 2,847 reviews</span>
                     </div>
-                    <p class="text-sm text-slate-400 italic font-serif">"Instantly transformed my confidence. The natural look is undetectable."</p>
+                    <p class="text-sm text-slate-400 italic font-serif">"Instantly transformed my confidence. The
+                        natural look is undetectable."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHADE SELECTOR SECTION (New) -->
+    <section id="shade-selector-section" class="py-20 bg-white border-b border-slate-100 relative overflow-hidden">
+        <div class="container mx-auto px-4 lg:px-8 text-center relative z-10">
+            <p class="text-xs uppercase tracking-[0.3em] text-[#C9A227] font-medium mb-4">Perfect Match</p>
+            <h2 class="text-3xl lg:text-4xl font-serif font-medium text-[#0a0f1a] mb-8">Select Your Shade</h2>
+
+            <div
+                class="max-w-3xl mx-auto bg-white rounded-[2rem] shadow-xl shadow-[#0a0f1a]/5 border border-[#C9A227]/10 p-8 lg:p-10">
+                <div class="flex flex-wrap justify-center gap-4 mb-10">
+                    <!-- Black -->
+                    <div class="group cursor-pointer">
+                        <div class="w-16 h-16 rounded-full bg-[#1A1A1A] ring-4 ring-transparent group-hover:ring-[#C9A227]/30 transition-all shadow-lg mb-3 mx-auto relative shade-btn selected"
+                            data-shade="black" data-shade-name="Black">
+                            <img src="images/swatch-black.jpg"
+                                class="w-full h-full rounded-full object-cover opacity-0 group-hover:opacity-100 transition-opacity absolute inset-0"
+                                alt="Black Hair">
+                        </div>
+                        <span class="text-sm font-medium text-slate-600 group-hover:text-[#0a0f1a]">Black</span>
+                    </div>
+                    <!-- Dark Brown -->
+                    <div class="group cursor-pointer">
+                        <div class="w-16 h-16 rounded-full bg-[#2C1810] ring-4 ring-transparent group-hover:ring-[#C9A227]/30 transition-all shadow-lg mb-3 mx-auto relative shade-btn"
+                            data-shade="dark-brown" data-shade-name="Dark Brown"></div>
+                        <span class="text-sm font-medium text-slate-600 group-hover:text-[#0a0f1a]">Dark Brown</span>
+                    </div>
+                    <!-- Medium Brown -->
+                    <div class="group cursor-pointer">
+                        <div class="w-16 h-16 rounded-full bg-[#5C3D2E] ring-4 ring-transparent group-hover:ring-[#C9A227]/30 transition-all shadow-lg mb-3 mx-auto relative shade-btn"
+                            data-shade="medium-brown" data-shade-name="Medium Brown"></div>
+                        <span class="text-sm font-medium text-slate-600 group-hover:text-[#0a0f1a]">Med Brown</span>
+                    </div>
+                    <!-- Light Brown -->
+                    <div class="group cursor-pointer">
+                        <div class="w-16 h-16 rounded-full bg-[#8B6914] ring-4 ring-transparent group-hover:ring-[#C9A227]/30 transition-all shadow-lg mb-3 mx-auto relative shade-btn"
+                            data-shade="light-brown" data-shade-name="Light Brown"></div>
+                        <span class="text-sm font-medium text-slate-600 group-hover:text-[#0a0f1a]">Light Brown</span>
+                    </div>
+                    <!-- Auburn -->
+                    <div class="group cursor-pointer">
+                        <div class="w-16 h-16 rounded-full bg-[#8B3A1C] ring-4 ring-transparent group-hover:ring-[#C9A227]/30 transition-all shadow-lg mb-3 mx-auto relative shade-btn"
+                            data-shade="auburn" data-shade-name="Auburn"></div>
+                        <span class="text-sm font-medium text-slate-600 group-hover:text-[#0a0f1a]">Auburn</span>
+                    </div>
+                    <!-- Medium Blonde -->
+                    <div class="group cursor-pointer">
+                        <div class="w-16 h-16 rounded-full bg-[#C4A77D] ring-4 ring-transparent group-hover:ring-[#C9A227]/30 transition-all shadow-lg mb-3 mx-auto relative shade-btn"
+                            data-shade="medium-blonde" data-shade-name="Medium Blonde"></div>
+                        <span class="text-sm font-medium text-slate-600 group-hover:text-[#0a0f1a]">Med Blonde</span>
+                    </div>
+                    <!-- Light Blonde -->
+                    <div class="group cursor-pointer">
+                        <div class="w-16 h-16 rounded-full bg-[#E8D4A8] ring-4 ring-transparent group-hover:ring-[#C9A227]/30 transition-all shadow-lg mb-3 mx-auto relative shade-btn"
+                            data-shade="light-blonde" data-shade-name="Light Blonde"></div>
+                        <span class="text-sm font-medium text-slate-600 group-hover:text-[#0a0f1a]">Light Blonde</span>
+                    </div>
+                    <!-- Gray -->
+                    <div class="group cursor-pointer">
+                        <div class="w-16 h-16 rounded-full bg-[#9CA3AF] ring-4 ring-transparent group-hover:ring-[#C9A227]/30 transition-all shadow-lg mb-3 mx-auto relative shade-btn"
+                            data-shade="gray" data-shade-name="Gray"></div>
+                        <span class="text-sm font-medium text-slate-600 group-hover:text-[#0a0f1a]">Gray</span>
+                    </div>
+                    <!-- White -->
+                    <div class="group cursor-pointer">
+                        <div class="w-16 h-16 rounded-full bg-[#F5F5F0] border border-slate-200 ring-4 ring-transparent group-hover:ring-[#C9A227]/30 transition-all shadow-lg mb-3 mx-auto relative shade-btn"
+                            data-shade="white" data-shade-name="White"></div>
+                        <span class="text-sm font-medium text-slate-600 group-hover:text-[#0a0f1a]">White</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <button onclick="window.location.href='#offers'"
+                        class="bg-[#C9A227] text-[#0a0f1a] px-8 py-3 rounded-full font-semibold text-sm tracking-wide btn-shine shadow-lg shadow-[#C9A227]/20 w-full sm:w-auto">
+                        Shop This Shade
+                    </button>
+                    <button
+                        class="flex items-center gap-2 text-slate-500 hover:text-[#C9A227] transition-colors text-sm font-medium px-6 py-3 rounded-full border border-slate-200 hover:border-[#C9A227]/50 w-full sm:w-auto justify-center">
+                        <i data-lucide="help-circle" class="w-4 h-4"></i>
+                        Find My Shade Quiz
+                    </button>
                 </div>
             </div>
         </div>
@@ -851,7 +978,9 @@
     <!-- TRUSTED BY (Warm Cream Background) -->
     <section class="py-24 bg-[#FBF8F3] relative overflow-hidden gradient-mesh">
         <!-- Decorative accent -->
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-[#C9A227] to-transparent"></div>
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-[#C9A227] to-transparent">
+        </div>
 
         <div class="container mx-auto px-4 lg:px-8 text-center reveal">
             <p class="text-xs uppercase tracking-[0.3em] text-[#C9A227] font-medium mb-4">Customer Love</p>
@@ -872,10 +1001,8 @@
             <!-- Marquee Container -->
             <div class="marquee-container py-4">
                 <div class="marquee-content">
-                    <!-- ORIGINAL SET -->
-                    <!-- Review 1 -->
-                    <div
-                        class="luxury-card p-8 rounded-2xl text-left w-[340px] flex-shrink-0">
+                    <!-- Review 1: Thinning Crown -->
+                    <div class="luxury-card p-8 rounded-2xl text-left w-[340px] flex-shrink-0">
                         <div class="flex text-[#D4A520] mb-4">
                             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -884,100 +1011,23 @@
                             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                         </div>
                         <p class="text-slate-700 mb-4">"I was skeptical at first, but this actually works. My crown
-                            looks
-                            completely full now."</p>
+                            looks completely full now. Nobody suspects a thing."</p>
                         <div class="flex items-center gap-3">
                             <div
                                 class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
                                 JD</div>
                             <div>
                                 <div class="font-bold text-slate-900">James D.</div>
-                                <div class="text-xs text-green-600 flex items-center gap-1">
-                                    <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Review 2 -->
-                    <div
-                        class="luxury-card p-8 rounded-2xl text-left w-[340px] flex-shrink-0">
-                        <div class="flex text-[#D4A520] mb-4">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-slate-700 mb-4">"Best hair fibers I've used. The color match is spot on and it
-                            stays
-                            in all day."</p>
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
-                                MP</div>
-                            <div>
-                                <div class="font-bold text-slate-900">Michael P.</div>
-                                <div class="text-xs text-green-600 flex items-center gap-1">
-                                    <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Review 3 -->
-                    <div
-                        class="luxury-card p-8 rounded-2xl text-left w-[340px] flex-shrink-0">
-                        <div class="flex text-[#D4A520] mb-4">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-slate-700 mb-4">"Gave me my confidence back. Takes 30 seconds in the morning and
-                            I'm
-                            good to go."</p>
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
-                                RK</div>
-                            <div>
-                                <div class="font-bold text-slate-900">Robert K.</div>
-                                <div class="text-xs text-green-600 flex items-center gap-1">
-                                    <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Review 4 -->
-                    <div
-                        class="luxury-card p-8 rounded-2xl text-left w-[340px] flex-shrink-0">
-                        <div class="flex text-[#D4A520] mb-4">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-slate-700 mb-4">"Undetectable even up close. My wife couldn't even tell I had
-                            them
-                            in. Highly recommend."</p>
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
-                                DL</div>
-                            <div>
-                                <div class="font-bold text-slate-900">David L.</div>
-                                <div class="text-xs text-green-600 flex items-center gap-1">
+                                <div class="text-xs text-slate-500">Thinning Crown</div>
+                                <div class="text-xs text-emerald-600 flex items-center gap-1">
                                     <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- DUPLICATE SET FOR INFINITE LOOP -->
-                    <!-- Review 1 Copy -->
-                    <div
-                        class="luxury-card p-8 rounded-2xl text-left w-[340px] flex-shrink-0">
+                    <!-- Review 2: Widening Part -->
+                    <div class="luxury-card p-8 rounded-2xl text-left w-[340px] flex-shrink-0">
                         <div class="flex text-[#D4A520] mb-4">
                             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -985,49 +1035,24 @@
                             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                         </div>
-                        <p class="text-slate-700 mb-4">"I was skeptical at first, but this actually works. My crown
-                            looks
-                            completely full now."</p>
+                        <p class="text-slate-700 mb-4">"My part was getting wider with age. Halo Fibers filled it in
+                            instantly. I feel 10 years younger."</p>
                         <div class="flex items-center gap-3">
                             <div
                                 class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
-                                JD</div>
+                                SR</div>
                             <div>
-                                <div class="font-bold text-slate-900">James D.</div>
-                                <div class="text-xs text-green-600 flex items-center gap-1">
+                                <div class="font-bold text-slate-900">Sarah R.</div>
+                                <div class="text-xs text-slate-500">Widening Part</div>
+                                <div class="text-xs text-emerald-600 flex items-center gap-1">
                                     <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Review 2 Copy -->
-                    <div
-                        class="luxury-card p-8 rounded-2xl text-left w-[340px] flex-shrink-0">
-                        <div class="flex text-[#D4A520] mb-4">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-slate-700 mb-4">"Best hair fibers I've used. The color match is spot on and it
-                            stays
-                            in all day."</p>
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
-                                MP</div>
-                            <div>
-                                <div class="font-bold text-slate-900">Michael P.</div>
-                                <div class="text-xs text-green-600 flex items-center gap-1">
-                                    <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Review 3 Copy -->
-                    <div
-                        class="luxury-card p-8 rounded-2xl text-left w-[340px] flex-shrink-0">
+
+                    <!-- Review 3: Receding Hairline -->
+                    <div class="luxury-card p-8 rounded-2xl text-left w-[340px] flex-shrink-0">
                         <div class="flex text-[#D4A520] mb-4">
                             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -1036,23 +1061,23 @@
                             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                         </div>
                         <p class="text-slate-700 mb-4">"Gave me my confidence back. Takes 30 seconds in the morning and
-                            I'm
-                            good to go."</p>
+                            I'm good to go. Even my barber was impressed."</p>
                         <div class="flex items-center gap-3">
                             <div
                                 class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
                                 RK</div>
                             <div>
                                 <div class="font-bold text-slate-900">Robert K.</div>
-                                <div class="text-xs text-green-600 flex items-center gap-1">
+                                <div class="text-xs text-slate-500">Receding Hairline</div>
+                                <div class="text-xs text-emerald-600 flex items-center gap-1">
                                     <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Review 4 Copy -->
-                    <div
-                        class="luxury-card p-8 rounded-2xl text-left w-[340px] flex-shrink-0">
+
+                    <!-- Review 4: General Thinning -->
+                    <div class="luxury-card p-8 rounded-2xl text-left w-[340px] flex-shrink-0">
                         <div class="flex text-[#D4A520] mb-4">
                             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -1061,15 +1086,115 @@
                             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
                         </div>
                         <p class="text-slate-700 mb-4">"Undetectable even up close. My wife couldn't even tell I had
-                            them
-                            in. Highly recommend."</p>
+                            them in. Highly recommend for anyone thinning."</p>
                         <div class="flex items-center gap-3">
                             <div
                                 class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
                                 DL</div>
                             <div>
                                 <div class="font-bold text-slate-900">David L.</div>
-                                <div class="text-xs text-green-600 flex items-center gap-1">
+                                <div class="text-xs text-slate-500">General Thinning</div>
+                                <div class="text-xs text-emerald-600 flex items-center gap-1">
+                                    <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 5: Alopecia Areata -->
+                    <div class="luxury-card p-8 rounded-2xl text-left w-[340px] flex-shrink-0">
+                        <div class="flex text-[#D4A520] mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-slate-700 mb-4">"I have small spots of alopecia and this covers them perfectly.
+                            It's been a life saver for my self-esteem."</p>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
+                                EM</div>
+                            <div>
+                                <div class="font-bold text-slate-900">Elena M.</div>
+                                <div class="text-xs text-slate-500">Alopecia Spots</div>
+                                <div class="text-xs text-emerald-600 flex items-center gap-1">
+                                    <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 6: Postpartum Shedding -->
+                    <div class="luxury-card p-8 rounded-2xl text-left w-[340px] flex-shrink-0">
+                        <div class="flex text-[#D4A520] mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-slate-700 mb-4">"After my pregnancy, my hair thinned out. Halo Fibers helped me
+                            feel like myself again while it grew back."</p>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
+                                JL</div>
+                            <div>
+                                <div class="font-bold text-slate-900">Jessica L.</div>
+                                <div class="text-xs text-slate-500">Postpartum Hair</div>
+                                <div class="text-xs text-emerald-600 flex items-center gap-1">
+                                    <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 7: Male Pattern Baldness -->
+                    <div class="luxury-card p-8 rounded-2xl text-left w-[340px] flex-shrink-0">
+                        <div class="flex text-[#D4A520] mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-slate-700 mb-4">"I've tried sprays and other powders. This is the only one that
+                            looks real in sunlight. Will buy again."</p>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
+                                TB</div>
+                            <div>
+                                <div class="font-bold text-slate-900">Tom B.</div>
+                                <div class="text-xs text-slate-500">Male Pattern Baldness</div>
+                                <div class="text-xs text-emerald-600 flex items-center gap-1">
+                                    <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Review 8: Thinning Temples -->
+                    <div class="luxury-card p-8 rounded-2xl text-left w-[340px] flex-shrink-0">
+                        <div class="flex text-[#D4A520] mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                        </div>
+                        <p class="text-slate-700 mb-4">"Perfect for touching up my temples. It blends so well with my
+                            salt and pepper hair."</p>
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
+                                MC</div>
+                            <div>
+                                <div class="font-bold text-slate-900">Marcus C.</div>
+                                <div class="text-xs text-slate-500">Thinning Temples</div>
+                                <div class="text-xs text-emerald-600 flex items-center gap-1">
                                     <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
                                 </div>
                             </div>
@@ -1077,6 +1202,26 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Video Testimonial Block -->
+            <div class="container mx-auto px-4 lg:px-8 mt-16 max-w-4xl reveal">
+                <div class="bg-[#0a0f1a] rounded-3xl overflow-hidden shadow-2xl relative group cursor-pointer">
+                    <div
+                        class="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors z-10 flex items-center justify-center">
+                        <div class="bg-[#C9A227]/20 backdrop-blur-md px-6 py-2 rounded-full border border-[#C9A227]/30">
+                            <span class="text-[#C9A227] font-bold tracking-widest uppercase text-sm">Coming Soon</span>
+                        </div>
+                    </div>
+                    <img src="images/video-testimonial-poster.jpg" alt="Real Customer Stories"
+                        class="w-full h-64 md:h-96 object-cover opacity-80" loading="lazy">
+                    <div
+                        class="absolute bottom-0 left-0 right-0 p-8 z-20 bg-gradient-to-t from-black/90 to-transparent">
+                        <h3 class="text-2xl font-serif font-medium text-white mb-2">See Real Transformations</h3>
+                        <p class="text-slate-300">Watch how real people get instant confidence with Halo Fibers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- FEATURES ICONS - REFINED -->
@@ -1084,28 +1229,32 @@
         <div class="container mx-auto px-4 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
                 <div class="text-center group reveal stagger-1">
-                    <div class="w-16 h-16 mx-auto mb-5 bg-gradient-to-br from-[#FBF8F3] to-white rounded-2xl flex items-center justify-center shadow-sm border border-[#C9A227]/10 group-hover:border-[#C9A227]/30 group-hover:shadow-lg transition-all duration-300">
+                    <div
+                        class="w-16 h-16 mx-auto mb-5 bg-gradient-to-br from-[#FBF8F3] to-white rounded-2xl flex items-center justify-center shadow-sm border border-[#C9A227]/10 group-hover:border-[#C9A227]/30 group-hover:shadow-lg transition-all duration-300">
                         <i data-lucide="leaf" class="w-7 h-7 text-[#C9A227]"></i>
                     </div>
                     <h3 class="font-serif font-medium text-[#0a0f1a] text-lg mb-1">100% Natural</h3>
                     <p class="text-sm text-slate-500">Premium keratin protein</p>
                 </div>
                 <div class="text-center group reveal stagger-2">
-                    <div class="w-16 h-16 mx-auto mb-5 bg-gradient-to-br from-[#FBF8F3] to-white rounded-2xl flex items-center justify-center shadow-sm border border-[#C9A227]/10 group-hover:border-[#C9A227]/30 group-hover:shadow-lg transition-all duration-300">
+                    <div
+                        class="w-16 h-16 mx-auto mb-5 bg-gradient-to-br from-[#FBF8F3] to-white rounded-2xl flex items-center justify-center shadow-sm border border-[#C9A227]/10 group-hover:border-[#C9A227]/30 group-hover:shadow-lg transition-all duration-300">
                         <i data-lucide="shield-check" class="w-7 h-7 text-[#C9A227]"></i>
                     </div>
                     <h3 class="font-serif font-medium text-[#0a0f1a] text-lg mb-1">30-Day Guarantee</h3>
                     <p class="text-sm text-slate-500">Risk-free purchase</p>
                 </div>
                 <div class="text-center group reveal stagger-3">
-                    <div class="w-16 h-16 mx-auto mb-5 bg-gradient-to-br from-[#FBF8F3] to-white rounded-2xl flex items-center justify-center shadow-sm border border-[#C9A227]/10 group-hover:border-[#C9A227]/30 group-hover:shadow-lg transition-all duration-300">
+                    <div
+                        class="w-16 h-16 mx-auto mb-5 bg-gradient-to-br from-[#FBF8F3] to-white rounded-2xl flex items-center justify-center shadow-sm border border-[#C9A227]/10 group-hover:border-[#C9A227]/30 group-hover:shadow-lg transition-all duration-300">
                         <i data-lucide="award" class="w-7 h-7 text-[#C9A227]"></i>
                     </div>
                     <h3 class="font-serif font-medium text-[#0a0f1a] text-lg mb-1">Clinically Tested</h3>
                     <p class="text-sm text-slate-500">Safe for all hair types</p>
                 </div>
                 <div class="text-center group reveal stagger-4">
-                    <div class="w-16 h-16 mx-auto mb-5 bg-gradient-to-br from-[#FBF8F3] to-white rounded-2xl flex items-center justify-center shadow-sm border border-[#C9A227]/10 group-hover:border-[#C9A227]/30 group-hover:shadow-lg transition-all duration-300">
+                    <div
+                        class="w-16 h-16 mx-auto mb-5 bg-gradient-to-br from-[#FBF8F3] to-white rounded-2xl flex items-center justify-center shadow-sm border border-[#C9A227]/10 group-hover:border-[#C9A227]/30 group-hover:shadow-lg transition-all duration-300">
                         <i data-lucide="star" class="w-7 h-7 text-[#C9A227] fill-current"></i>
                     </div>
                     <h3 class="font-serif font-medium text-[#0a0f1a] text-lg mb-1">4.9 Star Rating</h3>
@@ -1118,7 +1267,9 @@
     <!-- REAL RESULTS (Elegant Split Layout) -->
     <section id="results" class="py-28 bg-white relative overflow-hidden">
         <!-- Decorative background elements -->
-        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#FBF8F3]/50 to-transparent pointer-events-none"></div>
+        <div
+            class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#FBF8F3]/50 to-transparent pointer-events-none">
+        </div>
 
         <div class="container mx-auto px-4 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -1136,7 +1287,8 @@
 
                     <div class="grid grid-cols-2 gap-8 mb-10">
                         <div class="p-6 bg-[#FBF8F3] rounded-2xl border border-[#C9A227]/10">
-                            <div class="text-4xl font-serif font-medium text-[#C9A227] mb-2 count-up" data-target="98">0</div>
+                            <div class="text-4xl font-serif font-medium text-[#C9A227] mb-2 count-up" data-target="98">0
+                            </div>
                             <div class="text-sm text-slate-600">Users saw instantly thicker looking hair</div>
                         </div>
                         <div class="p-6 bg-[#FBF8F3] rounded-2xl border border-[#C9A227]/10">
@@ -1145,7 +1297,8 @@
                         </div>
                     </div>
 
-                    <a href="#offers" class="inline-flex items-center gap-2 text-[#C9A227] font-medium hover:gap-3 transition-all duration-300 group">
+                    <a href="#offers"
+                        class="inline-flex items-center gap-2 text-[#C9A227] font-medium hover:gap-3 transition-all duration-300 group">
                         <span>See Our Bundles</span>
                         <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
                     </a>
@@ -1158,20 +1311,24 @@
                         <!-- After Image (Base) -->
                         <img src="images/after-halo.jpg" class="absolute inset-0 w-full h-full object-cover"
                             alt="After using Halo Fibers - Thick, full hair result" loading="lazy">
-                        <div class="absolute top-5 right-5 bg-[#0a0f1a] text-white text-[10px] font-semibold px-4 py-2 rounded-full uppercase tracking-wider z-10">
+                        <div
+                            class="absolute top-5 right-5 bg-[#0a0f1a] text-white text-[10px] font-semibold px-4 py-2 rounded-full uppercase tracking-wider z-10">
                             After</div>
 
                         <!-- Before Image (Overlay) -->
                         <div class="slider-overlay" style="width: 50%;">
-                            <img src="images/before-halo.jpg" alt="Before using Halo Fibers - Thinning hair" loading="lazy">
-                            <div class="absolute top-5 left-5 bg-white text-[#0a0f1a] text-[10px] font-semibold px-4 py-2 rounded-full uppercase tracking-wider z-10 shadow-sm">
+                            <img src="images/before-halo.jpg" alt="Before using Halo Fibers - Thinning hair"
+                                loading="lazy">
+                            <div
+                                class="absolute top-5 left-5 bg-white text-[#0a0f1a] text-[10px] font-semibold px-4 py-2 rounded-full uppercase tracking-wider z-10 shadow-sm">
                                 Before</div>
                         </div>
 
                         <!-- Slider Handle - Refined -->
                         <div class="slider-handle absolute top-0 bottom-0 w-0.5 bg-white/80 cursor-ew-resize shadow-lg flex items-center justify-center z-20"
                             style="left: 50%;">
-                            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-xl text-[#0a0f1a] border border-[#C9A227]/20">
+                            <div
+                                class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-xl text-[#0a0f1a] border border-[#C9A227]/20">
                                 <i data-lucide="move-horizontal" class="w-5 h-5"></i>
                             </div>
                         </div>
@@ -1185,75 +1342,110 @@
     <section id="how-it-works" class="py-28 bg-[#0a0f1a] relative overflow-hidden noise-overlay">
         <!-- Decorative elements -->
         <div class="absolute inset-0 bg-gradient-to-b from-[#0a0f1a] via-[#0d1320] to-[#0a0f1a]"></div>
-        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-[#C9A227]/30 to-transparent"></div>
+        <div
+            class="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-gradient-to-b from-transparent via-[#C9A227]/30 to-transparent">
+        </div>
 
         <div class="container mx-auto px-4 lg:px-8 relative z-10">
             <div class="text-center max-w-2xl mx-auto mb-20 reveal">
                 <p class="text-xs uppercase tracking-[0.3em] text-[#C9A227] font-medium mb-4">Simple Process</p>
                 <h2 class="text-4xl lg:text-5xl font-serif font-medium text-white mb-6">How It Works</h2>
-                <p class="text-slate-400 text-lg font-light">Three simple steps to thicker, fuller looking hair in under 30 seconds.</p>
+                <p class="text-slate-400 text-lg font-light">Three simple steps to thicker, fuller looking hair in under
+                    30 seconds.</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8 lg:gap-12 max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-8 lg:gap-12 max-w-5xl mx-auto mb-16">
                 <!-- Step 1 -->
                 <div class="text-center reveal stagger-1 group">
                     <div class="relative mb-8">
-                        <div class="w-24 h-24 mx-auto bg-gradient-to-br from-[#C9A227] to-[#E8C547] rounded-3xl flex items-center justify-center shadow-xl shadow-[#C9A227]/20 group-hover:scale-105 transition-transform duration-500">
+                        <div
+                            class="w-24 h-24 mx-auto bg-gradient-to-br from-[#C9A227] to-[#E8C547] rounded-3xl flex items-center justify-center shadow-xl shadow-[#C9A227]/20 group-hover:scale-105 transition-transform duration-500">
                             <span class="text-4xl font-serif font-medium text-[#0a0f1a]">1</span>
                         </div>
-                        <div class="hidden md:block absolute top-1/2 left-full w-full h-px bg-gradient-to-r from-[#C9A227]/30 to-transparent -translate-y-1/2 ml-4"></div>
+                        <div
+                            class="hidden md:block absolute top-1/2 left-full w-full h-px bg-gradient-to-r from-[#C9A227]/30 to-transparent -translate-y-1/2 ml-4">
+                        </div>
                     </div>
                     <h3 class="text-2xl font-serif font-medium text-white mb-4">Shake</h3>
-                    <p class="text-slate-400 leading-relaxed">Shake Halo Fibers liberally into thinning areas on dry, styled hair.</p>
+                    <p class="text-slate-400 leading-relaxed">Shake Halo Fibers liberally into thinning areas on dry,
+                        styled hair.</p>
                 </div>
 
                 <!-- Step 2 -->
                 <div class="text-center reveal stagger-2 group">
                     <div class="relative mb-8">
-                        <div class="w-24 h-24 mx-auto bg-gradient-to-br from-[#C9A227] to-[#E8C547] rounded-3xl flex items-center justify-center shadow-xl shadow-[#C9A227]/20 group-hover:scale-105 transition-transform duration-500">
+                        <div
+                            class="w-24 h-24 mx-auto bg-gradient-to-br from-[#C9A227] to-[#E8C547] rounded-3xl flex items-center justify-center shadow-xl shadow-[#C9A227]/20 group-hover:scale-105 transition-transform duration-500">
                             <span class="text-4xl font-serif font-medium text-[#0a0f1a]">2</span>
                         </div>
-                        <div class="hidden md:block absolute top-1/2 left-full w-full h-px bg-gradient-to-r from-[#C9A227]/30 to-transparent -translate-y-1/2 ml-4"></div>
+                        <div
+                            class="hidden md:block absolute top-1/2 left-full w-full h-px bg-gradient-to-r from-[#C9A227]/30 to-transparent -translate-y-1/2 ml-4">
+                        </div>
                     </div>
                     <h3 class="text-2xl font-serif font-medium text-white mb-4">Blend</h3>
-                    <p class="text-slate-400 leading-relaxed">Gently pat hair to disperse fibers. The static charge bonds them instantly.</p>
+                    <p class="text-slate-400 leading-relaxed">Gently pat hair to disperse fibers. The static charge
+                        bonds them instantly.</p>
                 </div>
 
                 <!-- Step 3 -->
                 <div class="text-center reveal stagger-3 group">
                     <div class="relative mb-8">
-                        <div class="w-24 h-24 mx-auto bg-gradient-to-br from-[#C9A227] to-[#E8C547] rounded-3xl flex items-center justify-center shadow-xl shadow-[#C9A227]/20 group-hover:scale-105 transition-transform duration-500">
+                        <div
+                            class="w-24 h-24 mx-auto bg-gradient-to-br from-[#C9A227] to-[#E8C547] rounded-3xl flex items-center justify-center shadow-xl shadow-[#C9A227]/20 group-hover:scale-105 transition-transform duration-500">
                             <span class="text-4xl font-serif font-medium text-[#0a0f1a]">3</span>
                         </div>
                     </div>
                     <h3 class="text-2xl font-serif font-medium text-white mb-4">Lock</h3>
-                    <p class="text-slate-400 leading-relaxed">Finish with Halo FiberHold Spray for a bond that lasts all day and night.</p>
+                    <p class="text-slate-400 leading-relaxed">Finish with Halo FiberHold Spray for a bond that lasts all
+                        day and night.</p>
+                </div>
+            </div>
+
+            <!-- Demo Video Placeholder -->
+            <div class="max-w-4xl mx-auto reveal">
+                <div class="bg-white/5 border border-white/10 rounded-3xl p-2">
+                    <div
+                        class="aspect-video bg-[#0a0f1a] rounded-2xl flex items-center justify-center relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-gradient-to-br from-[#C9A227]/20 to-transparent opacity-50">
+                        </div>
+                        <div class="text-center relative z-10">
+                            <div
+                                class="inline-block bg-[#C9A227]/20 text-[#C9A227] px-6 py-2 rounded-full border border-[#C9A227]/30 backdrop-blur-md mb-4">
+                                <span class="text-sm font-semibold tracking-wider uppercase">Coming Soon</span>
+                            </div>
+                            <p class="text-slate-300 font-medium">Video Demonstration Arriving Shortly</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- PRODUCT DETAILS - REFINED -->
-    <section class="py-28 bg-[#FBF8F3] relative overflow-hidden gradient-mesh">
+    <section id="product-details" class="py-28 bg-[#FBF8F3] relative overflow-hidden gradient-mesh">
         <div class="container mx-auto px-4 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
                 <!-- Left: Product Image -->
                 <div class="reveal-left">
-                    <div class="relative bg-gradient-to-br from-white to-[#FBF8F3] p-12 lg:p-16 rounded-[2rem] shadow-2xl shadow-[#0a0f1a]/5 border border-white/80 product-image-container">
+                    <div
+                        class="relative bg-gradient-to-br from-white to-[#FBF8F3] p-12 lg:p-16 rounded-[2rem] shadow-2xl shadow-[#0a0f1a]/5 border border-white/80 product-image-container">
                         <!-- Decorative circles -->
                         <div class="absolute top-8 right-8 w-20 h-20 border border-[#C9A227]/10 rounded-full"></div>
                         <div class="absolute bottom-12 left-8 w-12 h-12 border border-[#C9A227]/10 rounded-full"></div>
                         <img src="images/product-bottle-transparent.png"
                             alt="Halo Fibers Premium Keratin Hair Building Fibers Product Bottle"
-                            class="w-full max-w-sm mx-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500" loading="lazy">
+                            class="w-full max-w-sm mx-auto object-contain drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+                            loading="lazy">
                     </div>
                 </div>
 
                 <!-- Right: Details -->
                 <div class="space-y-8 reveal-right">
                     <div>
-                        <p class="text-xs uppercase tracking-[0.3em] text-[#C9A227] font-medium mb-4">Premium Quality</p>
-                        <h2 class="text-4xl lg:text-5xl font-serif font-medium text-[#0a0f1a] mb-6 leading-tight gold-line">
+                        <p class="text-xs uppercase tracking-[0.3em] text-[#C9A227] font-medium mb-4">Premium Quality
+                        </p>
+                        <h2
+                            class="text-4xl lg:text-5xl font-serif font-medium text-[#0a0f1a] mb-6 leading-tight gold-line">
                             Premium Keratin.<br>
                             <span class="text-[#C9A227] italic font-normal">Scientifically Formulated.</span>
                         </h2>
@@ -1265,26 +1457,34 @@
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="flex items-start gap-4 p-4 bg-white/60 rounded-xl border border-[#C9A227]/10 hover:border-[#C9A227]/30 transition-colors">
-                            <div class="w-8 h-8 rounded-lg bg-[#C9A227]/10 flex items-center justify-center flex-shrink-0">
+                        <div
+                            class="flex items-start gap-4 p-4 bg-white/60 rounded-xl border border-[#C9A227]/10 hover:border-[#C9A227]/30 transition-colors">
+                            <div
+                                class="w-8 h-8 rounded-lg bg-[#C9A227]/10 flex items-center justify-center flex-shrink-0">
                                 <i data-lucide="check" class="w-4 h-4 text-[#C9A227]"></i>
                             </div>
                             <span class="text-sm text-[#0a0f1a] font-medium">Instantly conceals thinning areas</span>
                         </div>
-                        <div class="flex items-start gap-4 p-4 bg-white/60 rounded-xl border border-[#C9A227]/10 hover:border-[#C9A227]/30 transition-colors">
-                            <div class="w-8 h-8 rounded-lg bg-[#C9A227]/10 flex items-center justify-center flex-shrink-0">
+                        <div
+                            class="flex items-start gap-4 p-4 bg-white/60 rounded-xl border border-[#C9A227]/10 hover:border-[#C9A227]/30 transition-colors">
+                            <div
+                                class="w-8 h-8 rounded-lg bg-[#C9A227]/10 flex items-center justify-center flex-shrink-0">
                                 <i data-lucide="check" class="w-4 h-4 text-[#C9A227]"></i>
                             </div>
                             <span class="text-sm text-[#0a0f1a] font-medium">Resists wind, rain, and perspiration</span>
                         </div>
-                        <div class="flex items-start gap-4 p-4 bg-white/60 rounded-xl border border-[#C9A227]/10 hover:border-[#C9A227]/30 transition-colors">
-                            <div class="w-8 h-8 rounded-lg bg-[#C9A227]/10 flex items-center justify-center flex-shrink-0">
+                        <div
+                            class="flex items-start gap-4 p-4 bg-white/60 rounded-xl border border-[#C9A227]/10 hover:border-[#C9A227]/30 transition-colors">
+                            <div
+                                class="w-8 h-8 rounded-lg bg-[#C9A227]/10 flex items-center justify-center flex-shrink-0">
                                 <i data-lucide="check" class="w-4 h-4 text-[#C9A227]"></i>
                             </div>
                             <span class="text-sm text-[#0a0f1a] font-medium">Available in 9 natural shades</span>
                         </div>
-                        <div class="flex items-start gap-4 p-4 bg-white/60 rounded-xl border border-[#C9A227]/10 hover:border-[#C9A227]/30 transition-colors">
-                            <div class="w-8 h-8 rounded-lg bg-[#C9A227]/10 flex items-center justify-center flex-shrink-0">
+                        <div
+                            class="flex items-start gap-4 p-4 bg-white/60 rounded-xl border border-[#C9A227]/10 hover:border-[#C9A227]/30 transition-colors">
+                            <div
+                                class="w-8 h-8 rounded-lg bg-[#C9A227]/10 flex items-center justify-center flex-shrink-0">
                                 <i data-lucide="check" class="w-4 h-4 text-[#C9A227]"></i>
                             </div>
                             <span class="text-sm text-[#0a0f1a] font-medium">Washes out easily with shampoo</span>
@@ -1292,7 +1492,8 @@
                     </div>
 
                     <!-- Shade Selector - Refined -->
-                    <div id="shade-picker" class="bg-white p-6 rounded-2xl border border-[#C9A227]/10 shadow-lg shadow-[#0a0f1a]/5">
+                    <div id="shade-picker"
+                        class="bg-white p-6 rounded-2xl border border-[#C9A227]/10 shadow-lg shadow-[#0a0f1a]/5">
                         <div class="flex items-center justify-between mb-5">
                             <h3 class="font-serif font-medium text-[#0a0f1a] text-lg">Select Your Shade</h3>
                             <span id="selectedShadeName" class="text-sm font-semibold text-[#C9A227]"></span>
@@ -1318,10 +1519,12 @@
                                 aria-label="Select Auburn shade" data-shade="auburn" data-shade-name="Auburn"></button>
                             <button
                                 class="w-11 h-11 rounded-full bg-[#C4A77D] hover:ring-2 hover:ring-offset-2 hover:ring-[#C9A227]/50 hover:scale-110 transition-all shade-btn shadow-md"
-                                aria-label="Select Medium Blonde shade" data-shade="medium-blonde" data-shade-name="Medium Blonde"></button>
+                                aria-label="Select Medium Blonde shade" data-shade="medium-blonde"
+                                data-shade-name="Medium Blonde"></button>
                             <button
                                 class="w-11 h-11 rounded-full bg-[#E8D4A8] hover:ring-2 hover:ring-offset-2 hover:ring-[#C9A227]/50 hover:scale-110 transition-all shade-btn shadow-md"
-                                aria-label="Select Light Blonde shade" data-shade="light-blonde" data-shade-name="Light Blonde"></button>
+                                aria-label="Select Light Blonde shade" data-shade="light-blonde"
+                                data-shade-name="Light Blonde"></button>
                             <button
                                 class="w-11 h-11 rounded-full bg-[#9CA3AF] hover:ring-2 hover:ring-offset-2 hover:ring-[#C9A227]/50 hover:scale-110 transition-all shade-btn shadow-md"
                                 aria-label="Select Gray shade" data-shade="gray" data-shade-name="Gray"></button>
@@ -1336,6 +1539,7 @@
                             class="inline-block bg-[#C9A227] text-[#0a0f1a] px-8 py-4 rounded-full font-semibold tracking-wide btn-shine shadow-xl shadow-[#C9A227]/20">
                             Buy Now
                         </button>
+
                         <div class="flex items-center justify-center gap-2 flex-wrap">
                             <span class="trust-badge">
                                 <i data-lucide="shield-check" class="w-3 h-3"></i> 30-Day Money Back
@@ -1410,37 +1614,45 @@
 
                     <!-- Halo Fibers -->
                     <div
-                        class="bg-[#D4A520] rounded-2xl p-8 border-2 border-[#D4A520] relative transform md:-translate-y-4 reveal">
+                        class="bg-[#0a0f1a] rounded-2xl p-8 border-2 border-[#C9A227] relative transform md:-translate-y-4 reveal shadow-2xl shadow-[#C9A227]/10">
                         <div
-                            class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white text-slate-900 px-6 py-1.5 rounded-full text-sm font-bold shadow-lg">
-                            Premium Quality
+                            class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#C9A227] text-[#0a0f1a] px-6 py-1.5 rounded-full text-sm font-bold shadow-lg">
+                            Premium Choice
                         </div>
 
                         <div class="text-center mb-8 mt-2">
                             <h3 class="text-2xl font-serif font-bold text-white mb-2">Halo Fibers</h3>
-                            <p class="text-slate-900 text-sm font-medium">Premium Keratin</p>
+                            <p class="text-[#C9A227] text-sm font-medium">Premium Keratin Protein</p>
                         </div>
 
                         <div class="space-y-6">
-                            <div>
-                                <h4 class="font-bold text-white mb-2">Look</h4>
-                                <p class="text-slate-900 text-sm font-medium">Reflects light exactly like human hair
-                                    (Invisible).</p>
+                            <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                                <span class="font-medium text-slate-300">Look</span>
+                                <div class="flex items-center gap-2 text-white font-medium">
+                                    <span>Undetectable</span>
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-[#C9A227] fill-current"></i>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="font-bold text-white mb-2">Hold</h4>
-                                <p class="text-slate-900 text-sm font-medium">300% Stronger "Magnetized" Static Charge.
-                                </p>
+                            <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                                <span class="font-medium text-slate-300">Static Charge</span>
+                                <div class="flex items-center gap-2 text-white font-medium">
+                                    <span>300% Stronger</span>
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-[#C9A227] fill-current"></i>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="font-bold text-white mb-2">Feel</h4>
-                                <p class="text-slate-900 text-sm font-medium">Zero irritation, lightweight, breathable.
-                                </p>
+                            <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                                <span class="font-medium text-slate-300">Feel</span>
+                                <div class="flex items-center gap-2 text-white font-medium">
+                                    <span>Lightweight</span>
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-[#C9A227] fill-current"></i>
+                                </div>
                             </div>
-                            <div>
-                                <h4 class="font-bold text-white mb-2">Resistance</h4>
-                                <p class="text-slate-900 text-sm font-medium">Locks in through wind, rain, and gym
-                                    sessions.</p>
+                            <div class="flex items-center justify-between">
+                                <span class="font-medium text-slate-300">Resistance</span>
+                                <div class="flex items-center gap-2 text-white font-medium">
+                                    <span>Wind & Rain Proof</span>
+                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-[#C9A227] fill-current"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1452,38 +1664,96 @@
     <!-- OFFERS SECTION - REFINED -->
     <section id="offers" class="py-28 bg-white relative overflow-hidden">
         <!-- Decorative background -->
-        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%23C9A227%22 fill-opacity=%220.02%22%3E%3Cpath d=%22M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]"></div>
+        <div
+            class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%23C9A227%22 fill-opacity=%220.02%22%3E%3Cpath d=%22M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')]">
+        </div>
 
         <div class="container mx-auto px-4 lg:px-8 relative z-10">
-            <div class="text-center max-w-2xl mx-auto mb-20 reveal">
-                <div class="inline-block bg-gradient-to-r from-[#C9A227] to-[#E8C547] text-[#0a0f1a] px-6 py-2 rounded-full text-xs font-semibold tracking-wider uppercase mb-6">
-                    Save Up To 33%
+            <div class="text-center max-w-2xl mx-auto mb-12 reveal">
+                <div
+                    class="inline-block bg-gradient-to-r from-[#C9A227] to-[#E8C547] text-[#0a0f1a] px-6 py-2 rounded-full text-xs font-semibold tracking-wider uppercase mb-6">
+                    Save Up To 39%
                 </div>
                 <h2 class="text-4xl lg:text-5xl font-serif font-medium text-[#0a0f1a] mb-6">Bundle & Save</h2>
-                <p class="text-slate-600 text-lg font-light">Get more value with our carefully curated bundles. Customers save an average of $25 per order.</p>
-                <div class="mt-8 inline-flex items-center gap-3 bg-[#FBF8F3] border border-[#C9A227]/20 px-5 py-3 rounded-full">
+                <p class="text-slate-600 text-lg font-light">Get more value with our carefully curated bundles.
+                    Customers save an average of $25 per order.</p>
+                <div
+                    class="mt-8 inline-flex items-center gap-3 bg-[#FBF8F3] border border-[#C9A227]/20 px-5 py-3 rounded-full">
                     <i data-lucide="palette" class="w-4 h-4 text-[#C9A227]"></i>
-                    <span class="text-sm text-[#0a0f1a]">All bundles in <strong id="bundleSelectedShade" class="text-[#C9A227]">Black</strong> shade</span>
+                    <span class="text-sm text-[#0a0f1a]">All bundles in <strong id="bundleSelectedShade"
+                            class="text-[#C9A227]">Black</strong> shade</span>
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto items-stretch">
+            <!-- COMPARISON TABLE -->
+            <div class="max-w-4xl mx-auto mb-24 overflow-x-auto reveal">
+                <table class="w-full text-left border-collapse min-w-[600px]">
+                    <thead>
+                        <tr class="border-b border-slate-200">
+                            <th class="py-4 px-4 font-serif text-slate-900">Features</th>
+                            <th class="py-4 px-4 text-center font-serif text-slate-500">Starter</th>
+                            <th class="py-4 px-4 text-center font-serif text-slate-500">Pro</th>
+                            <th
+                                class="py-4 px-4 text-center font-serif text-[#C9A227] font-bold bg-[#FBF8F3] rounded-t-xl">
+                                Ultimate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-slate-100">
+                            <td class="py-4 px-4 text-slate-600 font-medium">Supply</td>
+                            <td class="py-4 px-4 text-center text-slate-600">1 Month</td>
+                            <td class="py-4 px-4 text-center text-slate-600">2 Months</td>
+                            <td class="py-4 px-4 text-center text-[#0a0f1a] font-bold bg-[#FBF8F3]">3 Months</td>
+                        </tr>
+                        <tr class="border-b border-slate-100">
+                            <td class="py-4 px-4 text-slate-600 font-medium">Bottles</td>
+                            <td class="py-4 px-4 text-center text-slate-600">1x</td>
+                            <td class="py-4 px-4 text-center text-slate-600">2x + Applicator</td>
+                            <td class="py-4 px-4 text-center text-[#0a0f1a] font-bold bg-[#FBF8F3]">3x + Premium
+                                Applicator</td>
+                        </tr>
+                        <tr class="border-b border-slate-100">
+                            <td class="py-4 px-4 text-slate-600 font-medium">Applicator Tool</td>
+                            <td class="py-4 px-4 text-center text-slate-600"><i data-lucide="check"
+                                    class="w-5 h-5 mx-auto"></i></td>
+                            <td class="py-4 px-4 text-center text-slate-600"><i data-lucide="check"
+                                    class="w-5 h-5 mx-auto"></i></td>
+                            <td class="py-4 px-4 text-center text-emerald-500 bg-[#FBF8F3]"><i data-lucide="check"
+                                    class="w-5 h-5 mx-auto"></i></td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-4 text-slate-600 font-medium">Savings</td>
+                            <td class="py-4 px-4 text-center text-slate-600">25%</td>
+                            <td class="py-4 px-4 text-center text-slate-600">36%</td>
+                            <td class="py-4 px-4 text-center text-[#C9A227] font-bold bg-[#FBF8F3] rounded-b-xl">39% +
+                                Free Gifts</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto items-stretch mt-8">
 
                 <!-- Starter -->
                 <div class="luxury-card rounded-3xl p-8 reveal stagger-1 flex flex-col h-full group">
                     <h3 class="text-2xl font-serif font-medium text-[#0a0f1a] mb-3">Starter</h3>
                     <div class="flex items-baseline gap-3 mb-4">
-                        <span class="text-4xl font-serif font-medium text-[#0a0f1a]">$24.99</span>
-                        <span class="text-slate-400 line-through text-sm">$34.99</span>
+                        <span class="text-4xl font-serif font-medium text-[#0a0f1a]">$29.95</span>
+                        <span class="text-slate-400 line-through text-sm">$39.99</span>
                     </div>
-                    <div class="inline-block w-fit bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-8">
-                        Save 29%
+                    <div
+                        class="inline-block w-fit bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-8">
+                        Save 25%
                     </div>
 
                     <ul class="space-y-4 mb-10 flex-grow">
                         <li class="flex gap-3 text-sm text-slate-600">
                             <i data-lucide="check" class="w-5 h-5 text-[#0a0f1a] flex-shrink-0"></i>
                             1x Halo Fibers Bottle
+                        </li>
+                        <li class="flex gap-3 text-sm text-slate-600">
+                            <i data-lucide="check" class="w-5 h-5 text-[#0a0f1a] flex-shrink-0"></i>
+                            1x Pump Applicator
                         </li>
                         <li class="flex gap-3 text-sm text-slate-600">
                             <i data-lucide="check" class="w-5 h-5 text-[#0a0f1a] flex-shrink-0"></i>
@@ -1498,7 +1768,7 @@
                     <div class="space-y-4 mt-auto">
                         <button
                             class="w-full py-4 rounded-full bg-[#0a0f1a] text-white font-semibold tracking-wide btn-premium-dark"
-                            onclick="addToCart(this, 'Starter', 24.99)">Get Starter</button>
+                            onclick="addToCart(this, 'Starter', 29.95)">Get Starter</button>
                         <div class="flex items-center justify-center gap-2 text-xs">
                             <span class="text-slate-500 flex items-center gap-1">
                                 <i data-lucide="shield-check" class="w-3 h-3 text-emerald-500"></i> Guaranteed
@@ -1508,12 +1778,18 @@
                 </div>
 
                 <!-- Ultimate (Highlight) -->
-                <div class="relative bg-gradient-to-b from-[#0a0f1a] to-[#131b2e] rounded-3xl p-8 reveal stagger-2 flex flex-col h-full md:-translate-y-6 shadow-2xl shadow-[#0a0f1a]/20">
+                <div
+                    class="relative bg-gradient-to-b from-[#0a0f1a] to-[#131b2e] rounded-3xl p-8 reveal stagger-2 flex flex-col h-full md:-translate-y-6 shadow-2xl shadow-[#0a0f1a]/20">
                     <!-- Gold accent glow -->
-                    <div class="absolute inset-0 rounded-3xl bg-gradient-to-b from-[#C9A227]/10 to-transparent pointer-events-none"></div>
-                    <div class="absolute -inset-px rounded-3xl bg-gradient-to-b from-[#C9A227]/30 via-[#C9A227]/10 to-transparent pointer-events-none"></div>
+                    <div
+                        class="absolute inset-0 rounded-3xl bg-gradient-to-b from-[#C9A227]/10 to-transparent pointer-events-none">
+                    </div>
+                    <div
+                        class="absolute -inset-px rounded-3xl bg-gradient-to-b from-[#C9A227]/30 via-[#C9A227]/10 to-transparent pointer-events-none">
+                    </div>
 
-                    <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-[#C9A227] to-[#E8C547] text-[#0a0f1a] px-6 py-2 rounded-full text-xs font-semibold tracking-wider uppercase shadow-lg">
+                    <div
+                        class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-[#C9A227] to-[#E8C547] text-[#0a0f1a] px-6 py-2 rounded-full text-xs font-semibold tracking-wider uppercase shadow-lg">
                         Most Popular
                     </div>
 
@@ -1521,16 +1797,21 @@
                         <h3 class="text-2xl font-serif font-medium text-white mb-3 mt-2">Ultimate Bundle</h3>
                         <div class="flex items-baseline gap-3 mb-4">
                             <span class="text-5xl font-serif font-medium text-white">$69.95</span>
-                            <span class="text-slate-500 line-through text-sm">$104.93</span>
+                            <span class="text-slate-500 line-through text-sm">$114.99</span>
                         </div>
-                        <div class="inline-block w-fit bg-[#C9A227]/20 text-[#C9A227] text-xs font-semibold px-3 py-1.5 rounded-full mb-8 border border-[#C9A227]/30">
-                            Save 33%
+                        <div
+                            class="inline-block w-fit bg-[#C9A227]/20 text-[#C9A227] text-xs font-semibold px-3 py-1.5 rounded-full mb-8 border border-[#C9A227]/30">
+                            Save 39%
+                        </div>
+                        <div
+                            class="inline-flex items-center gap-1.5 bg-red-50 text-red-600 text-[10px] font-bold px-2 py-1 rounded-md border border-red-100 ml-2 animate-pulse">
+                            <i data-lucide="flame" class="w-3 h-3 fill-current"></i> Low Stock
                         </div>
 
                         <ul class="space-y-4 mb-10">
                             <li class="flex gap-3 text-sm text-slate-300">
                                 <i data-lucide="check" class="w-5 h-5 text-[#C9A227] flex-shrink-0"></i>
-                                <span><strong class="text-white">2x</strong> Halo Fibers Bottles</span>
+                                <span><strong class="text-white">3x</strong> Halo Fibers Bottles</span>
                             </li>
                             <li class="flex gap-3 text-sm text-slate-300">
                                 <i data-lucide="check" class="w-5 h-5 text-[#C9A227] flex-shrink-0"></i>
@@ -1573,7 +1854,8 @@
                         <span class="text-4xl font-serif font-medium text-[#0a0f1a]">$44.95</span>
                         <span class="text-slate-400 line-through text-sm">$69.93</span>
                     </div>
-                    <div class="inline-block w-fit bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-8">
+                    <div
+                        class="inline-block w-fit bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-8">
                         Save 36%
                     </div>
 
@@ -1581,6 +1863,10 @@
                         <li class="flex gap-3 text-sm text-slate-600">
                             <i data-lucide="check" class="w-5 h-5 text-[#0a0f1a] flex-shrink-0"></i>
                             2x Halo Fibers Bottles
+                        </li>
+                        <li class="flex gap-3 text-sm text-slate-600">
+                            <i data-lucide="check" class="w-5 h-5 text-[#0a0f1a] flex-shrink-0"></i>
+                            1x Pump Applicator
                         </li>
                         <li class="flex gap-3 text-sm text-slate-600">
                             <i data-lucide="check" class="w-5 h-5 text-[#0a0f1a] flex-shrink-0"></i>
@@ -1627,7 +1913,8 @@
         <div class="container mx-auto px-4 lg:px-8 max-w-3xl reveal">
             <div class="text-center mb-16">
                 <p class="text-xs uppercase tracking-[0.3em] text-[#C9A227] font-medium mb-4">Support</p>
-                <h2 class="text-4xl lg:text-5xl font-serif font-medium text-[#0a0f1a] mb-4">Frequently Asked Questions</h2>
+                <h2 class="text-4xl lg:text-5xl font-serif font-medium text-[#0a0f1a] mb-4">Frequently Asked Questions
+                </h2>
                 <p class="text-slate-600 font-light">Everything you need to know about Halo Fibers</p>
             </div>
 
@@ -1642,12 +1929,14 @@
 
             <div class="space-y-4" id="faqContainer">
                 <!-- Q1 -->
-                <div class="bg-white rounded-2xl shadow-sm border border-[#C9A227]/10 overflow-hidden hover:border-[#C9A227]/20 transition-colors">
+                <div
+                    class="bg-white rounded-2xl shadow-sm border border-[#C9A227]/10 overflow-hidden hover:border-[#C9A227]/20 transition-colors">
                     <button
                         class="w-full px-6 py-5 text-left flex items-center justify-between font-serif font-medium text-[#0a0f1a] hover:bg-[#FBF8F3]/50 transition"
                         onclick="toggleFaq(this)">
                         Will Halo Fibers match my hair color?
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-[#C9A227] transition-transform duration-300"></i>
+                        <i data-lucide="chevron-down"
+                            class="w-5 h-5 text-[#C9A227] transition-transform duration-300"></i>
                     </button>
                     <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
                         <div class="px-6 pb-6 text-slate-600 leading-relaxed">
@@ -1658,12 +1947,14 @@
                     </div>
                 </div>
                 <!-- Q2 -->
-                <div class="bg-white rounded-2xl shadow-sm border border-[#C9A227]/10 overflow-hidden hover:border-[#C9A227]/20 transition-colors">
+                <div
+                    class="bg-white rounded-2xl shadow-sm border border-[#C9A227]/10 overflow-hidden hover:border-[#C9A227]/20 transition-colors">
                     <button
                         class="w-full px-6 py-5 text-left flex items-center justify-between font-serif font-medium text-[#0a0f1a] hover:bg-[#FBF8F3]/50 transition"
                         onclick="toggleFaq(this)">
                         Will Halo Fibers stay in place in wind, rain, and sweat?
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-[#C9A227] transition-transform duration-300"></i>
+                        <i data-lucide="chevron-down"
+                            class="w-5 h-5 text-[#C9A227] transition-transform duration-300"></i>
                     </button>
                     <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
                         <div class="px-6 pb-6 text-slate-600 leading-relaxed">
@@ -1674,12 +1965,14 @@
                     </div>
                 </div>
                 <!-- Q3 -->
-                <div class="bg-white rounded-2xl shadow-sm border border-[#C9A227]/10 overflow-hidden hover:border-[#C9A227]/20 transition-colors">
+                <div
+                    class="bg-white rounded-2xl shadow-sm border border-[#C9A227]/10 overflow-hidden hover:border-[#C9A227]/20 transition-colors">
                     <button
                         class="w-full px-6 py-5 text-left flex items-center justify-between font-serif font-medium text-[#0a0f1a] hover:bg-[#FBF8F3]/50 transition"
                         onclick="toggleFaq(this)">
                         Is Halo Fibers safe for sensitive scalps?
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-[#C9A227] transition-transform duration-300"></i>
+                        <i data-lucide="chevron-down"
+                            class="w-5 h-5 text-[#C9A227] transition-transform duration-300"></i>
                     </button>
                     <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
                         <div class="px-6 pb-6 text-slate-600 leading-relaxed">
@@ -1690,12 +1983,14 @@
                     </div>
                 </div>
                 <!-- Q4 -->
-                <div class="bg-white rounded-2xl shadow-sm border border-[#C9A227]/10 overflow-hidden hover:border-[#C9A227]/20 transition-colors">
+                <div
+                    class="bg-white rounded-2xl shadow-sm border border-[#C9A227]/10 overflow-hidden hover:border-[#C9A227]/20 transition-colors">
                     <button
                         class="w-full px-6 py-5 text-left flex items-center justify-between font-serif font-medium text-[#0a0f1a] hover:bg-[#FBF8F3]/50 transition"
                         onclick="toggleFaq(this)">
                         How do I remove Halo Fibers?
-                        <i data-lucide="chevron-down" class="w-5 h-5 text-[#C9A227] transition-transform duration-300"></i>
+                        <i data-lucide="chevron-down"
+                            class="w-5 h-5 text-[#C9A227] transition-transform duration-300"></i>
                     </button>
                     <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
                         <div class="px-6 pb-6 text-slate-600 leading-relaxed">
@@ -1726,8 +2021,9 @@
                 <div class="font-serif font-medium text-[#0a0f1a] text-sm">Ultimate Bundle</div>
                 <div class="flex items-center gap-2 mt-1">
                     <span class="text-xl font-serif font-medium text-[#C9A227]">$69.95</span>
-                    <span class="text-xs text-slate-400 line-through">$104.93</span>
-                    <span class="text-[10px] font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">Save 33%</span>
+                    <span class="text-xs text-slate-400 line-through">$114.99</span>
+                    <span class="text-[10px] font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">Save
+                        39%</span>
                 </div>
             </div>
             <button onclick="window.location.href='#offers'"
@@ -1743,23 +2039,32 @@
             <h2 class="text-4xl font-serif font-bold text-slate-900 mb-8">Privacy Policy</h2>
             <div class="prose prose-slate max-w-none">
                 <p class="text-slate-600 leading-relaxed mb-4">
-                    At Halo Fibers, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy outlines how we collect, use, and safeguard your data when you visit our website or purchase our products.
+                    At Halo Fibers, we are committed to protecting your privacy and ensuring the security of your
+                    personal information. This Privacy Policy outlines how we collect, use, and safeguard your data when
+                    you visit our website or purchase our products.
                 </p>
                 <h3 class="text-2xl font-serif font-bold text-slate-900 mt-8 mb-4">Information We Collect</h3>
                 <p class="text-slate-600 leading-relaxed mb-4">
-                    We collect information that you provide directly to us, including your name, email address, shipping address, and payment information when you place an order. We also collect information about your browsing behavior on our website through cookies and similar technologies.
+                    We collect information that you provide directly to us, including your name, email address, shipping
+                    address, and payment information when you place an order. We also collect information about your
+                    browsing behavior on our website through cookies and similar technologies.
                 </p>
                 <h3 class="text-2xl font-serif font-bold text-slate-900 mt-8 mb-4">How We Use Your Information</h3>
                 <p class="text-slate-600 leading-relaxed mb-4">
-                    We use your information to process and fulfill your orders, communicate with you about your purchases, improve our products and services, and send you promotional materials if you have opted in to receive them. We do not sell your personal information to third parties.
+                    We use your information to process and fulfill your orders, communicate with you about your
+                    purchases, improve our products and services, and send you promotional materials if you have opted
+                    in to receive them. We do not sell your personal information to third parties.
                 </p>
                 <h3 class="text-2xl font-serif font-bold text-slate-900 mt-8 mb-4">Data Security</h3>
                 <p class="text-slate-600 leading-relaxed mb-4">
-                    We implement industry-standard security measures to protect your personal information from unauthorized access, disclosure, or misuse. All payment transactions are processed through secure, encrypted connections.
+                    We implement industry-standard security measures to protect your personal information from
+                    unauthorized access, disclosure, or misuse. All payment transactions are processed through secure,
+                    encrypted connections.
                 </p>
                 <h3 class="text-2xl font-serif font-bold text-slate-900 mt-8 mb-4">Your Rights</h3>
                 <p class="text-slate-600 leading-relaxed mb-4">
-                    You have the right to access, update, or delete your personal information at any time. If you have any questions or concerns about our privacy practices, please contact us at info@halofibers.com.
+                    You have the right to access, update, or delete your personal information at any time. If you have
+                    any questions or concerns about our privacy practices, please contact us at info@halofibers.com.
                 </p>
             </div>
         </div>
@@ -1771,23 +2076,32 @@
             <h2 class="text-4xl font-serif font-bold text-slate-900 mb-8">Terms of Service</h2>
             <div class="prose prose-slate max-w-none">
                 <p class="text-slate-600 leading-relaxed mb-4">
-                    By accessing and using the Halo Fibers website and purchasing our products, you agree to be bound by these Terms of Service. Please read them carefully before making a purchase.
+                    By accessing and using the Halo Fibers website and purchasing our products, you agree to be bound by
+                    these Terms of Service. Please read them carefully before making a purchase.
                 </p>
                 <h3 class="text-2xl font-serif font-bold text-slate-900 mt-8 mb-4">Product Information</h3>
                 <p class="text-slate-600 leading-relaxed mb-4">
-                    We strive to provide accurate descriptions and images of our products. However, we do not warrant that product descriptions, colors, or other content on our website are completely accurate, current, or free from errors.
+                    We strive to provide accurate descriptions and images of our products. However, we do not warrant
+                    that product descriptions, colors, or other content on our website are completely accurate, current,
+                    or free from errors.
                 </p>
                 <h3 class="text-2xl font-serif font-bold text-slate-900 mt-8 mb-4">30-Day Money-Back Guarantee</h3>
                 <p class="text-slate-600 leading-relaxed mb-4">
-                    We stand behind the quality of our products with a 30-day money-back guarantee. If you are not completely satisfied with your purchase, you may return it within 30 days of receipt for a full refund. Products must be in their original condition with at least 75% of the product remaining.
+                    We stand behind the quality of our products with a 30-day money-back guarantee. If you are not
+                    completely satisfied with your purchase, you may return it within 30 days of receipt for a full
+                    refund. Products must be in their original condition with at least 75% of the product remaining.
                 </p>
                 <h3 class="text-2xl font-serif font-bold text-slate-900 mt-8 mb-4">Shipping and Delivery</h3>
                 <p class="text-slate-600 leading-relaxed mb-4">
-                    We offer free shipping on all U.S. orders over $39. Orders are typically processed within 1-2 business days and delivered within 5-7 business days. International shipping rates and delivery times vary by location.
+                    We offer free shipping on all U.S. orders over $39. Orders are typically processed within 1-2
+                    business days and delivered within 5-7 business days. International shipping rates and delivery
+                    times vary by location.
                 </p>
                 <h3 class="text-2xl font-serif font-bold text-slate-900 mt-8 mb-4">Limitation of Liability</h3>
                 <p class="text-slate-600 leading-relaxed mb-4">
-                    Halo Fibers products are cosmetic products intended for external use only. Individual results may vary. We are not liable for any indirect, incidental, or consequential damages arising from the use of our products.
+                    Halo Fibers products are cosmetic products intended for external use only. Individual results may
+                    vary. We are not liable for any indirect, incidental, or consequential damages arising from the use
+                    of our products.
                 </p>
                 <h3 class="text-2xl font-serif font-bold text-slate-900 mt-8 mb-4">Contact Us</h3>
                 <p class="text-slate-600 leading-relaxed mb-4">
@@ -1800,7 +2114,9 @@
     <!-- FOOTER - REFINED -->
     <footer class="bg-[#0a0f1a] text-slate-300 py-20 relative overflow-hidden noise-overlay">
         <!-- Decorative gradient -->
-        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C9A227]/30 to-transparent"></div>
+        <div
+            class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#C9A227]/30 to-transparent">
+        </div>
 
         <div class="container mx-auto px-4 lg:px-8 relative z-10">
             <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -1810,7 +2126,8 @@
                             Halo<span class="text-[#C9A227]">.</span>
                         </span>
                     </a>
-                    <p class="text-slate-500 text-sm font-light max-w-xs">Premium keratin hair fibers for instant confidence. The secret to fuller, thicker-looking hair.</p>
+                    <p class="text-slate-500 text-sm font-light max-w-xs">Premium keratin hair fibers for instant
+                        confidence. The secret to fuller, thicker-looking hair.</p>
                     <div class="flex items-center gap-4 mt-6">
                         <div class="flex text-[#C9A227]">
                             <i data-lucide="star" class="w-4 h-4 fill-current"></i>
@@ -1840,25 +2157,32 @@
 
     <!-- EXIT INTENT MODAL - REFINED -->
     <div id="exitModal" class="modal-overlay">
-        <div class="modal-content bg-white p-10 rounded-3xl shadow-2xl max-w-md w-full mx-4 text-center relative border border-[#C9A227]/10">
-            <button onclick="closeExitModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 transition-colors">
+        <div
+            class="modal-content bg-white p-10 rounded-3xl shadow-2xl max-w-md w-full mx-4 text-center relative border border-[#C9A227]/10">
+            <button onclick="closeExitModal()"
+                class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 transition-colors">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
 
-            <div class="w-20 h-20 bg-gradient-to-br from-[#C9A227]/10 to-[#C9A227]/5 rounded-2xl flex items-center justify-center mx-auto mb-8">
+            <div
+                class="w-20 h-20 bg-gradient-to-br from-[#C9A227]/10 to-[#C9A227]/5 rounded-2xl flex items-center justify-center mx-auto mb-8">
                 <i data-lucide="gift" class="w-10 h-10 text-[#C9A227]"></i>
             </div>
 
             <h3 class="text-3xl font-serif font-medium text-[#0a0f1a] mb-3">Wait! Don't Go Yet</h3>
-            <p class="text-slate-600 mb-8 font-light">Get <span class="font-semibold text-[#C9A227]">10% OFF</span> your first order.
-                Use code <span class="font-mono font-semibold bg-[#FBF8F3] px-3 py-1 rounded-lg text-[#0a0f1a]">HALO10</span> at checkout.</p>
+            <p class="text-slate-600 mb-8 font-light">Get <span class="font-semibold text-[#C9A227]">10% OFF</span> your
+                first order.
+                Use code <span
+                    class="font-mono font-semibold bg-[#FBF8F3] px-3 py-1 rounded-lg text-[#0a0f1a]">HALO10</span> at
+                checkout.</p>
 
             <button onclick="window.location.href='#offers'; closeExitModal()"
                 class="w-full bg-[#C9A227] text-[#0a0f1a] font-semibold py-4 rounded-full btn-shine shadow-lg shadow-[#C9A227]/20">
                 Claim My 10% Off
             </button>
 
-            <button onclick="closeExitModal()" class="mt-5 text-sm text-slate-400 hover:text-slate-600 transition-colors">
+            <button onclick="closeExitModal()"
+                class="mt-5 text-sm text-slate-400 hover:text-slate-600 transition-colors">
                 No thanks
             </button>
         </div>
@@ -1866,17 +2190,21 @@
 
     <!-- EMAIL CAPTURE MODAL - REFINED -->
     <div id="emailModal" class="modal-overlay email-modal">
-        <div class="modal-content bg-white p-10 rounded-3xl shadow-2xl max-w-md w-full mx-4 text-center relative border border-[#C9A227]/10">
-            <button onclick="closeEmailModal()" class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 transition-colors">
+        <div
+            class="modal-content bg-white p-10 rounded-3xl shadow-2xl max-w-md w-full mx-4 text-center relative border border-[#C9A227]/10">
+            <button onclick="closeEmailModal()"
+                class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 transition-colors">
                 <i data-lucide="x" class="w-5 h-5"></i>
             </button>
 
-            <div class="w-20 h-20 bg-gradient-to-br from-[#C9A227]/10 to-[#C9A227]/5 rounded-2xl flex items-center justify-center mx-auto mb-8">
+            <div
+                class="w-20 h-20 bg-gradient-to-br from-[#C9A227]/10 to-[#C9A227]/5 rounded-2xl flex items-center justify-center mx-auto mb-8">
                 <i data-lucide="mail" class="w-10 h-10 text-[#C9A227]"></i>
             </div>
 
             <h3 class="text-3xl font-serif font-medium text-[#0a0f1a] mb-3">Get 15% Off Your First Order</h3>
-            <p class="text-slate-600 mb-8 font-light">Join our newsletter and receive exclusive discounts, hair care tips, and early access to new products.</p>
+            <p class="text-slate-600 mb-8 font-light">Join our newsletter and receive exclusive discounts, hair care
+                tips, and early access to new products.</p>
 
             <form id="emailForm" onsubmit="handleEmailSubmit(event)" class="space-y-4">
                 <input type="email" id="emailInput" placeholder="Enter your email" required
@@ -1887,7 +2215,8 @@
                 </button>
             </form>
 
-            <button onclick="closeEmailModal()" class="mt-5 text-sm text-slate-400 hover:text-slate-600 transition-colors">
+            <button onclick="closeEmailModal()"
+                class="mt-5 text-sm text-slate-400 hover:text-slate-600 transition-colors">
                 No thanks
             </button>
         </div>
@@ -2145,7 +2474,7 @@
 
         // Product data
         const products = {
-            'Starter': { name: 'Starter Bundle', price: 24.99, image: 'images/product-bottle-transparent.png' },
+            'Starter': { name: 'Starter Bundle', price: 29.95, image: 'images/product-bottle-transparent.png' },
             'Ultimate': { name: 'Ultimate Bundle', price: 69.95, image: 'images/product-bottle-transparent.png' },
             'Pro': { name: 'Pro Bundle', price: 44.95, image: 'images/product-bottle-transparent.png' }
         };
@@ -2275,19 +2604,19 @@
         function changeItemShade(oldId, newShade) {
             const cart = getCart();
             const oldItem = cart.find(item => item.id === oldId);
-            
+
             if (!oldItem) return;
-            
+
             // If shade hasn't changed, do nothing
             if (oldItem.shade === newShade) return;
-            
+
             // Extract product name from old ID (format: "ProductName-shade")
             const productName = oldId.substring(0, oldId.lastIndexOf('-'));
             const newId = `${productName}-${newShade}`;
-            
+
             // Check if an item with the new shade already exists
             const existingItemIndex = cart.findIndex(item => item.id === newId);
-            
+
             if (existingItemIndex !== -1) {
                 // Merge quantities if item with new shade already exists
                 cart[existingItemIndex].quantity += oldItem.quantity;
@@ -2300,13 +2629,13 @@
                 };
                 cart.push(newItem);
             }
-            
+
             // Remove old item
             const oldItemIndex = cart.findIndex(item => item.id === oldId);
             if (oldItemIndex !== -1) {
                 cart.splice(oldItemIndex, 1);
             }
-            
+
             saveCart(cart);
         }
 
@@ -2492,24 +2821,24 @@
                 },
                 body: JSON.stringify({ items: items })
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success && data.url) {
-                    // Redirect to Stripe Checkout
-                    window.location.href = data.url;
-                } else {
-                    throw new Error(data.error || 'Failed to create checkout session');
-                }
-            })
-            .catch(error => {
-                console.error('Checkout Error:', error);
-                alert('Unable to proceed to checkout. Please try again.\n\nError: ' + error.message);
-                
-                // Restore button state
-                checkoutBtn.disabled = false;
-                checkoutBtn.innerHTML = originalText;
-                lucide.createIcons();
-            });
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success && data.url) {
+                        // Redirect to Stripe Checkout
+                        window.location.href = data.url;
+                    } else {
+                        throw new Error(data.error || 'Failed to create checkout session');
+                    }
+                })
+                .catch(error => {
+                    console.error('Checkout Error:', error);
+                    alert('Unable to proceed to checkout. Please try again.\n\nError: ' + error.message);
+
+                    // Restore button state
+                    checkoutBtn.disabled = false;
+                    checkoutBtn.innerHTML = originalText;
+                    lucide.createIcons();
+                });
         }
 
         // Initialize cart UI on page load
@@ -2637,7 +2966,7 @@
             // Set initial selected shade name
             const initialButton = document.querySelector('.shade-btn.selected');
             const initialShadeName = initialButton ? (initialButton.dataset.shadeName || 'Black') : 'Black';
-            
+
             if (selectedShadeNameEl) {
                 selectedShadeNameEl.textContent = initialShadeName;
             }
@@ -2664,28 +2993,35 @@
         let exitModalShown = false;
         let emailModalShown = false;
 
-        // Check if user has already seen the modals
-        if (localStorage.getItem('haloExitModalSeen')) {
+        // Check if user has already seen the modals (Session based)
+        if (sessionStorage.getItem('haloExitModalSeen')) {
             exitModalShown = true;
         }
-        if (localStorage.getItem('haloEmailModalSeen')) {
+        if (sessionStorage.getItem('haloEmailModalSeen')) {
             emailModalShown = true;
         }
+
+        // Auto-show newsletter after 40 seconds
+        setTimeout(() => {
+            if (!emailModalShown && !exitModalShown) {
+                showEmailModal();
+            }
+        }, 40000);
 
         function showExitModal() {
             if (exitModalShown) return;
             if (exitModal) {
                 exitModal.classList.add('active');
                 exitModalShown = true;
-                localStorage.setItem('haloExitModalSeen', 'true');
+                sessionStorage.setItem('haloExitModalSeen', 'true');
             }
         }
 
         function closeExitModal() {
             if (exitModal) {
                 exitModal.classList.remove('active');
-                // Only reset flag if modal wasn't persisted in localStorage (shown in this session only)
-                if (!localStorage.getItem('haloExitModalSeen')) {
+                // Only reset flag if modal wasn't persisted in sessionStorage (shown in this session only)
+                if (!sessionStorage.getItem('haloExitModalSeen')) {
                     exitModalShown = false;
                 }
             }
@@ -2696,15 +3032,15 @@
             if (emailModal) {
                 emailModal.classList.add('active');
                 emailModalShown = true;
-                localStorage.setItem('haloEmailModalSeen', 'true');
+                sessionStorage.setItem('haloEmailModalSeen', 'true');
             }
         }
 
         function closeEmailModal() {
             if (emailModal) {
                 emailModal.classList.remove('active');
-                // Only reset flag if modal wasn't persisted in localStorage (shown in this session only)
-                if (!localStorage.getItem('haloEmailModalSeen')) {
+                // Only reset flag if modal wasn't persisted in sessionStorage (shown in this session only)
+                if (!sessionStorage.getItem('haloEmailModalSeen')) {
                     emailModalShown = false;
                 }
             }
