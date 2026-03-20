@@ -19,7 +19,7 @@ ini_set('log_errors', 1);
 
 // Set headers for JSON response and CORS
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Origin: https://halofibers.com');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 
