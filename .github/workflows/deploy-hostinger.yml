@@ -1,0 +1,102 @@
+name: Deploy to Hostinger
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: halofibers-hostinger-production
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Deploy HaloFibers.com over SSH
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+
+      - name: Guard against committed secrets
+        run: |
+          set -euo pipefail
+          ! grep -RInE "(sk_live_|sk_test_|rk_live_|rk_test_|BEGIN (RSA |OPENSSH |EC |DSA )?PRIVATE KEY|HOSTINGER_.*PASSWORD=|FTP_PASSWORD=)" \
+            --exclude-dir=.git \
+            --exclude-dir=.github \
+            --exclude-dir=node_modules \
+            --exclude='config.php' \
+            --exclude='*.crt' \
+            . || (echo "Secret-like value detected. Refusing deploy." && exit 1)
+
+      - name: Check required SSH deployment secrets
+        env:
+          HOSTINGER_SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+          HOSTINGER_SSH_PORT: ${{ secrets.HOSTINGER_SSH_PORT }}
+          HOSTINGER_SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
+          HOSTINGER_SSH_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+          HOSTINGER_REMOTE_DIR: ${{ secrets.HOSTINGER_REMOTE_DIR }}
+        run: |
+          set -euo pipefail
+          missing=0
+          for name in HOSTINGER_SSH_HOST HOSTINGER_SSH_PORT HOSTINGER_SSH_USER HOSTINGER_SSH_KEY HOSTINGER_REMOTE_DIR; do
+            if [ -z "${!name}" ]; then
+              echo "Missing GitHub secret: $name"
+              missing=1
+            fi
+          done
+          [ "$missing" -eq 0 ]
+
+      - name: Prepare SSH key
+        env:
+          HOSTINGER_SSH_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+          HOSTINGER_SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+          HOSTINGER_SSH_PORT: ${{ secrets.HOSTINGER_SSH_PORT }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          printf '%s\n' "$HOSTINGER_SSH_KEY" > ~/.ssh/hostinger_deploy_key
+          chmod 600 ~/.ssh/hostinger_deploy_key
+          ssh-keyscan -p "$HOSTINGER_SSH_PORT" "$HOSTINGER_SSH_HOST" >> ~/.ssh/known_hosts
+
+      - name: Deploy repository root to Hostinger
+        env:
+          HOSTINGER_SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+          HOSTINGER_SSH_PORT: ${{ secrets.HOSTINGER_SSH_PORT }}
+          HOSTINGER_SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
+          HOSTINGER_REMOTE_DIR: ${{ secrets.HOSTINGER_REMOTE_DIR }}
+        run: |
+          set -euo pipefail
+          ssh_cmd="ssh -i ~/.ssh/hostinger_deploy_key -p ${HOSTINGER_SSH_PORT} -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes"
+          $ssh_cmd "${HOSTINGER_SSH_USER}@${HOSTINGER_SSH_HOST}" "mkdir -p '${HOSTINGER_REMOTE_DIR}'"
+          rsync -az --delete \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='.claude/' \
+            --exclude='.cursor/' \
+            --exclude='node_modules/' \
+            --exclude='.DS_Store' \
+            --exclude='package.json' \
+            --exclude='package-lock.json' \
+            --exclude='README.md' \
+            --exclude='CLAUDE.md' \
+            --exclude='tailwind.config.cjs' \
+            --exclude='tailwind.input.css' \
+            --exclude='stripe/config.php' \
+            -e "$ssh_cmd" \
+            ./ "${HOSTINGER_SSH_USER}@${HOSTINGER_SSH_HOST}:${HOSTINGER_REMOTE_DIR}/"
+
+      - name: Verify deployed marker
+        env:
+          HOSTINGER_SSH_HOST: ${{ secrets.HOSTINGER_SSH_HOST }}
+          HOSTINGER_SSH_PORT: ${{ secrets.HOSTINGER_SSH_PORT }}
+          HOSTINGER_SSH_USER: ${{ secrets.HOSTINGER_SSH_USER }}
+          HOSTINGER_REMOTE_DIR: ${{ secrets.HOSTINGER_REMOTE_DIR }}
+        run: |
+          set -euo pipefail
+          ssh_cmd="ssh -i ~/.ssh/hostinger_deploy_key -p ${HOSTINGER_SSH_PORT} -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes"
+          $ssh_cmd "${HOSTINGER_SSH_USER}@${HOSTINGER_SSH_HOST}" \
+            "test -f '${HOSTINGER_REMOTE_DIR}/index.html' && grep -q 'HERMES PSI + ACCESSIBILITY FIX 20260619' '${HOSTINGER_REMOTE_DIR}/index.html' && test -f '${HOSTINGER_REMOTE_DIR}/images/hero-bg.webp' && echo 'Hostinger SSH deploy verified.'"
