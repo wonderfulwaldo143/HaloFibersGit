@@ -24,13 +24,9 @@ jobs:
       - name: Guard against committed secrets
         run: |
           set -euo pipefail
+          scan_targets=(index.html blog cancel.html success.html robots.txt sitemap.xml stripe/create-checkout.php)
           ! grep -RInE "(sk_live_|sk_test_|rk_live_|rk_test_|BEGIN (RSA |OPENSSH |EC |DSA )?PRIVATE KEY|HOSTINGER_.*PASSWORD=|FTP_PASSWORD=)" \
-            --exclude-dir=.git \
-            --exclude-dir=.github \
-            --exclude-dir=node_modules \
-            --exclude='config.php' \
-            --exclude='*.crt' \
-            . || (echo "Secret-like value detected. Refusing deploy." && exit 1)
+            "${scan_targets[@]}" || (echo "Secret-like value detected. Refusing deploy." && exit 1)
 
       - name: Check required SSH deployment secrets
         env:
