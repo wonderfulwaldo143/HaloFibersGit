@@ -56,7 +56,6 @@ jobs:
           mkdir -p ~/.ssh
           printf '%s\n' "$HOSTINGER_SSH_KEY" > ~/.ssh/hostinger_deploy_key
           chmod 600 ~/.ssh/hostinger_deploy_key
-          ssh-keyscan -p "$HOSTINGER_SSH_PORT" "$HOSTINGER_SSH_HOST" >> ~/.ssh/known_hosts
 
       - name: Deploy repository root to Hostinger
         env:
@@ -66,7 +65,7 @@ jobs:
           HOSTINGER_REMOTE_DIR: ${{ secrets.HOSTINGER_REMOTE_DIR }}
         run: |
           set -euo pipefail
-          ssh_cmd="ssh -i ~/.ssh/hostinger_deploy_key -p ${HOSTINGER_SSH_PORT} -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes"
+          ssh_cmd="ssh -i ~/.ssh/hostinger_deploy_key -p ${HOSTINGER_SSH_PORT} -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ConnectTimeout=25"
           $ssh_cmd "${HOSTINGER_SSH_USER}@${HOSTINGER_SSH_HOST}" "mkdir -p '${HOSTINGER_REMOTE_DIR}'"
           rsync -az --delete \
             --exclude='.git/' \
@@ -93,6 +92,6 @@ jobs:
           HOSTINGER_REMOTE_DIR: ${{ secrets.HOSTINGER_REMOTE_DIR }}
         run: |
           set -euo pipefail
-          ssh_cmd="ssh -i ~/.ssh/hostinger_deploy_key -p ${HOSTINGER_SSH_PORT} -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes"
+          ssh_cmd="ssh -i ~/.ssh/hostinger_deploy_key -p ${HOSTINGER_SSH_PORT} -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ConnectTimeout=25"
           $ssh_cmd "${HOSTINGER_SSH_USER}@${HOSTINGER_SSH_HOST}" \
             "test -f '${HOSTINGER_REMOTE_DIR}/index.html' && grep -q 'HERMES PSI + ACCESSIBILITY FIX 20260619' '${HOSTINGER_REMOTE_DIR}/index.html' && test -f '${HOSTINGER_REMOTE_DIR}/images/hero-bg.webp' && echo 'Hostinger SSH deploy verified.'"
