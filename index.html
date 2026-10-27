@@ -3,26 +3,28 @@
 
 <head>
     <meta charset="UTF-8">
-    <!-- Analytics delayed until after first render to protect mobile FCP/LCP/TBT. -->
+    <!-- Optional analytics defaults to denied; GTM loads only after an explicit choice. -->
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){ dataLayer.push(arguments); }
-        window.addEventListener('load', function () {
-            setTimeout(function () {
-                (function(w,d,s,l,i){
-                    w[l]=w[l]||[]; w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-                    var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
-                    j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-                    f.parentNode.insertBefore(j,f);
-                })(window,document,'script','dataLayer','GTM-MSBNKS77');
-            }, 3500);
-        }, { once: true });
+        gtag('consent', 'default', {analytics_storage:'denied', ad_storage:'denied', ad_user_data:'denied', ad_personalization:'denied'});
+        window.haloLoadAnalytics = function () {
+            if (window.haloAnalyticsLoaded) return;
+            window.haloAnalyticsLoaded = true;
+            (function(w,d,s,l,i){
+                w[l]=w[l]||[]; w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+                var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+                j.async=true; j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+                f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-MSBNKS77');
+        };
     </script>
+    <script defer src="assets/conversion.js?v=conversion-20261026"></script>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Halo Fibers™ | Instant Hair Thickness in 30 Seconds</title>
+    <title>Halo Fibers™ | Hair-Building Fibers &amp; Bundles</title>
     <meta name="description"
-        content="Instantly conceal thinning hair in 30 seconds with Halo Fibers™ premium keratin hair building fibers. Wind-resistant, undetectable, 30-day money-back guarantee.">
+        content="Explore Halo Fibers hair-building fibers in nine shades. Compare current bundle contents and prices, shipping details and return conditions before you order.">
     <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="apple-touch-icon" href="images/favicon.png">
 
@@ -33,12 +35,10 @@
         "@type": "Product",
         "name": "Halo Fibers",
         "image": "https://halofibers.com/images/product-bottle.png",
-        "description": "Premium keratin hair building fibers for instant thickness.",
+        "description": "Keratin hair-building fibers available in nine shades.",
         "brand": {
             "@type": "Brand",
             "name": "Halo Fibers"
-        },
-        "offers": {
         }
     }
     </script>
@@ -664,10 +664,137 @@
             align-items: center;
             gap: 0.75rem;
         }
+
+        /* HALO EMIL POLISH 20261023 — quiet hierarchy, immediate feedback. */
+        :root { --halo-ease: cubic-bezier(.23, 1, .32, 1); }
+        html { scroll-padding-top: 96px; }
+        body { line-height: 1.65; }
+        h1, h2, h3 { text-wrap: balance; }
+        h2 { letter-spacing: -.025em; line-height: 1.15; }
+        button, a, input, select, summary { -webkit-tap-highlight-color: transparent; }
+        button, summary, select, input { min-height: 44px; }
+        button { touch-action: manipulation; }
+        :is(a, button, input, select, summary, [role="button"]):focus-visible {
+            outline: 3px solid #a47a12; outline-offset: 4px;
+        }
+        header :is(a, button, summary):focus-visible,
+        .hero-polish :is(a, button):focus-visible { outline-color: #f0cf70; }
+        header nav a { display: inline-flex; align-items: center; min-height: 44px; }
+        header button[aria-label="Open cart"] { width: 44px; height: 44px; flex-shrink: 0; }
+        header a.btn-shine { min-height: 44px; display: inline-flex; align-items: center; white-space: nowrap; }
+        .skip-link { position: fixed; top: 8px; left: 8px; z-index: 10000; padding: 12px 20px;
+            background: white; color: #0a0f1a; border-radius: 8px; transform: translateY(-160%); }
+        .skip-link:focus { transform: none; }
+        .hero-polish h1 { font-size: clamp(2.75rem, 6vw, 5rem); line-height: 1.04; letter-spacing: -.035em; }
+        .hero-polish h1 .text-slate-400 { color: #d8dde6; }
+        .hero-polish .text-\[\#C9A227\] { color: #e4c363; }
+        .hero-polish p.text-slate-400 { color: #c3cad6; font-weight: 400; }
+        .hero-polish > .container { padding-bottom: 168px; }
+        .hero-polish > .absolute.inset-0::after { content: ''; position: absolute; inset: 0;
+            background: linear-gradient(90deg, rgba(10,15,26,.34), transparent 80%); pointer-events: none; }
+        .luxury-card { border-color: rgba(154,117,22,.22); }
+        #offers .luxury-card { box-shadow: 0 8px 32px -16px rgba(10,15,26,.18); }
+        #offers h3 { letter-spacing: -.025em; }
+        #offers button, .btn-shine, .btn-premium-dark {
+            transition: transform 160ms var(--halo-ease), opacity 160ms ease;
+        }
+        :is(.btn-shine, .btn-premium-dark, .quantity-btn):active { transform: scale(.97); }
+        button:disabled { cursor: wait; }
+        .transition-all { transition-property: transform, opacity, color, background-color, border-color, box-shadow; transition-duration: 160ms; }
+        .btn-shine::after { display: none; }
+        .reveal, .reveal-left, .reveal-right { opacity: 1; transform: none; transition: none; }
+        .quantity-btn { width: 44px; height: 44px; flex-shrink: 0; border-radius: 8px;
+            transition: transform 160ms var(--halo-ease), background-color 160ms ease, border-color 160ms ease; }
+        .shade-btn { min-width: 44px; }
+        .cart-drawer { height: 100dvh; visibility: hidden;
+            transition: transform 240ms var(--halo-ease); }
+        .cart-drawer.active { visibility: visible; }
+        #cartItems { min-height: 0; max-height: none; overscroll-behavior: contain; }
+        #cartItems .flex-1 { min-width: 0; }
+        #cartItems select { width: 100%; max-width: 100%; font-size: 16px; }
+        #cartItems button { min-width: 44px; }
+        #cartTotal { font-variant-numeric: tabular-nums; }
+        #cartFooter { flex-shrink: 0; padding-bottom: max(24px, env(safe-area-inset-bottom)); }
+        .modal-overlay:not(.active) { visibility: hidden; }
+        .modal-content { max-height: calc(100dvh - 32px); overflow-y: auto; }
+        .modal-content > button[aria-label], #cartDrawer button[aria-label="Close cart"] {
+            width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+        }
+        .mobile-navigation { position: static; }
+        .mobile-navigation summary { list-style: none; width: 44px; display: flex; align-items: center;
+            justify-content: center; border: 1px solid #ffffff26; border-radius: 50%; color: #e2e8f0; cursor: pointer; }
+        .mobile-navigation summary::-webkit-details-marker { display: none; }
+        .mobile-navigation nav { position: absolute; top: calc(100% + 12px); right: 16px; width: min(280px, calc(100vw - 32px));
+            padding: 12px; border: 1px solid #ffffff26; border-radius: 16px; background: #101725;
+            box-shadow: 0 16px 40px #0005; }
+        .mobile-navigation nav a { display: flex; padding: 10px 14px; color: #e2e8f0; border-radius: 8px; }
+        @media (min-width: 1100px) { .mobile-navigation { display: none; } }
+        @media (max-width: 1099px) { header > .container > nav { display: none; } }
+        @media (max-width: 360px) {
+            header > .container > a > span { font-size: 18px; letter-spacing: .08em; }
+            header a.btn-shine { font-size: 12px; padding-left: 12px !important; padding-right: 12px !important; }
+        }
+        @media (max-width: 767px) {
+            header > .container { gap: 8px; padding-top: 12px; padding-bottom: 12px; }
+            header .flex.items-center.gap-3 { gap: 8px; }
+            header a.btn-shine { padding-left: 16px; padding-right: 16px; min-height: 44px; display: inline-flex; align-items: center; }
+            .hero-polish > .container { padding-top: 48px; padding-bottom: 184px; }
+            .hero-polish .space-y-8 > :not([hidden]) ~ :not([hidden]) { margin-top: 24px; }
+            .hero-polish p.font-serif { font-size: 1.125rem; line-height: 1.5; max-width: 30ch; }
+            .hero-polish h1 { max-width: 12ch; }
+            #shade-selector-section .rounded-\[2rem\] { padding: 24px 16px; }
+            #offers .rounded-3xl { padding: 28px 24px; }
+            #cartItems, #cartFooter { padding-left: 20px; padding-right: 20px; }
+        }
+        @media (hover: none), (pointer: coarse) {
+            .luxury-card { transition: none; }
+            .luxury-card:hover, .btn-shine:hover, .btn-premium-dark:hover { transform: none; }
+            .product-image-container:hover img { transform: none; }
+            .btn-premium-dark:hover::before { opacity: 0; }
+        }
+        @media (hover: hover) and (pointer: fine) {
+            .luxury-card { transition: transform 200ms var(--halo-ease); }
+            .luxury-card:hover { transform: translateY(-3px); }
+            .mobile-navigation nav a:hover { background: #ffffff0d; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto !important; }
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+        }
+        html.keyboard-input { scroll-behavior: auto; }
+        html.keyboard-input *, html.keyboard-input *::before, html.keyboard-input *::after { transition: none !important; }
+    </style>
+
+    <style id="conversion-styles">
+        .conversion-policy {font-size:.8rem;line-height:1.6;color:#475569;margin:.75rem 0;}
+        .conversion-policy a,.conversion-link {color:#795a0c;text-decoration:underline;text-underline-offset:3px;}
+        .conversion-link {display:inline-block;padding:.75rem 0;min-height:44px;}
+        [data-catalog-price][data-unavailable="true"] {font-size:1.5rem;}
+        .conversion-select {width:100%;min-height:44px;border:1px solid #cbd5e1;border-radius:.75rem;padding:.65rem;background:#fff;color:#0a0f1a;}
+        .conversion-button {background:#C9A227;color:#0a0f1a;border-radius:999px;padding:.75rem 1.25rem;min-height:44px;font-weight:600;}
+        .conversion-remove {color:#991b1b;min-height:44px;padding:.5rem;}
+        button:disabled {opacity:.55;cursor:not-allowed;}
+        .conversion-consent {border-top:1px solid #d6d3ce;padding:1rem;background:#FBF8F3;color:#0a0f1a;font-size:.875rem;}
+        .conversion-consent-inner {max-width:72rem;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+        .conversion-consent-actions {display:flex;gap:.5rem;flex-wrap:wrap;}
+        .conversion-consent button {border:1px solid #795a0c;border-radius:999px;padding:.6rem 1rem;min-height:44px;}
+        .conversion-consent button[aria-pressed="true"] {background:#0a0f1a;color:#fff;}
+        #cartFooter {max-height:56vh;overflow-y:auto;padding:1rem;flex-shrink:0;}
+        #cartFooter .conversion-policy {font-size:.75rem;margin:.5rem 0;}
+        #product-details .conversion-purchase {min-width:0;}
+        @media(max-width:767px) {
+            #product-details > .container > .grid {display:flex;flex-direction:column;gap:2rem;}
+            #product-details > .container > .grid > .reveal-left {order:2;max-width:18rem;}
+            #product-details > .container > .grid > .reveal-right {display:flex;flex-direction:column;width:100%;}
+            #product-details .reveal-right > #shade-picker {order:-2;}
+            #product-details .reveal-right > .conversion-purchase {order:-1;}
+            #cartFooter {max-height:57dvh;}
+        }
     </style>
 </head>
 
 <body class="font-sans text-slate-900 antialiased bg-white pb-20 md:pb-0">
+    <a href="#main-content" class="skip-link">Skip to content</a>
 <!-- HEADER (Luxury Dark Theme) -->
     <header
         class="sticky top-0 z-50 bg-gradient-to-b from-[#0a0f1a] to-[#0d1320] border-b border-white/5 backdrop-blur-md">
@@ -689,26 +816,27 @@
                     class="text-slate-400 hover:text-white transition-colors duration-300 tracking-wide">Before &
                     After</a>
                 <a href="#reviews"
-                    class="text-slate-400 hover:text-white transition-colors duration-300 tracking-wide">Reviews</a>
+                    class="text-slate-400 hover:text-white transition-colors duration-300 tracking-wide">Buying Guide</a>
                 <a href="blog/index.html"
                     class="text-slate-400 hover:text-white transition-colors duration-300 tracking-wide">Blog</a>
                 <a href="#how-it-works"
                     class="text-slate-400 hover:text-white transition-colors duration-300 tracking-wide">How It
                     Works</a>
-                <span class="flex items-center gap-1.5 text-slate-500">
-                    <span class="flex text-[#C9A227]">
-                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                    </span>
-                    <span class="text-xs font-medium">4.9</span>
-                </span>
             </nav>
 
             <div class="flex items-center gap-3">
+                <details class="mobile-navigation" id="mobileNavigation">
+                    <summary aria-label="Navigation menu"><span aria-hidden="true">☰</span></summary>
+                    <nav aria-label="Mobile navigation">
+                        <a href="#offers">Shop Fibers</a>
+                        <a href="#results">Before &amp; After</a>
+                        <a href="#reviews">Buying Guide</a>
+                        <a href="blog/index.html">Blog</a>
+                        <a href="#how-it-works">How It Works</a>
+                    </nav>
+                </details>
                 <button onclick="toggleCart()" aria-label="Open cart"
+                    aria-controls="cartDrawer" aria-expanded="false"
                     class="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 transition-all duration-300 relative group">
                     <i data-lucide="shopping-bag"
                         class="w-4 h-4 text-slate-300 group-hover:text-white transition-colors"></i>
@@ -723,7 +851,7 @@
         </div>
     </header>
 
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
     <!-- SCROLL PROGRESS BAR -->
     <div class="scroll-progress" id="scrollProgress"></div>
 
@@ -738,16 +866,12 @@
                 <i data-lucide="truck" class="w-4 h-4"></i>
                 <span class="uppercase">Free Shipping on Orders Over $39</span>
             </span>
-            <span class="hidden sm:inline text-[#0a0f1a]/40">•</span>
-            <span class="social-proof-counter bg-[#0a0f1a]/10 border border-[#0a0f1a]/10">
-                <span class="pulse-dot"></span>
-                <span id="viewersCount">23</span> viewing now
-            </span>
+
         </div>
     </div>
 
     <!-- HERO SECTION (Luxury Full-bleed) -->
-    <section class="relative min-h-[85vh] lg:min-h-[92vh] bg-[#0a0f1a] overflow-hidden noise-overlay">
+    <section class="hero-polish relative min-h-[85vh] lg:min-h-[92vh] bg-[#0a0f1a] overflow-hidden noise-overlay">
         <!-- Background Image with Enhanced Overlay -->
         <div class="absolute inset-0">
             <picture>
@@ -775,25 +899,13 @@
         <!-- Hero Content -->
         <div class="container mx-auto px-4 lg:px-8 relative z-10 h-full flex items-center py-20 lg:py-28">
             <div class="max-w-xl space-y-8">
-                <!-- Refined Badge -->
-                <div
-                    class="inline-flex items-center gap-3 bg-white/5 backdrop-blur-sm px-4 py-2 rounded-full border border-white/10">
-                    <div class="flex text-[#C9A227]">
-                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
-                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
-                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
-                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
-                        <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
-                    </div>
-                    <span class="text-xs font-medium text-slate-300 tracking-wider uppercase">Dermatologist
-                        Recommended</span>
-                </div>
+                <p class="text-xs font-medium text-slate-300 tracking-wider uppercase">Nine shades · Three bundles</p>
 
                 <!-- Elegant Headline -->
                 <h1 class="text-5xl lg:text-7xl font-serif font-medium leading-[1.1] text-white tracking-tight">
-                    Instant<br>
+                    Hair<br>
                     <span class="text-[#C9A227] italic font-normal">Confidence</span><br>
-                    <span class="text-slate-400">in 30 Seconds.</span>
+                    <span class="text-slate-400">Your Way.</span>
                 </h1>
 
                 <!-- Micro-tagline -->
@@ -802,8 +914,8 @@
 
                 <!-- Refined Subtext -->
                 <p class="text-base lg:text-lg text-slate-400 leading-relaxed max-w-md font-light">
-                    Premium keratin fibers that seamlessly blend with your natural hair.
-                    <span class="text-slate-300">Undetectable. Wind-resistant. Natural.</span>
+                    Keratin hair-building fibers for the appearance of fuller hair.
+                    <span class="text-slate-300">Choose your shade and compare bundle contents below.</span>
                 </p>
 
                 <!-- CTAs with Enhanced Styling -->
@@ -829,37 +941,19 @@
                     <span
                         class="inline-flex items-center gap-2 text-xs text-slate-400 bg-white/5 px-3 py-1.5 rounded-full border border-white/5">
                         <i data-lucide="truck" class="w-3.5 h-3.5 text-sky-400"></i>
-                        Free U.S. Shipping
+                        Free U.S. shipping over $39
                     </span>
                     <span
                         class="inline-flex items-center gap-2 text-xs text-slate-400 bg-white/5 px-3 py-1.5 rounded-full border border-white/5">
                         <i data-lucide="leaf" class="w-3.5 h-3.5 text-[#C9A227]"></i>
-                        100% Natural
+                        Nine Shades
                     </span>
                 </div>
             </div>
         </div>
 
-        <!-- Bottom Review Bar - Refined -->
-        <div
-            class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0a0f1a] to-[#0a0f1a]/95 backdrop-blur-sm py-5 z-10 border-t border-white/5">
-            <div class="container mx-auto px-4 lg:px-8">
-                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                    <div class="flex items-center gap-3">
-                        <div class="flex text-[#C9A227]">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <span class="text-sm text-white font-medium">4.9/5</span>
-                        <span class="text-sm text-slate-500">from 2,847 reviews</span>
-                    </div>
-                    <p class="text-sm text-slate-400 italic font-serif">"Instantly transformed my confidence. The
-                        natural look is undetectable."</p>
-                </div>
-            </div>
+        <div class="absolute bottom-0 left-0 right-0 bg-[#0a0f1a] py-5 z-10 border-t border-white/5">
+            <div class="container mx-auto px-4 lg:px-8 text-sm text-slate-400">Choose a shade · Review your bundle · Check shipping before payment</div>
         </div>
     </section>
 
@@ -944,233 +1038,12 @@
         </div>
     </section>
 
-    <!-- TRUSTED BY (Warm Cream Background) -->
-    <section id="reviews" class="py-24 bg-[#FBF8F3] relative overflow-hidden gradient-mesh">
-        <!-- Decorative accent -->
-        <div
-            class="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-[#C9A227] to-transparent">
-        </div>
-
-        <div class="container mx-auto px-4 lg:px-8 text-center reveal">
-            <p class="text-xs uppercase tracking-[0.3em] text-[#C9A227] font-medium mb-4">Customer Love</p>
-            <h2 class="text-4xl lg:text-5xl font-serif font-medium text-[#0a0f1a] mb-6 gold-line gold-line-center">
-                Trusted by <span class="text-[#C9A227]">2,847+</span> Customers
-            </h2>
-            <div class="flex items-center justify-center gap-3 mb-16 mt-12">
-                <div class="flex text-[#C9A227]">
-                    <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                    <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                    <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                    <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                    <i data-lucide="star" class="w-5 h-5 fill-current"></i>
-                </div>
-                <span class="text-slate-600 font-medium">4.9/5 Average Rating</span>
-            </div>
-
-            <!-- Marquee Container -->
-            <div class="marquee-container py-4">
-                <div class="marquee-content">
-                    <!-- Review 1: Thinning Crown -->
-                    <div class="luxury-card p-8 rounded-2xl text-left w-[340px] flex-shrink-0">
-                        <div class="flex text-[#D4A520] mb-4">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-slate-700 mb-4">"I was skeptical at first, but this actually works. My crown
-                            looks completely full now. Nobody suspects a thing."</p>
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
-                                JD</div>
-                            <div>
-                                <div class="font-bold text-slate-900">James D.</div>
-                                <div class="text-xs text-slate-500">Thinning Crown</div>
-                                <div class="text-xs text-emerald-600 flex items-center gap-1">
-                                    <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Review 2: Widening Part -->
-                    <div class="luxury-card p-8 rounded-2xl text-left w-[340px] flex-shrink-0">
-                        <div class="flex text-[#D4A520] mb-4">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-slate-700 mb-4">"My part was getting wider with age. Halo Fibers filled it in
-                            instantly. I feel 10 years younger."</p>
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
-                                SR</div>
-                            <div>
-                                <div class="font-bold text-slate-900">Sarah R.</div>
-                                <div class="text-xs text-slate-500">Widening Part</div>
-                                <div class="text-xs text-emerald-600 flex items-center gap-1">
-                                    <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Review 3: Receding Hairline -->
-                    <div class="luxury-card p-8 rounded-2xl text-left w-[340px] flex-shrink-0">
-                        <div class="flex text-[#D4A520] mb-4">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-slate-700 mb-4">"Gave me my confidence back. Takes 30 seconds in the morning and
-                            I'm good to go. Even my barber was impressed."</p>
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
-                                RK</div>
-                            <div>
-                                <div class="font-bold text-slate-900">Robert K.</div>
-                                <div class="text-xs text-slate-500">Receding Hairline</div>
-                                <div class="text-xs text-emerald-600 flex items-center gap-1">
-                                    <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Review 4: General Thinning -->
-                    <div class="luxury-card p-8 rounded-2xl text-left w-[340px] flex-shrink-0">
-                        <div class="flex text-[#D4A520] mb-4">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-slate-700 mb-4">"Undetectable even up close. My wife couldn't even tell I had
-                            them in. Highly recommend for anyone thinning."</p>
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
-                                DL</div>
-                            <div>
-                                <div class="font-bold text-slate-900">David L.</div>
-                                <div class="text-xs text-slate-500">General Thinning</div>
-                                <div class="text-xs text-emerald-600 flex items-center gap-1">
-                                    <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Review 5: Alopecia Areata -->
-                    <div class="luxury-card p-8 rounded-2xl text-left w-[340px] flex-shrink-0">
-                        <div class="flex text-[#D4A520] mb-4">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-slate-700 mb-4">"I have small spots of alopecia and this covers them perfectly.
-                            It's been a life saver for my self-esteem."</p>
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
-                                EM</div>
-                            <div>
-                                <div class="font-bold text-slate-900">Elena M.</div>
-                                <div class="text-xs text-slate-500">Alopecia Spots</div>
-                                <div class="text-xs text-emerald-600 flex items-center gap-1">
-                                    <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Review 6: Postpartum Shedding -->
-                    <div class="luxury-card p-8 rounded-2xl text-left w-[340px] flex-shrink-0">
-                        <div class="flex text-[#D4A520] mb-4">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-slate-700 mb-4">"After my pregnancy, my hair thinned out. Halo Fibers helped me
-                            feel like myself again while it grew back."</p>
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
-                                JL</div>
-                            <div>
-                                <div class="font-bold text-slate-900">Jessica L.</div>
-                                <div class="text-xs text-slate-500">Postpartum Hair</div>
-                                <div class="text-xs text-emerald-600 flex items-center gap-1">
-                                    <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Review 7: Male Pattern Baldness -->
-                    <div class="luxury-card p-8 rounded-2xl text-left w-[340px] flex-shrink-0">
-                        <div class="flex text-[#D4A520] mb-4">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-slate-700 mb-4">"I've tried sprays and other powders. This is the only one that
-                            looks real in sunlight. Will buy again."</p>
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
-                                TB</div>
-                            <div>
-                                <div class="font-bold text-slate-900">Tom B.</div>
-                                <div class="text-xs text-slate-500">Male Pattern Baldness</div>
-                                <div class="text-xs text-emerald-600 flex items-center gap-1">
-                                    <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Review 8: Thinning Temples -->
-                    <div class="luxury-card p-8 rounded-2xl text-left w-[340px] flex-shrink-0">
-                        <div class="flex text-[#D4A520] mb-4">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <p class="text-slate-700 mb-4">"Perfect for touching up my temples. It blends so well with my
-                            salt and pepper hair."</p>
-                        <div class="flex items-center gap-3">
-                            <div
-                                class="w-10 h-10 bg-slate-100 rounded-full flex items-center justify-center font-bold text-slate-500">
-                                MC</div>
-                            <div>
-                                <div class="font-bold text-slate-900">Marcus C.</div>
-                                <div class="text-xs text-slate-500">Thinning Temples</div>
-                                <div class="text-xs text-emerald-600 flex items-center gap-1">
-                                    <i data-lucide="check-circle" class="w-3 h-3"></i> Verified Buyer
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Buyer guidance replaces unsubstantiated testimonials. -->
+    <section id="reviews" class="py-24 bg-[#FBF8F3]">
+        <div class="container mx-auto px-4 lg:px-8 text-center max-w-3xl">
+            <h2 class="text-3xl font-serif text-[#0a0f1a] mb-6">Choose with confidence</h2>
+            <p class="text-slate-600">Review the shade options, current bundle contents and return conditions before buying. Individual cosmetic results vary.</p>
+            <a href="#shade-picker" class="conversion-link">Choose a shade and bundle</a>
         </div>
     </section>
 
@@ -1183,7 +1056,7 @@
                         class="w-16 h-16 mx-auto mb-5 bg-gradient-to-br from-[#FBF8F3] to-white rounded-2xl flex items-center justify-center shadow-sm border border-[#C9A227]/10 group-hover:border-[#C9A227]/30 group-hover:shadow-lg transition-all duration-300">
                         <i data-lucide="leaf" class="w-7 h-7 text-[#C9A227]"></i>
                     </div>
-                    <h3 class="font-serif font-medium text-[#0a0f1a] text-lg mb-1">100% Natural</h3>
+                    <h3 class="font-serif font-medium text-[#0a0f1a] text-lg mb-1">Keratin Fibers</h3>
                     <p class="text-sm text-slate-500">Premium keratin protein</p>
                 </div>
                 <div class="text-center group reveal stagger-2">
@@ -1192,23 +1065,23 @@
                         <i data-lucide="shield-check" class="w-7 h-7 text-[#C9A227]"></i>
                     </div>
                     <h3 class="font-serif font-medium text-[#0a0f1a] text-lg mb-1">30-Day Guarantee</h3>
-                    <p class="text-sm text-slate-500">Risk-free purchase</p>
+                    <p class="text-sm text-slate-500">Conditions apply — see terms</p>
                 </div>
                 <div class="text-center group reveal stagger-3">
                     <div
                         class="w-16 h-16 mx-auto mb-5 bg-gradient-to-br from-[#FBF8F3] to-white rounded-2xl flex items-center justify-center shadow-sm border border-[#C9A227]/10 group-hover:border-[#C9A227]/30 group-hover:shadow-lg transition-all duration-300">
                         <i data-lucide="award" class="w-7 h-7 text-[#C9A227]"></i>
                     </div>
-                    <h3 class="font-serif font-medium text-[#0a0f1a] text-lg mb-1">Clinically Tested</h3>
-                    <p class="text-sm text-slate-500">Safe for all hair types</p>
+                    <h3 class="font-serif font-medium text-[#0a0f1a] text-lg mb-1">Nine Shades</h3>
+                    <p class="text-sm text-slate-500">Compare the shade options</p>
                 </div>
                 <div class="text-center group reveal stagger-4">
                     <div
                         class="w-16 h-16 mx-auto mb-5 bg-gradient-to-br from-[#FBF8F3] to-white rounded-2xl flex items-center justify-center shadow-sm border border-[#C9A227]/10 group-hover:border-[#C9A227]/30 group-hover:shadow-lg transition-all duration-300">
                         <i data-lucide="star" class="w-7 h-7 text-[#C9A227] fill-current"></i>
                     </div>
-                    <h3 class="font-serif font-medium text-[#0a0f1a] text-lg mb-1">4.9 Star Rating</h3>
-                    <p class="text-sm text-slate-500">2,847+ happy customers</p>
+                    <h3 class="font-serif font-medium text-[#0a0f1a] text-lg mb-1">Bundle Choices</h3>
+                    <p class="text-sm text-slate-500">Review contents before adding</p>
                 </div>
             </div>
         </div>
@@ -1398,12 +1271,10 @@
                         <h2
                             class="text-4xl lg:text-5xl font-serif font-medium text-[#0a0f1a] mb-6 leading-tight gold-line">
                             Premium Keratin.<br>
-                            <span class="text-[#C9A227] italic font-normal">Scientifically Formulated.</span>
+                            <span class="text-[#C9A227] italic font-normal">Choose Your Bundle.</span>
                         </h2>
                         <p class="text-slate-600 leading-relaxed text-lg mt-10">
-                            Unlike cheap imitations, Halo Fibers are made from premium colored keratin protein – the
-                            exact same protein that makes up your natural hair. This ensures a perfect blend that is
-                            undetectable even up close.
+                            Explore nine shades of keratin hair-building fibers. Choose a bundle below and review its current price and included items before adding it to your cart. Individual results vary.
                         </p>
                     </div>
 
@@ -1414,7 +1285,7 @@
                                 class="w-8 h-8 rounded-lg bg-[#C9A227]/10 flex items-center justify-center flex-shrink-0">
                                 <i data-lucide="check" class="w-4 h-4 text-[#C9A227]"></i>
                             </div>
-                            <span class="text-sm text-[#0a0f1a] font-medium">Instantly conceals thinning areas</span>
+                            <span class="text-sm text-[#0a0f1a] font-medium">For the appearance of fuller hair</span>
                         </div>
                         <div
                             class="flex items-start gap-4 p-4 bg-white/60 rounded-xl border border-[#C9A227]/10 hover:border-[#C9A227]/30 transition-colors">
@@ -1422,7 +1293,7 @@
                                 class="w-8 h-8 rounded-lg bg-[#C9A227]/10 flex items-center justify-center flex-shrink-0">
                                 <i data-lucide="check" class="w-4 h-4 text-[#C9A227]"></i>
                             </div>
-                            <span class="text-sm text-[#0a0f1a] font-medium">Resists wind, rain, and perspiration</span>
+                            <span class="text-sm text-[#0a0f1a] font-medium">Compare nine shade options</span>
                         </div>
                         <div
                             class="flex items-start gap-4 p-4 bg-white/60 rounded-xl border border-[#C9A227]/10 hover:border-[#C9A227]/30 transition-colors">
@@ -1491,18 +1362,30 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-col gap-4">
-                        <button id="buyNowProductDetails" onclick="buyNowWithShade()"
+                    <div class="flex flex-col gap-4 conversion-purchase">
+                        <p class="font-semibold text-[#0a0f1a]">Your shade: <span id="purchaseShadeName">Black</span></p>
+                        <p class="text-sm text-slate-600">Color swatches are references; screen colors may vary.</p>
+                        <label for="purchasePack" class="font-semibold text-[#0a0f1a]">Choose your bundle</label>
+                        <select id="purchasePack" class="conversion-select">
+                            <option value="hf-starter" data-name="Starter Bundle">Starter Bundle — unavailable</option>
+                            <option value="hf-pro" data-name="Pro Bundle">Pro Bundle — unavailable</option>
+                            <option value="hf-ultimate" data-name="Ultimate Bundle">Ultimate Bundle — unavailable</option>
+                        </select>
+                        <p id="purchaseContents" class="text-sm text-slate-600">Loading current bundle contents…</p>
+                        <p id="catalogStatus" role="status" class="text-sm text-slate-600">Loading current prices…</p>
+                        <button id="retryCatalog" class="conversion-link" type="button">Retry prices</button>
+                        <button id="buyNowProductDetails" onclick="buyNowWithShade()" disabled
                             class="inline-block bg-[#C9A227] text-[#0a0f1a] px-8 py-4 rounded-full font-semibold tracking-wide btn-shine shadow-xl shadow-[#C9A227]/20">
-                            Buy Now
+                            Purchasing unavailable
                         </button>
+                        <p class="conversion-policy">Free U.S. shipping on orders over $39; shipping and tax are not estimated here. Review checkout and contact support before paying if charges are not stated. Typical processing: 1–2 business days; delivery: 5–7 business days. Returns within 30 days of receipt, in original condition with at least 75% remaining. <a href="#terms">Full terms</a>. Contact support for return steps, return-shipping responsibility or shade exchanges before ordering.</p>
 
                         <div class="flex items-center justify-center gap-2 flex-wrap">
                             <span class="trust-badge">
-                                <i data-lucide="shield-check" class="w-3 h-3"></i> 30-Day Money Back
+                                <i data-lucide="shield-check" class="w-3 h-3"></i> 30-Day Returns: Conditions Apply
                             </span>
                             <span class="trust-badge">
-                                <i data-lucide="truck" class="w-3 h-3"></i> Free Shipping $39+
+                                <i data-lucide="truck" class="w-3 h-3"></i> U.S. shipping free over $39
                             </span>
                             <span class="trust-badge">
                                 <i data-lucide="lock" class="w-3 h-3"></i> Secure Checkout
@@ -1510,114 +1393,9 @@
                         </div>
                     </div>
 
-                    <!-- Payment Icons -->
-                    <img src="images/guaranteed-safe-checkout.png"
-                        alt="Guaranteed SAFE Checkout - Norton Secured, Money Back Guarantee, Visa, Mastercard, Amex, PayPal, Discover"
-                        class="h-14 w-auto max-w-full mx-auto" loading="lazy" width="835" height="184">
                 </div>
             </div>
 
-            <!-- As Seen In Media Logos -->
-            <div class="text-center mt-16 reveal">
-                <p class="text-sm text-slate-500 mb-4 font-semibold">As Seen In</p>
-                <div
-                    class="flex items-center justify-center gap-6 flex-wrap opacity-60 grayscale hover:grayscale-0 transition">
-                    <img src="images/media-forbes.svg" alt="Forbes" class="h-8 w-auto" loading="lazy" width="120"
-                        height="30">
-                    <img src="images/media-gq.svg" alt="GQ" class="h-8 w-auto" loading="lazy" width="120" height="30">
-                    <img src="images/media-mens-health.svg" alt="Men's Health" class="h-8 w-auto" loading="lazy"
-                        width="120" height="30">
-                    <img src="images/media-allure.svg" alt="Allure" class="h-8 w-auto" loading="lazy" width="120"
-                        height="30">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WHY HALO FIBERS WIN -->
-    <section class="py-24 bg-slate-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-                <h2 class="text-4xl lg:text-5xl font-serif font-bold text-slate-900 mb-6">Why Halo Fibers Win</h2>
-                <p class="text-slate-700 text-lg">See how Halo Fibers' premium keratin compares to cheap cotton and wool
-                    alternatives.</p>
-            </div>
-
-            <div class="max-w-5xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- The "Other Guys" -->
-                    <div class="bg-white rounded-2xl p-8 border-2 border-slate-200 reveal">
-                        <div class="text-center mb-8">
-                            <h3 class="text-2xl font-serif font-bold text-slate-900 mb-2">The "Other Guys"</h3>
-                            <p class="text-slate-500 text-sm">Cheap Cotton/Wool</p>
-                        </div>
-
-                        <div class="space-y-6">
-                            <div>
-                                <h4 class="font-bold text-slate-900 mb-2">Look</h4>
-                                <p class="text-slate-600 text-sm">Dull, dusty, and looks like "product."</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-slate-900 mb-2">Hold</h4>
-                                <p class="text-slate-600 text-sm">Weak static charge (falls onto your forehead).</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-slate-900 mb-2">Feel</h4>
-                                <p class="text-slate-600 text-sm">Can cause itching or irritation.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-slate-900 mb-2">Resistance</h4>
-                                <p class="text-slate-600 text-sm">Runs easily in sweat.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Halo Fibers -->
-                    <div
-                        class="bg-[#0a0f1a] rounded-2xl p-8 border-2 border-[#C9A227] relative transform md:-translate-y-4 reveal shadow-2xl shadow-[#C9A227]/10">
-                        <div
-                            class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#C9A227] text-[#0a0f1a] px-6 py-1.5 rounded-full text-sm font-bold shadow-lg">
-                            Premium Choice
-                        </div>
-
-                        <div class="text-center mb-8 mt-2">
-                            <h3 class="text-2xl font-serif font-bold text-white mb-2">Halo Fibers</h3>
-                            <p class="text-[#C9A227] text-sm font-medium">Premium Keratin Protein</p>
-                        </div>
-
-                        <div class="space-y-6">
-                            <div class="flex items-center justify-between border-b border-white/10 pb-4">
-                                <span class="font-medium text-slate-300">Look</span>
-                                <div class="flex items-center gap-2 text-white font-medium">
-                                    <span>Undetectable</span>
-                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-[#C9A227] fill-current"></i>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between border-b border-white/10 pb-4">
-                                <span class="font-medium text-slate-300">Static Charge</span>
-                                <div class="flex items-center gap-2 text-white font-medium">
-                                    <span>300% Stronger</span>
-                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-[#C9A227] fill-current"></i>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between border-b border-white/10 pb-4">
-                                <span class="font-medium text-slate-300">Feel</span>
-                                <div class="flex items-center gap-2 text-white font-medium">
-                                    <span>Lightweight</span>
-                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-[#C9A227] fill-current"></i>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span class="font-medium text-slate-300">Resistance</span>
-                                <div class="flex items-center gap-2 text-white font-medium">
-                                    <span>Wind & Rain Proof</span>
-                                    <i data-lucide="check-circle-2" class="w-5 h-5 text-[#C9A227] fill-current"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -1632,11 +1410,10 @@
             <div class="text-center max-w-2xl mx-auto mb-12 reveal">
                 <div
                     class="inline-block bg-gradient-to-r from-[#C9A227] to-[#E8C547] text-[#0a0f1a] px-6 py-2 rounded-full text-xs font-semibold tracking-wider uppercase mb-6">
-                    Save Up To 39%
+                    Compare Your Options
                 </div>
-                <h2 class="text-4xl lg:text-5xl font-serif font-medium text-[#0a0f1a] mb-6">Bundle & Save</h2>
-                <p class="text-slate-600 text-lg font-light">Get more value with our carefully curated bundles.
-                    Customers save an average of $25 per order.</p>
+                <h2 class="text-4xl lg:text-5xl font-serif font-medium text-[#0a0f1a] mb-6">Choose Your Bundle</h2>
+                <p class="text-slate-600 text-lg font-light">Compare the included items and current price. Every bundle uses your selected shade.</p>
                 <div
                     class="mt-8 inline-flex items-center gap-3 bg-[#FBF8F3] border border-[#C9A227]/20 px-5 py-3 rounded-full">
                     <i data-lucide="palette" class="w-4 h-4 text-[#C9A227]"></i>
@@ -1645,52 +1422,7 @@
                 </div>
             </div>
 
-            <!-- COMPARISON TABLE -->
-            <div class="max-w-4xl mx-auto mb-24 overflow-x-auto reveal">
-                <table class="w-full text-left border-collapse min-w-[600px]">
-                    <thead>
-                        <tr class="border-b border-slate-200">
-                            <th class="py-4 px-4 font-serif text-slate-900">Features</th>
-                            <th class="py-4 px-4 text-center font-serif text-slate-500">Starter</th>
-                            <th class="py-4 px-4 text-center font-serif text-slate-500">Pro</th>
-                            <th
-                                class="py-4 px-4 text-center font-serif text-[#C9A227] font-bold bg-[#FBF8F3] rounded-t-xl">
-                                Ultimate</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="border-b border-slate-100">
-                            <td class="py-4 px-4 text-slate-600 font-medium">Supply</td>
-                            <td class="py-4 px-4 text-center text-slate-600">1 Month</td>
-                            <td class="py-4 px-4 text-center text-slate-600">2 Months</td>
-                            <td class="py-4 px-4 text-center text-[#0a0f1a] font-bold bg-[#FBF8F3]">3 Months</td>
-                        </tr>
-                        <tr class="border-b border-slate-100">
-                            <td class="py-4 px-4 text-slate-600 font-medium">Bottles</td>
-                            <td class="py-4 px-4 text-center text-slate-600">1x</td>
-                            <td class="py-4 px-4 text-center text-slate-600">2x + Applicator</td>
-                            <td class="py-4 px-4 text-center text-[#0a0f1a] font-bold bg-[#FBF8F3]">3x + Premium
-                                Applicator</td>
-                        </tr>
-                        <tr class="border-b border-slate-100">
-                            <td class="py-4 px-4 text-slate-600 font-medium">Applicator Tool</td>
-                            <td class="py-4 px-4 text-center text-slate-600"><i data-lucide="check"
-                                    class="w-5 h-5 mx-auto"></i></td>
-                            <td class="py-4 px-4 text-center text-slate-600"><i data-lucide="check"
-                                    class="w-5 h-5 mx-auto"></i></td>
-                            <td class="py-4 px-4 text-center text-emerald-500 bg-[#FBF8F3]"><i data-lucide="check"
-                                    class="w-5 h-5 mx-auto"></i></td>
-                        </tr>
-                        <tr>
-                            <td class="py-4 px-4 text-slate-600 font-medium">Savings</td>
-                            <td class="py-4 px-4 text-center text-slate-600">25%</td>
-                            <td class="py-4 px-4 text-center text-slate-600">36%</td>
-                            <td class="py-4 px-4 text-center text-[#C9A227] font-bold bg-[#FBF8F3] rounded-b-xl">39% +
-                                Free Gifts</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <p class="conversion-policy text-center">Bundle contents are listed on each card. No comparison-table scrolling required. Free U.S. shipping on orders over $39; shipping and tax are not estimated here. Review checkout and contact support before paying if charges are not stated. <a href="#terms">Shipping and return conditions</a>.</p>
 
             <div class="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto items-stretch mt-8">
 
@@ -1698,40 +1430,18 @@
                 <div class="luxury-card rounded-3xl p-8 reveal stagger-1 flex flex-col h-full group">
                     <h3 class="text-2xl font-serif font-medium text-[#0a0f1a] mb-3">Starter</h3>
                     <div class="flex items-baseline gap-3 mb-4">
-                        <span class="text-4xl font-serif font-medium text-[#0a0f1a]">$29.95</span>
-                        <span class="text-slate-400 line-through text-sm">$39.99</span>
-                    </div>
-                    <div
-                        class="inline-block w-fit bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-8">
-                        Save 25%
+                        <span class="text-4xl font-serif font-medium text-[#0a0f1a]" data-catalog-price="hf-starter" data-unavailable="true">Unavailable</span>
                     </div>
 
-                    <ul class="space-y-4 mb-10 flex-grow">
-                        <li class="flex gap-3 text-sm text-slate-600">
-                            <i data-lucide="check" class="w-5 h-5 text-[#0a0f1a] flex-shrink-0"></i>
-                            1x Halo Fibers Bottle
-                        </li>
-                        <li class="flex gap-3 text-sm text-slate-600">
-                            <i data-lucide="check" class="w-5 h-5 text-[#0a0f1a] flex-shrink-0"></i>
-                            1x Pump Applicator
-                        </li>
-                        <li class="flex gap-3 text-sm text-slate-600">
-                            <i data-lucide="check" class="w-5 h-5 text-[#0a0f1a] flex-shrink-0"></i>
-                            Premium Keratin Formula
-                        </li>
-                        <li class="flex gap-3 text-sm text-slate-600">
-                            <i data-lucide="check" class="w-5 h-5 text-[#0a0f1a] flex-shrink-0"></i>
-                            Natural-Looking Results
-                        </li>
-                    </ul>
+                    <ul class="space-y-4 mb-10 flex-grow text-slate-600" data-catalog-contents="hf-starter"><li>Bundle details unavailable.</li></ul>
 
                     <div class="space-y-4 mt-auto">
                         <button
                             class="w-full py-4 rounded-full bg-[#0a0f1a] text-white font-semibold tracking-wide btn-premium-dark"
-                            onclick="addToCart(this, 'Starter', 29.95)">Get Starter</button>
+                            data-add-sku="hf-starter" disabled>Get Starter</button>
                         <div class="flex items-center justify-center gap-2 text-xs">
                             <span class="text-slate-500 flex items-center gap-1">
-                                <i data-lucide="shield-check" class="w-3 h-3 text-emerald-500"></i> Guaranteed
+                                <i data-lucide="shield-check" class="w-3 h-3 text-emerald-500"></i> Return conditions apply
                             </span>
                         </div>
                     </div>
@@ -1750,57 +1460,27 @@
 
                     <div
                         class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gradient-to-r from-[#C9A227] to-[#E8C547] text-[#0a0f1a] px-6 py-2 rounded-full text-xs font-semibold tracking-wider uppercase shadow-lg">
-                        Most Popular
+                        Ultimate
                     </div>
 
                     <div class="relative z-10">
                         <h3 class="text-2xl font-serif font-medium text-white mb-3 mt-2">Ultimate Bundle</h3>
                         <div class="flex items-baseline gap-3 mb-4">
-                            <span class="text-5xl font-serif font-medium text-white">$69.95</span>
-                            <span class="text-slate-500 line-through text-sm">$114.99</span>
-                        </div>
-                        <div
-                            class="inline-block w-fit bg-[#C9A227]/20 text-[#C9A227] text-xs font-semibold px-3 py-1.5 rounded-full mb-8 border border-[#C9A227]/30">
-                            Save 39%
-                        </div>
-                        <div
-                            class="inline-flex items-center gap-1.5 bg-red-50 text-red-600 text-[10px] font-bold px-2 py-1 rounded-md border border-red-100 ml-2 animate-pulse">
-                            <i data-lucide="flame" class="w-3 h-3 fill-current"></i> Low Stock
+                            <span class="text-5xl font-serif font-medium text-white" data-catalog-price="hf-ultimate" data-unavailable="true">Unavailable</span>
                         </div>
 
-                        <ul class="space-y-4 mb-10">
-                            <li class="flex gap-3 text-sm text-slate-300">
-                                <i data-lucide="check" class="w-5 h-5 text-[#C9A227] flex-shrink-0"></i>
-                                <span><strong class="text-white">3x</strong> Halo Fibers Bottles</span>
-                            </li>
-                            <li class="flex gap-3 text-sm text-slate-300">
-                                <i data-lucide="check" class="w-5 h-5 text-[#C9A227] flex-shrink-0"></i>
-                                Premium Glass Applicator
-                            </li>
-                            <li class="flex gap-3 text-sm text-slate-300">
-                                <i data-lucide="check" class="w-5 h-5 text-[#C9A227] flex-shrink-0"></i>
-                                Water & Sweat Resistant
-                            </li>
-                            <li class="flex gap-3 text-sm text-slate-300">
-                                <i data-lucide="check" class="w-5 h-5 text-[#C9A227] flex-shrink-0"></i>
-                                Free Shipping
-                            </li>
-                            <li class="flex gap-3 text-sm text-slate-300">
-                                <i data-lucide="check" class="w-5 h-5 text-[#C9A227] flex-shrink-0"></i>
-                                Money Back Guarantee
-                            </li>
-                        </ul>
+                        <ul class="space-y-4 mb-10 text-slate-300" data-catalog-contents="hf-ultimate"><li>Bundle details unavailable.</li></ul>
 
                         <div class="space-y-4">
                             <button
                                 class="w-full py-4 rounded-full bg-[#C9A227] text-[#0a0f1a] font-semibold tracking-wide btn-shine"
-                                onclick="addToCart(this, 'Ultimate', 69.95)">Get Ultimate Bundle</button>
+                                data-add-sku="hf-ultimate" disabled>Get Ultimate Bundle</button>
                             <div class="flex items-center justify-center gap-4 text-xs">
                                 <span class="text-slate-400 flex items-center gap-1">
-                                    <i data-lucide="shield-check" class="w-3 h-3 text-emerald-400"></i> 30-Day Guarantee
+                                    <i data-lucide="shield-check" class="w-3 h-3 text-emerald-400"></i> Return conditions apply
                                 </span>
                                 <span class="text-slate-400 flex items-center gap-1">
-                                    <i data-lucide="truck" class="w-3 h-3 text-sky-400"></i> Free Shipping
+                                    <i data-lucide="truck" class="w-3 h-3 text-sky-400"></i> U.S. shipping free over $39
                                 </span>
                             </div>
                         </div>
@@ -1811,47 +1491,21 @@
                 <div class="luxury-card rounded-3xl p-8 reveal stagger-3 flex flex-col h-full group">
                     <h3 class="text-2xl font-serif font-medium text-[#0a0f1a] mb-3">Pro Bundle</h3>
                     <div class="flex items-baseline gap-3 mb-4">
-                        <span class="text-4xl font-serif font-medium text-[#0a0f1a]">$44.95</span>
-                        <span class="text-slate-400 line-through text-sm">$69.93</span>
-                    </div>
-                    <div
-                        class="inline-block w-fit bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-8">
-                        Save 36%
+                        <span class="text-4xl font-serif font-medium text-[#0a0f1a]" data-catalog-price="hf-pro" data-unavailable="true">Unavailable</span>
                     </div>
 
-                    <ul class="space-y-4 mb-10 flex-grow">
-                        <li class="flex gap-3 text-sm text-slate-600">
-                            <i data-lucide="check" class="w-5 h-5 text-[#0a0f1a] flex-shrink-0"></i>
-                            2x Halo Fibers Bottles
-                        </li>
-                        <li class="flex gap-3 text-sm text-slate-600">
-                            <i data-lucide="check" class="w-5 h-5 text-[#0a0f1a] flex-shrink-0"></i>
-                            1x Pump Applicator
-                        </li>
-                        <li class="flex gap-3 text-sm text-slate-600">
-                            <i data-lucide="check" class="w-5 h-5 text-[#0a0f1a] flex-shrink-0"></i>
-                            Premium Keratin Formula
-                        </li>
-                        <li class="flex gap-3 text-sm text-slate-600">
-                            <i data-lucide="check" class="w-5 h-5 text-[#0a0f1a] flex-shrink-0"></i>
-                            Free Shipping
-                        </li>
-                        <li class="flex gap-3 text-sm text-slate-600">
-                            <i data-lucide="check" class="w-5 h-5 text-[#0a0f1a] flex-shrink-0"></i>
-                            Money-back guarantee
-                        </li>
-                    </ul>
+                    <ul class="space-y-4 mb-10 flex-grow text-slate-600" data-catalog-contents="hf-pro"><li>Bundle details unavailable.</li></ul>
 
                     <div class="space-y-4 mt-auto">
                         <button
                             class="w-full py-4 rounded-full bg-[#0a0f1a] text-white font-semibold tracking-wide btn-premium-dark"
-                            onclick="addToCart(this, 'Pro', 44.95)">Get Pro Bundle</button>
+                            data-add-sku="hf-pro" disabled>Get Pro Bundle</button>
                         <div class="flex items-center justify-center gap-4 text-xs">
                             <span class="text-slate-500 flex items-center gap-1">
-                                <i data-lucide="shield-check" class="w-3 h-3 text-emerald-500"></i> Guaranteed
+                                <i data-lucide="shield-check" class="w-3 h-3 text-emerald-500"></i> Return conditions apply
                             </span>
                             <span class="text-slate-500 flex items-center gap-1">
-                                <i data-lucide="truck" class="w-3 h-3 text-sky-500"></i> Free Shipping
+                                <i data-lucide="truck" class="w-3 h-3 text-sky-500"></i> U.S. shipping free over $39
                             </span>
                         </div>
                     </div>
@@ -1862,7 +1516,7 @@
             <div class="text-center mt-16">
                 <p class="text-slate-500 text-sm flex items-center justify-center gap-2">
                     <i data-lucide="heart" class="w-4 h-4 text-rose-400 fill-current"></i>
-                    All orders include our 30-day money-back guarantee
+                    Returns within 30 days of receipt: original condition and at least 75% remaining. See full terms.
                 </p>
             </div>
         </div>
@@ -1900,9 +1554,7 @@
                     </button>
                     <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
                         <div class="px-6 pb-6 text-slate-600 leading-relaxed">
-                            Yes! Halo Fibers are available in 9 natural shades that can be mixed to match any hair
-                            color. Because the fibers are made of natural keratin, they blend seamlessly with your
-                            existing hair for an undetectable finish.
+                            Choose from nine shades using the swatches or optional quiz. Screen colors and individual results vary; the quiz is a starting point, not a guaranteed match.
                         </div>
                     </div>
                 </div>
@@ -1936,9 +1588,7 @@
                     </button>
                     <div class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out opacity-0">
                         <div class="px-6 pb-6 text-slate-600 leading-relaxed">
-                            Yes, Halo Fibers are hypoallergenic and made from 100% natural keratin protein—the same
-                            protein your hair is made of. They are free from harmful chemicals and safe for daily use on
-                            all skin types.
+                            We cannot guarantee suitability for every scalp. Review the product information and consult a qualified professional if you have sensitivities or concerns. Stop use if irritation occurs.
                         </div>
                     </div>
                 </div>
@@ -1968,23 +1618,8 @@
         class="fixed bottom-0 left-0 right-0 bg-gradient-to-t from-white via-white to-white/95 backdrop-blur-md border-t border-[#C9A227]/10 p-4 pb-6 shadow-[0_-10px_40px_rgba(201,162,39,0.15)] z-40 sticky-mobile-cta md:hidden">
         <div class="flex items-center gap-4">
             <div class="flex-1">
-                <div class="flex items-center gap-2 mb-1">
-                    <div class="flex text-[#C9A227]">
-                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                        <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                    </div>
-                    <span class="text-[10px] font-semibold text-slate-500">4.9</span>
-                </div>
-                <div class="font-serif font-medium text-[#0a0f1a] text-sm">Ultimate Bundle</div>
-                <div class="flex items-center gap-2 mt-1">
-                    <span class="text-xl font-serif font-medium text-[#C9A227]">$69.95</span>
-                    <span class="text-xs text-slate-400 line-through">$114.99</span>
-                    <span class="text-[10px] font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">Save
-                        39%</span>
-                </div>
+                <div class="font-serif font-medium text-[#0a0f1a] text-sm">Choose your shade &amp; bundle</div>
+                <div class="text-sm text-slate-600">Current prices before you add</div>
             </div>
             <button onclick="window.location.href='#offers'"
                 class="bg-[#C9A227] text-[#0a0f1a] px-6 py-4 rounded-full font-semibold text-sm tracking-wide shadow-lg shadow-[#C9A227]/20 btn-shine">
@@ -2088,16 +1723,6 @@
                     </a>
                     <p class="text-slate-500 text-sm font-light max-w-xs">Premium keratin hair fibers for instant
                         confidence. The secret to fuller, thicker-looking hair.</p>
-                    <div class="flex items-center gap-4 mt-6">
-                        <div class="flex text-[#C9A227]">
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                            <i data-lucide="star" class="w-4 h-4 fill-current"></i>
-                        </div>
-                        <span class="text-sm text-slate-500">4.9/5 from 2,847 reviews</span>
-                    </div>
                 </div>
                 <div class="md:text-right">
                     <div class="flex md:justify-end gap-6 mb-6 text-sm">
@@ -2115,74 +1740,18 @@
         </div>
     </footer>
 
+    <section class="conversion-consent" aria-label="Analytics preferences">
+        <div class="conversion-consent-inner">
+            <p>Optional analytics helps us understand shopping activity. No email, address or payment details are sent in our ecommerce events. <span id="analyticsChoice" role="status">Optional analytics off.</span></p>
+            <div class="conversion-consent-actions">
+                <button id="denyAnalytics" type="button" aria-pressed="true">Keep analytics off</button>
+                <button id="allowAnalytics" type="button" aria-pressed="false">Allow analytics</button>
+            </div>
+        </div>
+    </section>
     </main>
 
-    <!-- EXIT INTENT MODAL - REFINED -->
-    <div id="exitModal" class="modal-overlay">
-        <div
-            class="modal-content bg-white p-10 rounded-3xl shadow-2xl max-w-md w-full mx-4 text-center relative border border-[#C9A227]/10">
-            <button onclick="closeExitModal()" aria-label="Close discount popup"
-                class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 transition-colors">
-                <i data-lucide="x" class="w-5 h-5"></i>
-            </button>
-
-            <div
-                class="w-20 h-20 bg-gradient-to-br from-[#C9A227]/10 to-[#C9A227]/5 rounded-2xl flex items-center justify-center mx-auto mb-8">
-                <i data-lucide="gift" class="w-10 h-10 text-[#C9A227]"></i>
-            </div>
-
-            <h3 class="text-3xl font-serif font-medium text-[#0a0f1a] mb-3">Wait! Don't Go Yet</h3>
-            <p class="text-slate-600 mb-8 font-light">Get <span class="font-semibold text-[#C9A227]">10% OFF</span> your
-                first order.
-                Use code <span
-                    class="font-mono font-semibold bg-[#FBF8F3] px-3 py-1 rounded-lg text-[#0a0f1a]">HALO10</span> at
-                checkout.</p>
-
-            <button onclick="window.location.href='#offers'; closeExitModal()"
-                class="w-full bg-[#C9A227] text-[#0a0f1a] font-semibold py-4 rounded-full btn-shine shadow-lg shadow-[#C9A227]/20">
-                Claim My 10% Off
-            </button>
-
-            <button onclick="closeExitModal()"
-                class="mt-5 text-sm text-slate-400 hover:text-slate-600 transition-colors">
-                No thanks
-            </button>
-        </div>
-    </div>
-
-    <!-- EMAIL CAPTURE MODAL - REFINED -->
-    <div id="emailModal" class="modal-overlay email-modal">
-        <div
-            class="modal-content bg-white p-10 rounded-3xl shadow-2xl max-w-md w-full mx-4 text-center relative border border-[#C9A227]/10">
-            <button onclick="closeEmailModal()" aria-label="Close email signup popup"
-                class="absolute top-5 right-5 text-slate-400 hover:text-slate-600 transition-colors">
-                <i data-lucide="x" class="w-5 h-5"></i>
-            </button>
-
-            <div
-                class="w-20 h-20 bg-gradient-to-br from-[#C9A227]/10 to-[#C9A227]/5 rounded-2xl flex items-center justify-center mx-auto mb-8">
-                <i data-lucide="mail" class="w-10 h-10 text-[#C9A227]"></i>
-            </div>
-
-            <h3 class="text-3xl font-serif font-medium text-[#0a0f1a] mb-3">Get 15% Off Your First Order</h3>
-            <p class="text-slate-600 mb-8 font-light">Join our newsletter and receive exclusive discounts, hair care
-                tips, and early access to new products.</p>
-
-            <form id="emailForm" onsubmit="handleEmailSubmit(event)" class="space-y-4">
-                <input type="email" id="emailInput" placeholder="Enter your email" required
-                    class="w-full px-5 py-4 border border-[#C9A227]/20 rounded-2xl focus:border-[#C9A227]/50 focus:outline-none focus:ring-2 focus:ring-[#C9A227]/10 transition-all text-[#0a0f1a]">
-                <button type="submit"
-                    class="w-full bg-[#C9A227] text-[#0a0f1a] font-semibold py-4 rounded-full btn-shine shadow-lg shadow-[#C9A227]/20">
-                    Get My Discount Code
-                </button>
-            </form>
-
-            <button onclick="closeEmailModal()"
-                class="mt-5 text-sm text-slate-400 hover:text-slate-600 transition-colors">
-                No thanks
-            </button>
-        </div>
-    </div>
+    <!-- Discount popups disabled until approved offers and real delivery exist. -->
 
     <!-- FIND MY SHADE QUIZ MODAL -->
     <div id="quizModal" class="modal-overlay quiz-modal">
@@ -2201,10 +1770,10 @@
 
     <!-- CART DRAWER - REFINED -->
     <div id="cartOverlay" class="cart-drawer-overlay" onclick="toggleCart()"></div>
-    <div id="cartDrawer" class="cart-drawer">
+    <div id="cartDrawer" class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cartHeading" aria-hidden="true" inert tabindex="-1">
         <!-- Cart Header -->
         <div class="flex items-center justify-between p-6 border-b border-[#C9A227]/10 bg-[#FBF8F3]">
-            <h2 class="text-2xl font-serif font-medium text-[#0a0f1a]">Shopping Cart</h2>
+            <h2 id="cartHeading" class="text-2xl font-serif font-medium text-[#0a0f1a]">Shopping Cart</h2>
             <button onclick="toggleCart()" aria-label="Close cart"
                 class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/80 border border-[#C9A227]/10 transition-all">
                 <i data-lucide="x" class="w-5 h-5 text-slate-600"></i>
@@ -2228,20 +1797,107 @@
         <!-- Cart Footer -->
         <div id="cartFooter" class="border-t border-[#C9A227]/10 p-6 bg-[#FBF8F3]" style="display: none;">
             <div class="flex items-center justify-between mb-5">
-                <span class="text-lg font-medium text-[#0a0f1a]">Total:</span>
+                <span class="text-lg font-medium text-[#0a0f1a]">Subtotal:</span>
                 <span id="cartTotal" class="text-2xl font-serif font-medium text-[#C9A227]">$0.00</span>
             </div>
-            <button id="checkoutBtn" onclick="checkout()"
+            <p class="conversion-policy">Saved carts use current catalog prices, not previously saved prices. Please review your bundle, shade, quantity and subtotal before checkout.</p>
+            <p id="cartShipping" class="conversion-policy"></p>
+            <p class="conversion-policy">Typical processing 1–2 business days; delivery 5–7 business days. Returns within 30 days of receipt: original condition, at least 75% remaining. <a href="#terms" onclick="toggleCart()">Full terms</a>.</p>
+            <p id="checkoutStatus" role="status" class="conversion-policy"></p>
+            <button id="checkoutBtn" onclick="checkout()" disabled
                 class="w-full bg-[#C9A227] text-[#0a0f1a] py-4 rounded-full font-semibold btn-shine shadow-lg shadow-[#C9A227]/20">
                 Proceed to Checkout
             </button>
             <p class="text-xs text-slate-500 text-center mt-4 flex items-center justify-center gap-2">
-                <i data-lucide="lock" class="w-3 h-3"></i> Secure checkout • 30-day money-back guarantee
+                <i data-lucide="lock" class="w-3 h-3"></i> Review shipping, tax and the final total before payment
             </p>
         </div>
     </div>
 
     <!-- JAVASCRIPT -->
+    <script>
+        // Dialog ergonomics only: no cart, checkout, form, or analytics data changes.
+        (() => {
+            const panels = [...document.querySelectorAll('.modal-overlay, #cartDrawer')];
+            const menu = document.getElementById('mobileNavigation');
+            const menuTrigger = menu.querySelector('summary');
+            let current = null;
+            const returns = new WeakMap();
+            let backgroundState = new Map();
+            let previousOverflow = '';
+            const focusables = panel => [...panel.querySelectorAll('button, a[href], input, select, textarea, [tabindex]')]
+                .filter(el => !el.disabled && el.tabIndex >= 0 && el.getClientRects().length && getComputedStyle(el).visibility !== 'hidden');
+            panels.forEach(panel => {
+                panel.setAttribute('role', 'dialog');
+                panel.setAttribute('aria-modal', 'true');
+                panel.tabIndex = -1;
+                if (!panel.hasAttribute('aria-labelledby') && !panel.hasAttribute('aria-label')) {
+                    panel.setAttribute('aria-label', panel.id === 'quizModal' ? 'Find your shade' : panel.id === 'emailModal' ? 'Newsletter discount' : 'Special offer');
+                }
+            });
+            function syncDialogs() {
+                const active = panels.filter(panel => panel.classList.contains('active'));
+                const next = active.includes(current) ? current : active[active.length - 1] || null;
+                panels.forEach(panel => {
+                    panel.inert = panel !== next;
+                    panel.setAttribute('aria-hidden', String(panel !== next));
+                });
+                document.querySelector('header button[aria-controls="cartDrawer"]').setAttribute('aria-expanded', String(next?.id === 'cartDrawer'));
+                if (next === current) return;
+                const old = current;
+                if (!old && next) {
+                    previousOverflow = document.body.style.overflow === 'hidden' ? '' : document.body.style.overflow;
+                    backgroundState = new Map([...document.body.children].map(el => [el, el.inert]));
+                }
+                current = next;
+                const openingTrigger = document.activeElement;
+                backgroundState.forEach((wasInert, el) => {
+                    el.inert = next ? el !== next && el.id !== 'cartOverlay' : wasInert;
+                });
+                // Panel state takes precedence over the original closed-dialog inert value.
+                panels.forEach(panel => { panel.inert = panel !== next; });
+                document.body.style.overflow = next ? 'hidden' : previousOverflow;
+                if (next) {
+                    returns.set(next, openingTrigger);
+                    menu.open = false;
+                    (focusables(next)[0] || next).focus({preventScroll: true});
+                } else if (old) {
+                    const trigger = returns.get(old);
+                    const fallback = document.querySelector('header button[aria-controls="cartDrawer"]');
+                    (trigger?.isConnected && !trigger.disabled && !trigger.closest('[inert]') ? trigger : fallback).focus({preventScroll: true});
+                    backgroundState.clear();
+                }
+            }
+            const observer = new MutationObserver(syncDialogs);
+            panels.forEach(panel => observer.observe(panel, {attributes: true, attributeFilter: ['class']}));
+            syncDialogs();
+            document.addEventListener('keydown', event => {
+                document.documentElement.classList.add('keyboard-input');
+                if (event.key === 'Escape') {
+                    if (current) {
+                        event.preventDefault();
+                        const close = {cartDrawer: toggleCart, quizModal: closeQuiz}[current.id];
+                        if (close) close();
+                    } else if (menu.open) {
+                        menu.open = false; menuTrigger.focus();
+                    }
+                }
+                if (event.key === 'Tab' && current) {
+                    const controls = focusables(current);
+                    const first = controls[0] || current;
+                    const last = controls[controls.length - 1] || current;
+                    if (event.shiftKey && (document.activeElement === first || !current.contains(document.activeElement))) {
+                        event.preventDefault(); last.focus();
+                    } else if (!event.shiftKey && (document.activeElement === last || !current.contains(document.activeElement))) {
+                        event.preventDefault(); first.focus();
+                    }
+                }
+            });
+            document.addEventListener('pointerdown', () => document.documentElement.classList.remove('keyboard-input'), {passive: true});
+            menu.addEventListener('click', event => { if (event.target.closest('a')) menu.open = false; });
+            document.addEventListener('click', event => { if (!menu.contains(event.target)) menu.open = false; });
+        })();
+    </script>
     <script>
         // 1. Icons: load after first render so icon library never blocks LCP.
         function refreshIcons() { if (typeof lucide !== 'undefined' && lucide.createIcons) { lucide.createIcons(); } }
@@ -2255,22 +1911,6 @@
             }, 400);
         }, { once: true });
 
-        // 1.5. Social Proof Counter
-        function updateSocialProof() {
-            const viewersEl = document.getElementById('viewersCount');
-            if (!viewersEl) return;
-
-            let viewers = parseInt(viewersEl.textContent) || 23;
-            const min = 18;
-            const max = 47;
-
-            setInterval(() => {
-                viewers = Math.floor(Math.random() * (max - min + 1)) + min;
-                viewersEl.textContent = viewers;
-            }, 8000);
-        }
-        updateSocialProof();
-
         // 1.6. Scroll Progress Bar
         function initScrollProgress() {
             const progressBar = document.getElementById('scrollProgress');
@@ -2283,47 +1923,6 @@
             });
         }
         initScrollProgress();
-
-        // 1.7. Countdown Timer
-        function initCountdownTimer() {
-            const countdownEl = document.getElementById('countdownTime');
-            if (!countdownEl) return;
-
-            let hours = 23;
-            let minutes = 45;
-            let seconds = 12;
-
-            // Display initial time immediately
-            function updateDisplay() {
-                const h = String(hours).padStart(2, '0');
-                const m = String(minutes).padStart(2, '0');
-                const s = String(seconds).padStart(2, '0');
-                countdownEl.textContent = `${h}:${m}:${s}`;
-            }
-
-            // Show initial time
-            updateDisplay();
-
-            // Then start countdown
-            setInterval(() => {
-                seconds--;
-                if (seconds < 0) {
-                    seconds = 59;
-                    minutes--;
-                    if (minutes < 0) {
-                        minutes = 59;
-                        hours--;
-                        if (hours < 0) {
-                            hours = 23;
-                            minutes = 45;
-                            seconds = 12;
-                        }
-                    }
-                }
-                updateDisplay();
-            }, 1000);
-        }
-        initCountdownTimer();
 
         // 1.8. Number Counting Animation
         function animateCountUp() {
@@ -2451,177 +2050,9 @@
         });
         observer.observe(document.querySelector('header'));
 
-        // 4. Cart Logic
-        const CART_STORAGE_KEY = 'haloFibersCart';
-        let cartAutoCloseTimeout = null; // Track auto-close timeout
-        let selectedShade = 'black'; // Default selected shade
-
-        // Product data
-        const products = {
-            'Starter': { name: 'Starter Bundle', price: 29.95, image: 'images/product-bottle-transparent.png' },
-            'Ultimate': { name: 'Ultimate Bundle', price: 69.95, image: 'images/product-bottle-transparent.png' },
-            'Pro': { name: 'Pro Bundle', price: 44.95, image: 'images/product-bottle-transparent.png' }
-        };
-
-        // Shade names mapping
-        const shadeNames = {
-            'black': 'Black',
-            'dark-brown': 'Dark Brown',
-            'medium-brown': 'Medium Brown',
-            'light-brown': 'Light Brown',
-            'auburn': 'Auburn',
-            'medium-blonde': 'Medium Blonde',
-            'light-blonde': 'Light Blonde',
-            'gray': 'Gray',
-            'white': 'White'
-        };
-
-        // Get cart from localStorage
-        function getCart() {
-            const cart = localStorage.getItem(CART_STORAGE_KEY);
-            return cart ? JSON.parse(cart) : [];
-        }
-
-        // Save cart to localStorage
-        function saveCart(cart) {
-            localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
-            updateCartUI();
-        }
-
-        // Add item to cart
-        function addToCart(button, name, price) {
-            const btn = button;
-
-            // Prevent double-clicks: if button is already showing feedback, ignore
-            if (btn.innerText === "Added! ✓" || btn.disabled) {
-                return;
-            }
-
-            // Store original text and classes if not already stored
-            if (!btn.dataset.originalText) {
-                btn.dataset.originalText = btn.innerText;
-            }
-            if (!btn.dataset.originalClasses) {
-                btn.dataset.originalClasses = btn.className;
-            }
-            const originalText = btn.dataset.originalText;
-            const originalClasses = btn.dataset.originalClasses;
-
-            const cart = getCart();
-            const shade = selectedShade || 'black';
-
-            // Create unique ID that includes shade (e.g., "Starter-black", "Starter-light-blonde")
-            const itemId = `${name}-${shade}`;
-
-            // Find existing item by id (includes shade)
-            const existingItem = cart.find(item => item.id === itemId);
-
-            if (existingItem) {
-                existingItem.quantity += 1;
-            } else {
-                cart.push({
-                    id: itemId,
-                    name: products[name]?.name || name,
-                    price: price,
-                    quantity: 1,
-                    image: products[name]?.image || 'images/product-bottle-transparent.png',
-                    shade: shade // Include selected shade
-                });
-            }
-
-            saveCart(cart);
-
-            // Visual feedback - disable button during feedback period
-            btn.disabled = true;
-            btn.innerText = "Added! ✓";
-            btn.className = "bg-green-600 text-white " + originalClasses.replace(/bg-\[#[^\]]+\]/g, '').replace(/bg-\w+-\d+/g, '').replace(/text-\w+-\d+/g, '').trim();
-
-            setTimeout(() => {
-                btn.innerText = originalText;
-                btn.className = originalClasses;
-                btn.disabled = false; // Re-enable button
-            }, 2000);
-
-            // Show cart drawer and keep it open for 15 seconds (only if cart has items)
-            if (cart.length > 0) {
-                const drawer = document.getElementById('cartDrawer');
-                if (drawer && !drawer.classList.contains('active')) {
-                    toggleCart();
-                    // Clear any existing timeout
-                    if (cartAutoCloseTimeout) {
-                        clearTimeout(cartAutoCloseTimeout);
-                    }
-                    // Schedule auto-close after 15 seconds, only if drawer is still open
-                    cartAutoCloseTimeout = setTimeout(() => {
-                        const drawerCheck = document.getElementById('cartDrawer');
-                        if (drawerCheck && drawerCheck.classList.contains('active')) {
-                            toggleCart();
-                        }
-                        cartAutoCloseTimeout = null;
-                    }, 15000); // 15 seconds instead of 1.5 seconds
-                }
-            }
-        }
-
-        // Remove item from cart
-        function removeFromCart(id) {
-            const cart = getCart().filter(item => item.id !== id);
-            saveCart(cart);
-        }
-
-        // Update item quantity
-        function updateQuantity(id, change) {
-            const cart = getCart();
-            const item = cart.find(item => item.id === id);
-
-            if (item) {
-                item.quantity += change;
-                if (item.quantity <= 0) {
-                    removeFromCart(id);
-                } else {
-                    saveCart(cart);
-                }
-            }
-        }
-
-        // Change item shade in cart
-        function changeItemShade(oldId, newShade) {
-            const cart = getCart();
-            const oldItem = cart.find(item => item.id === oldId);
-
-            if (!oldItem) return;
-
-            // If shade hasn't changed, do nothing
-            if (oldItem.shade === newShade) return;
-
-            // Extract product name from old ID (format: "ProductName-shade")
-            const productName = oldId.substring(0, oldId.lastIndexOf('-'));
-            const newId = `${productName}-${newShade}`;
-
-            // Check if an item with the new shade already exists
-            const existingItemIndex = cart.findIndex(item => item.id === newId);
-
-            if (existingItemIndex !== -1) {
-                // Merge quantities if item with new shade already exists
-                cart[existingItemIndex].quantity += oldItem.quantity;
-            } else {
-                // Create new item with new shade
-                const newItem = {
-                    ...oldItem,
-                    id: newId,
-                    shade: newShade
-                };
-                cart.push(newItem);
-            }
-
-            // Remove old item
-            const oldItemIndex = cart.findIndex(item => item.id === oldId);
-            if (oldItemIndex !== -1) {
-                cart.splice(oldItemIndex, 1);
-            }
-
-            saveCart(cart);
-        }
+        // Cart data, authoritative catalog, safe rendering and checkout live in assets/conversion.js.
+        let selectedShade = 'black';
+        const shadeNames = {'black':'Black','dark-brown':'Dark Brown','medium-brown':'Medium Brown','light-brown':'Light Brown','auburn':'Auburn','medium-blonde':'Medium Blonde','light-blonde':'Light Blonde','gray':'Gray','white':'White'};
 
         // Toggle cart drawer
         function toggleCart() {
@@ -2637,195 +2068,8 @@
                 // Prevent body scroll when cart is open
                 document.body.style.overflow = drawer.classList.contains('active') ? 'hidden' : '';
 
-                // If user manually closes drawer, cancel auto-close timeout
-                if (!isOpening && cartAutoCloseTimeout) {
-                    clearTimeout(cartAutoCloseTimeout);
-                    cartAutoCloseTimeout = null;
-                }
             }
         }
-
-        // Update cart UI
-        function updateCartUI() {
-            const cart = getCart();
-            const cartItems = document.getElementById('cartItems');
-            const emptyCart = document.getElementById('emptyCart');
-            const cartFooter = document.getElementById('cartFooter');
-            const cartBadge = document.getElementById('cartBadge');
-            const cartBadgeMobile = document.getElementById('cartBadgeMobile');
-            const cartTotal = document.getElementById('cartTotal');
-
-            // Update badges (desktop and mobile)
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            const badgeText = totalItems > 99 ? '99+' : totalItems;
-
-            [cartBadge, cartBadgeMobile].forEach(badge => {
-                if (badge) {
-                    if (totalItems > 0) {
-                        badge.textContent = badgeText;
-                        badge.style.display = 'flex';
-                    } else {
-                        badge.style.display = 'none';
-                    }
-                }
-            });
-
-            // Update cart items
-            if (cartItems && cartFooter) {
-                let total = 0; // Declare total outside if/else block
-
-                if (cart.length === 0) {
-                    // Get or recreate emptyCart element
-                    let emptyCart = document.getElementById('emptyCart');
-                    if (!emptyCart) {
-                        // Recreate emptyCart if it was destroyed
-                        emptyCart = document.createElement('div');
-                        emptyCart.id = 'emptyCart';
-                        emptyCart.className = 'text-center py-12';
-                        emptyCart.innerHTML = `
-                            <i data-lucide="shopping-bag" class="w-16 h-16 text-slate-300 mx-auto mb-4"></i>
-                            <p class="text-slate-500 font-medium">Your cart is empty</p>
-                            <button onclick="toggleCart(); window.location.href='#offers'" 
-                                class="mt-4 bg-[#D4A520] text-slate-900 px-6 py-2 rounded-lg font-semibold hover:bg-[#E6B830] transition">
-                                Start Shopping
-                            </button>
-                        `;
-                    }
-                    emptyCart.style.display = 'block';
-                    cartFooter.style.display = 'none';
-                    cartItems.innerHTML = '';
-                    cartItems.appendChild(emptyCart);
-
-                    // Re-initialize icons after appending (whether created or reused)
-                    refreshIcons();
-                } else {
-                    // Hide emptyCart if it exists
-                    const emptyCart = document.getElementById('emptyCart');
-                    if (emptyCart) {
-                        emptyCart.style.display = 'none';
-                    }
-                    cartFooter.style.display = 'block';
-
-                    let html = '';
-
-                    cart.forEach(item => {
-                        const itemTotal = item.price * item.quantity;
-                        total += itemTotal;
-
-                        // Generate shade options for dropdown
-                        const shadeOptions = Object.keys(shadeNames).map(shadeKey => {
-                            const selected = item.shade === shadeKey ? 'selected' : '';
-                            return `<option value="${shadeKey}" ${selected}>${shadeNames[shadeKey]}</option>`;
-                        }).join('');
-
-                        html += `
-                            <div class="cart-item">
-                                <div class="flex gap-4">
-                                    <img src="${item.image}" alt="${item.name}" 
-                                        class="w-16 h-16 object-contain rounded-lg bg-slate-50">
-                                    <div class="flex-1">
-                                        <h3 class="font-bold text-slate-900 mb-1">${item.name}</h3>
-                                        <div class="mb-2">
-                                            <label class="text-xs text-slate-500 block mb-1">Shade:</label>
-                                            <select onchange="changeItemShade('${item.id}', this.value)" 
-                                                aria-label="Select shade for ${item.name}"
-                                                class="text-sm border border-slate-300 rounded px-2 py-1 focus:border-[#D4A520] focus:outline-none focus:ring-1 focus:ring-[#D4A520]">
-                                                ${shadeOptions}
-                                            </select>
-                                        </div>
-                                        <p class="text-sm text-slate-600 mb-2">$${item.price.toFixed(2)}</p>
-                                        <div class="flex items-center gap-3 flex-wrap">
-                                            <div class="flex items-center gap-2 border border-slate-200 rounded-lg">
-                                                <button onclick="updateQuantity('${item.id}', -1)" 
-                                                    aria-label="Decrease quantity"
-                                                    class="quantity-btn">
-                                                    <i data-lucide="minus" class="w-4 h-4"></i>
-                                                </button>
-                                                <span class="w-8 text-center font-semibold text-slate-900">${item.quantity}</span>
-                                                <button onclick="updateQuantity('${item.id}', 1)" 
-                                                    aria-label="Increase quantity"
-                                                    class="quantity-btn">
-                                                    <i data-lucide="plus" class="w-4 h-4"></i>
-                                                </button>
-                                            </div>
-                                            <button onclick="removeFromCart('${item.id}')" 
-                                                class="text-red-600 hover:text-red-700 text-sm font-medium">
-                                                Remove
-                                            </button>
-                                        </div>
-                                        <p class="text-sm font-bold text-slate-900 mt-2">$${itemTotal.toFixed(2)}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        `;
-                    });
-
-                    cartItems.innerHTML = html;
-
-                    // Re-initialize icons
-                    refreshIcons();
-                }
-
-                // Update total
-                if (cartTotal) {
-                    cartTotal.textContent = `$${total.toFixed(2)}`;
-                }
-            }
-        }
-
-        // Checkout function (placeholder - integrate with payment processor)
-        function checkout() {
-            const cart = getCart();
-            if (cart.length === 0) {
-                alert('Your cart is empty');
-                return;
-            }
-
-            // Show loading state
-            const checkoutBtn = document.getElementById('checkoutBtn');
-            const originalText = checkoutBtn.innerHTML;
-            checkoutBtn.disabled = true;
-            checkoutBtn.innerHTML = '<i data-lucide="loader" class="w-5 h-5 animate-spin"></i> Processing...';
-            refreshIcons();
-
-            // Prepare cart data for Stripe
-            const items = cart.map(item => ({
-                name: item.name,
-                price: item.price,
-                quantity: item.quantity,
-                shade: item.shade || 'Black'
-            }));
-
-            // Send cart data to server to create Stripe Checkout Session
-            fetch('/stripe/create-checkout.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ items: items })
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success && data.url) {
-                        // Redirect to Stripe Checkout
-                        window.location.href = data.url;
-                    } else {
-                        throw new Error(data.error || 'Failed to create checkout session');
-                    }
-                })
-                .catch(error => {
-                    console.error('Checkout Error:', error);
-                    alert('Unable to proceed to checkout. Please try again.\n\nError: ' + error.message);
-
-                    // Restore button state
-                    checkoutBtn.disabled = false;
-                    checkoutBtn.innerHTML = originalText;
-                    refreshIcons();
-                });
-        }
-
-        // Initialize cart UI on page load
-        updateCartUI();
 
         // 5. FAQ Logic
         function toggleFaq(button) {
@@ -2919,6 +2163,17 @@
             const bundleSelectedShadeEl = document.getElementById('bundleSelectedShade');
 
             shadeButtons.forEach(button => {
+                button.setAttribute('aria-label', button.dataset.shadeName);
+                button.setAttribute('aria-pressed', String(button.classList.contains('selected')));
+                if (button.tagName !== 'BUTTON') {
+                    button.setAttribute('role', 'button');
+                    button.tabIndex = 0;
+                    button.addEventListener('keydown', event => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                            event.preventDefault(); button.click();
+                        }
+                    });
+                }
                 button.addEventListener('click', function () {
                     const shade = this.dataset.shade;
                     const shadeName = this.dataset.shadeName;
@@ -2926,13 +2181,16 @@
                     // Remove active state from all buttons
                     shadeButtons.forEach(btn => {
                         btn.classList.remove('ring-2', 'ring-offset-2', 'ring-[#D4A520]', 'selected');
+                        btn.setAttribute('aria-pressed', 'false');
                     });
 
                     // Add active state to clicked button
                     this.classList.add('ring-2', 'ring-offset-2', 'ring-[#D4A520]', 'selected');
+                    this.setAttribute('aria-pressed', 'true');
 
                     // Update selected shade
                     selectedShade = shade;
+                    if (window.selectConversionShade) window.selectConversionShade(shade);
 
                     // Update displayed shade name in product details section
                     if (selectedShadeNameEl) {
@@ -2959,115 +2217,7 @@
         }
         initShadeSelector();
 
-        // 7.1. Buy Now with Selected Shade
-        function buyNowWithShade() {
-            // Default to Starter bundle if no specific product selected
-            // You can modify this to use a different default or product selector
-            const buyNowBtn = document.getElementById('buyNowProductDetails');
-            if (buyNowBtn) {
-                // Use Starter bundle as default (you can change this)
-                addToCart(buyNowBtn, 'Starter', 24.95);
-            }
-        }
-
-        // 8. Exit Intent Logic
-        const exitModal = document.getElementById('exitModal');
-        const emailModal = document.getElementById('emailModal');
-        let exitModalShown = false;
-        let emailModalShown = false;
-
-        // Check if user has already seen the modals (Session based)
-        if (sessionStorage.getItem('haloExitModalSeen')) {
-            exitModalShown = true;
-        }
-        if (sessionStorage.getItem('haloEmailModalSeen')) {
-            emailModalShown = true;
-        }
-
-        // Auto-show newsletter after 40 seconds
-        setTimeout(() => {
-            if (!emailModalShown && !exitModalShown) {
-                showEmailModal();
-            }
-        }, 40000);
-
-        function showExitModal() {
-            if (exitModalShown) return;
-            if (exitModal) {
-                exitModal.classList.add('active');
-                exitModalShown = true;
-                sessionStorage.setItem('haloExitModalSeen', 'true');
-            }
-        }
-
-        function closeExitModal() {
-            if (exitModal) {
-                exitModal.classList.remove('active');
-                // Only reset flag if modal wasn't persisted in sessionStorage (shown in this session only)
-                if (!sessionStorage.getItem('haloExitModalSeen')) {
-                    exitModalShown = false;
-                }
-            }
-        }
-
-        function showEmailModal() {
-            if (emailModalShown || exitModalShown) return;
-            if (emailModal) {
-                emailModal.classList.add('active');
-                emailModalShown = true;
-                sessionStorage.setItem('haloEmailModalSeen', 'true');
-            }
-        }
-
-        function closeEmailModal() {
-            if (emailModal) {
-                emailModal.classList.remove('active');
-                // Only reset flag if modal wasn't persisted in sessionStorage (shown in this session only)
-                if (!sessionStorage.getItem('haloEmailModalSeen')) {
-                    emailModalShown = false;
-                }
-            }
-        }
-
-        function handleEmailSubmit(e) {
-            e.preventDefault();
-            const email = document.getElementById('emailInput').value;
-            // Here you would typically send the email to your backend
-            console.log('Email captured:', email);
-            alert('Thank you! Check your email for your 15% discount code.');
-            closeEmailModal();
-            return false;
-        }
-
-        // Trigger on mouse leave (desktop) - show email modal first, then exit modal
-        let mouseLeaveTimer;
-        document.addEventListener('mouseleave', (e) => {
-            if (e.clientY < 0) {
-                clearTimeout(mouseLeaveTimer);
-                if (!emailModalShown) {
-                    mouseLeaveTimer = setTimeout(() => {
-                        showEmailModal();
-                        setTimeout(() => {
-                            if (!exitModalShown) showExitModal();
-                        }, 5000);
-                    }, 2000);
-                } else if (!exitModalShown) {
-                    showExitModal();
-                }
-            }
-        });
-
-        // Trigger on mobile after scroll depth
-        let scrollDepthReached = false;
-        window.addEventListener('scroll', () => {
-            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            if (scrollPercent > 60 && !scrollDepthReached && window.innerWidth < 768) {
-                scrollDepthReached = true;
-                setTimeout(() => {
-                    if (!emailModalShown) showEmailModal();
-                }, 2000);
-            }
-        });
+        // Purchase actions are installed by the shared conversion module.
 
         // ==========================================
         // FIND MY SHADE QUIZ LOGIC
@@ -3168,6 +2318,8 @@
         }
 
         function showQuizResult(shadeId) {
+            if (!Object.prototype.hasOwnProperty.call(shadeNames, shadeId)) return;
+            if (window.trackQuizCompletion) window.trackQuizCompletion(shadeId);
             const content = document.getElementById('quizContent');
             // Try to find shade name from global object or buttons
             let shadeName = shadeId;
@@ -3183,8 +2335,8 @@
                     <div class="w-24 h-24 rounded-full mx-auto mb-6 shadow-xl ring-4 ring-[#C9A227]/20 bg-slate-100 relative overflow-hidden flex items-center justify-center">
                          <div class="absolute inset-0 w-full h-full result-shade-bg"></div> 
                     </div>
-                    <h3 class="text-2xl font-serif font-medium text-[#0a0f1a] mb-2">Your Perfect Match: <span class="text-[#C9A227]">${shadeName}</span></h3>
-                    <p class="text-slate-600 mb-8 text-sm leading-relaxed">Based on your answers, this shade will blend naturally with your hair color.</p>
+                    <h3 class="text-2xl font-serif font-medium text-[#0a0f1a] mb-2">Suggested Shade: <span class="text-[#C9A227]">${shadeName}</span></h3>
+                    <p class="text-slate-600 mb-8 text-sm leading-relaxed">This suggestion is a starting point. Compare the swatches; screen colors and results may vary.</p>
                     
                     <button onclick="applyQuizShade('${shadeId}')" 
                         class="w-full bg-[#C9A227] text-[#0a0f1a] font-bold py-4 rounded-full shadow-lg shadow-[#C9A227]/20 hover:bg-[#E8C547] transition-colors btn-shine">
