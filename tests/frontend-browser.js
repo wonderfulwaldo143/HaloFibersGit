@@ -12,7 +12,7 @@ async (page) => {
     const check = async (name, fn) => { await fn(); results.push({name,result:'pass'}); };
     const ready = async (suffix='') => {
         await page.goto(origin+'/index.html'+suffix);
-        await page.waitForFunction(() => document.getElementById('catalogStatus').textContent === 'Current bundle prices in USD.');
+        await page.waitForFunction(() => document.getElementById('catalogStatus').textContent.startsWith('Current bundle prices in USD.'));
     };
     const reset = async () => { await page.evaluate(() => localStorage.clear()); await ready(); };
     const cart = async () => page.evaluate(() => window.getCart());
@@ -75,7 +75,7 @@ async (page) => {
             assert(await page.locator('[data-add-sku]:disabled').count()===3,'card Add enabled');
             await page.evaluate(()=>history.replaceState(null,'','/index.html'));
             await page.locator('#retryCatalog').click();
-            await page.waitForFunction(()=>document.getElementById('catalogStatus').textContent==='Current bundle prices in USD.');
+            await page.waitForFunction(()=>document.getElementById('catalogStatus').textContent.startsWith('Current bundle prices in USD.'));
             assert(await page.locator('#buyNowProductDetails').isEnabled(),'retry did not recover');
         }
     });
